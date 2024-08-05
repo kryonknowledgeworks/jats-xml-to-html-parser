@@ -1,0 +1,294 @@
+span.smallcaps {
+    font-variant: small-caps;
+}
+
+h1{
+    padding-bottom: 30px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.card{
+ background-color: #EAEBEE;
+}
+
+p{
+    font-family: "Source Sans 3";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+}
+.card-body.h4{
+    font-family: "Source Sans 3";
+}
+
+h3,h4{
+    font-family: "Source Serif 4";
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+
+}
+
+a {
+    color: #EE4823;
+}
+
+.numbered-list {
+    counter-reset: item;
+    list-style-type: none;
+}
+
+.numbered-list li::before {
+    content: counter(item)". ";
+    font-weight: bold;
+}
+
+.numbered-list li {
+    counter-increment: item;
+    margin-bottom: 5px;
+}
+
+.no-prefix-list {
+    list-style-type: none;
+}
+
+.alpha-lower-list {
+    list-style-type: lower-alpha;
+}
+
+.alpha-upper-list {
+    list-style-type: upper-alpha;
+}
+
+.roman-lower-list {
+    list-style-type: lower-roman;
+}
+
+.roman-upper-list {
+    list-style-type: upper-roman;
+}
+
+.bullet-list {
+    list-style-type: none;
+}
+
+.bullet-list li:before {
+    content: "\2022";
+    margin-right: 10px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.navigation {
+    position: sticky;
+    top: 10px;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.navigation li a {
+    font-size: 18px;
+    font-family: "Source Serif 4";
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #050505;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+.navHeading {
+    font-family: "SourceCodePro", monospace;
+    font-weight: 600;
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #444444;
+    border-bottom: 1px solid colorBorderNav;
+    position: relative;
+}
+.bottom-nav{
+    display: block;
+    text-decoration: none;
+    color: #444444;
+    padding-top: 30px;
+}
+.bottom-nav li {
+    list-style: none;
+}
+
+.bottom-nav .nested-list li {
+    margin-left: 10px;
+    font-family: "SourceCodePro", monospace;
+    position: relative;
+    list-style: none;
+    padding: 10px 5px 0px 9px;
+    /* margin-bottom: 0.5em; */
+    display: block;
+    cursor: pointer;
+    /* background-color: whiteSmoke; */
+    transition: background-color 0.15s ease-in-out;
+    font-size: 22px;
+    font-weight: 600;
+    /* padding-bottom: 10px; */
+    border-bottom: 1px solid #cacaca;
+}
+
+.bottom-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #444444;
+}
+
+.navigation ul li a:hover {
+    color: #EE4823;
+}
+#mainList li {
+    position: relative;
+    padding: 10px 5px 0px 9px;
+    /* margin-bottom: 0.5em; */
+    display: block;
+    cursor: pointer;
+    /* background-color: whiteSmoke; */
+    transition: background-color 0.15s ease-in-out;
+    font-size: 22px;
+    font-weight: 600;
+    /* padding-bottom: 10px; */
+    border-bottom: 1px solid #cacaca;
+}
+
+ li .selected {
+    color: #EE4823 !important;
+}
+
+.bottom-nav ul li a:hover {
+    color: #EE4823;
+}
+
+.bottom-nav div{
+    margin-top: 10px;
+}
+
+/* Style for the nested list initially hidden */
+.nested-list.hidden {
+    display: none;
+}
+
+.authors-block span {
+    font-weight: 600;
+}
+
+.authors-block div {
+    font: menu;
+}
+
+.authors-block,
+.copyright-block,
+.access-block,
+.keywords-block,
+.doi-block {
+    margin-bottom: 20px;
+}
+
+.key {
+    color: #195190FF;
+}
+
+.fig-name {
+    margin-bottom: 30px;
+}
+
+.formula {
+    padding: 25px;
+}
+
+div.formula span.label {
+    margin: 0;
+    position: absolute;
+    right: 160px;
+}
+
+.image-area {
+    margin-top: 30px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.table-design {
+    margin-bottom: 10px;
+}
+
+.statement {
+    font-family: Lora;
+}
+
+.table-wrapper {
+    margin-bottom: 50px;
+}
+
+.table-wrapper .label {
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.fig-name .label {
+    font-weight: bold;
+}
+.nav-head{
+    cursor: pointer;
+    font-weight:600;
+}
+
+.table-base{
+    border : 1px solid;
+}
+
+.table-base td,th{
+    border:none;
+    padding : 0.25rem 0.5rem;
+    font-size : 15px
+}
+
+.table-base thead{
+    border-bottom : 1px solid;
+}
+
+.tableWrapFoot p{
+    font-size:19px;
+    font-weight:500;
+}
+
+.tableWrapFoot span{
+    font-size:14px;
+    font-weight:580;
+}
+
+.tableWrapFoot span::before{
+    content : " ";
+    padding-right:5px;
+}
+
+/*.bg-hr{*/
+/*    height:1.3px;*/
+/*    border-width:0;*/
+/*    color:black;*/
+/*    background-color:black;*/
+/*    opacity:0.50;*/
+/*}*/
