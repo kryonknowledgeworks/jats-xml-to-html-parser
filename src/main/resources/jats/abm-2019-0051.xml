@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1 20151215//EN" "JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="publisher-id">abm</journal-id>
+<journal-id journal-id-type="journal-code">abm</journal-id>
+<journal-id journal-id-type="doi-code">abm</journal-id>
+<journal-title-group>
+<journal-title>Asian Biomedicine</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1875-855X</issn>
+<publisher>
+<publisher-name>Sciendo</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="publisher-id">abm-2019-0051</article-id>
+<article-id pub-id-type="doi">10.1515/abm-2019-0051</article-id>
+<article-categories>
+<subj-group>
+<subject>Original article</subject>
+</subj-group>
+</article-categories>
+<title-group>
+<article-title>Differential migration-related gene expression and altered cytokine secretion in response to serum starvation in cultured MDA-MB-231 cells</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Ahmadiankia</surname>
+<given-names>Naghmeh</given-names>
+</name>
+<xref ref-type="aff" rid="j_abm-2019-0051_aff_001"/>
+<xref ref-type="aff" rid="j_abm-2019-0051_aff_002"/>
+<email xlink:href="mailto:Ahmadian@shmu.ac.ir">Ahmadian@shmu.ac.ir</email>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Bagheri</surname>
+<given-names>Mehdi</given-names>
+</name>
+<xref ref-type="aff" rid="j_abm-2019-0051_aff_003"/>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Fazli</surname>
+<given-names>Mozhgan</given-names>
+</name>
+<xref ref-type="aff" rid="j_abm-2019-0051_aff_002"/>
+</contrib>
+<aff id="j_abm-2019-0051_aff_001"><institution content-type="dept">Cancer Prevention Research Center</institution>, <institution content-type="university">Shahroud University of Medical Sciences</institution>, <addr-line>Shahroud</addr-line> <addr-line>36147-73947</addr-line>, <country>Iran</country><country country="IR"/></aff>
+<aff id="j_abm-2019-0051_aff_002"><institution content-type="dept">School of Medicine</institution>, <institution content-type="university">Shahroud University of Medical Sciences</institution>, <city>Shahroud</city> <addr-line>36147-73947</addr-line>, <country>Iran</country><country country="IR"/></aff>
+<aff id="j_abm-2019-0051_aff_003"><institution content-type="dept">Clinical Research Development Unit, Imam Hossein Hospital</institution>, <institution content-type="university">Shahroud University of Medical Sciences</institution>, <city>Shahroud</city> <addr-line>36147-73947</addr-line>, <country>Iran</country><country country="IR"/></aff>
+</contrib-group>
+<pub-date pub-type="issue">
+<day>01</day>
+<month>08</month>
+<year>2019</year>
+</pub-date>
+<pub-date pub-type="epub">
+<day>31</day>
+<month>03</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="cover-date">
+<day>01</day>
+<month>08</month>
+<year>2019</year>
+</pub-date>
+<volume>13</volume>
+<issue>4</issue>
+<fpage>123</fpage>
+<lpage>129</lpage>
+<permissions>
+<copyright-statement>&#x000A9; 2019 Naghmeh Ahmadiankia et al., published by Sciendo</copyright-statement>
+<copyright-year>2019</copyright-year>
+<copyright-holder>Naghmeh Ahmadiankia et al., published by Sciendo</copyright-holder>
+<license license-type="open-access" specific-use="rights-object-archive-dnb" xlink:href="http://creativecommons.org/licenses/by-nc-nd/4.0">
+<license-p>This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 License.</license-p>
+</license>
+</permissions>
+<related-article related-article-type="pdf" xlink:href="abm-2019-0051.pdf"/>
+<abstract>
+<title>Abstract</title>
+<sec><title>Background</title><p>Serum starvation is mostly considered as a standard preparatory method in many cellular and molecular experiments. However, recent studies give some evidence that serum starvation is a major event that triggers various cell responses and has therefore great potential to change and interfere with the experimental results. In this study, the behavior of breast cancer cells in serum-starved condition was examined.</p></sec>
+<sec><title>Objective</title><p>To focus on the role of serum starvation on cell migration and also the possible changes in the expression and secretion of genes and cytokines mostly involved in migration and chemotaxis of breast cancer cells.</p></sec>
+<sec><title>Methods</title><p>MDA-MB-231 cells were cultured under serum-starved condition. Transwell migration assay was performed to evaluate the effect of serum starvation on cell migration after 24, 48, and 72 h. The transcriptional expression of migration-related genes was evaluated using real-time polymerase chain reaction. The cytokine secretion was also analyzed using enzyme-linked immunosorbent assay.</p></sec>
+<sec><title>Results</title><p>Serum starvation suppressed cell migration in breast cancer cells. Additionally, the gene expression of markers involved in migration including &#x003B2;-catenin, twist, zinc finger E-box binding homeobox 1, vimentin, fibronectin, intercellular adhesion molecule 1, and vascular endothelial growth factor were downregulated. Moreover, cytokines of transforming growth factor, beta 1, matrix metallopeptidase 9, interleukin 8, and nitric oxide were differentially secreted.</p></sec>
+<sec><title>Conclusions</title><p>Serum deprivation causes significant changes in cancer cell migration and also the expression of migration-related genes and cytokines, special care needs to be taken when this practice is used as preparatory method especially in migration and chemotaxis experiments on cancer cells.</p></sec>
+</abstract>
+<kwd-group>
+<title>Keywords</title>
+<kwd>breast neoplasms</kwd>
+<kwd>cell movement</kwd>
+<kwd>epithelial mesenchymal transition</kwd>
+</kwd-group>
+<counts>
+<page-count count="7"/>
+</counts>
+</article-meta>
+</front>
+<body>
+<p>Serum starvation is often performed as a standard procedure in cancer cell studies to synchronize cell cycle or to avoid unwanted effects of serum components on cellular responses. This method often becomes so established in <italic>in vitro</italic> experiments that research articles often do not explain the way in which it was performed. It is often assumed that serum-starved cells have decreased basal cellular activity &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_001">1</xref>&#x0005D;. However, more recently, it has been revealed that serum starvation does not entirely fit the idea of a passive entry into a hypoactive state &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_002">2</xref>&#x0005D;. Serum starvation has now shifted from being a preparatory method for the experiment to being an experiment in its own right. Until now, the effects of serum starvation on different cancer cell lines have been studied mostly with respect to proliferation, apoptosis, and autophagy &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_003">3</xref>, <xref ref-type="bibr" rid="j_abm-2019-0051_ref_004">4</xref>, <xref ref-type="bibr" rid="j_abm-2019-0051_ref_005">5</xref>&#x0005D;. The full effect of serum starvation on cell behavior is unknown, though it has been suggested to induce various responses that may influence the experimental results &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_002">2</xref>&#x0005D;. Therefore, the clarification of these changes provides new insight into the interfering effects of serum deprivation on the behavior of cancer cells in <italic>in vitro</italic> condition.</p>
+<p>To clarify more details about the role of serum starvation, in the present study, the effect of starvation on cell migration was investigated using breast cancer cells. Furthermore, to address the possible underlying mechanisms, the second objective of this study was designed to find out whether serum starvation can change the translational expression of some key elements of cell migration including &#x003B2;-catenin, twist, Zinc finger E-box binding homeobox 1 (ZEB1), vimentin, fibronectin, intercellular adhesion molecule 1 (ICAM1), and vascular endothelial growth factor (VEGF) in MDA-MB-231 breast cancer cells. These genes are involved in epithelial to mesenchymal transition (EMT). EMT is a physiological process by which epithelial cells lose their adherent junctions and apical&#x2013;basal cell polarity to form spindle-shaped cells that contribute to their ability to migrate as single cells &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_006">6</xref>&#x0005D;. Additionally, in the present study, we examined the cytokine secretion of monocyte chemoattractant protein 1 (MCP1), transforming growth factor, beta 1 (TGF&#x003B2;1), matrix metallopeptidase 9 (MMP9), interleukin 8 (IL8), and nitric oxide (NO) in MDA-MB-231 in response to serum starvation.</p>
+<sec id="j_abm-2019-0051_s_001"><title>Materials and methods</title>
+<sec id="j_abm-2019-0051_s_001_s_001"><title>Cell culture</title>
+<p>MDA-MB-231 human breast cancer cells were purchased from Pasteur Institute (Tehran, Iran) (NCBI No: C578). The cell line has recently been tested for mycoplasma contamination. Cells were cultured in medium containing Dulbecco&#x2019;s modified Eagle medium (DMEM) supplemented with 10% fetal bovine serum (FBS) and 1% penicillin&#x2013;streptomycin (10000 units mL<sup>&#x02212;1</sup>) as antibiotics. Cells were incubated at 37&#x00B0;C in a humidified atmosphere of 95% air and 5% CO<sub>2</sub>.</p>
+</sec>
+<sec id="j_abm-2019-0051_s_001_s_002"><title>In vitro starvation</title>
+<p>Serum (FBS) was supplemented at 1% for starvation conditions. Cells were washed with phosphate-buffered saline (PBS) before changing to starvation medium. Antibiotics were also used in serum-starved condition. MDA-MB-231 cells underwent serum starvation for 24, 48, and 72 h.</p>
+</sec>
+<sec id="j_abm-2019-0051_s_001_s_003"><title>Transwell migration assay</title>
+<p>The transwell migration assay was performed as described before &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_007">7</xref>&#x0005D;. Briefly, 5 &#x000D7; 10<sup>4</sup> treated cells were suspended in 400 &#x003BC;L medium without serum and plated on the upper side of a polycarbonate membrane of a transwell chamber. The transwells were introduced into 24-well plates and 800 &#x003BC;L of medium containing 10% FBS was added to the lower chamber. After 24 h, cells were fixed and then stained with 4&#x02032;,6-diamidino-2-phenylindole (DAPI). Four random fields of cells migrating through the membrane were counted on an Olympus IX71 fluorescence microscope.</p>
+</sec>
+<sec id="j_abm-2019-0051_s_001_s_004"><title>RNA extraction and real-time PCR</title>
+<p>Total RNA was isolated from serum-starved cells, using TriPure isolation Reagent (Roche, Germany), according to the manufacturer&#x2019;s instructions. The extracted RNA was treated with DNase I enzyme to remove genomic DNA contamination. One microgram of RNA was mixed with one &#x003BC;L OligodT (0.5 &#x003BC;g &#x003BC;L<sup>&#x02212;1</sup>) and incubated at 65&#x000B0;C for 5 min for cDNA synthesis. After the process of cooling on ice, each sample was mixed with 4 &#x003BC;L buffer (5&#x00D7;), 2 &#x003BC;L dNTPs (10 mM), 0.5 &#x003BC;L Ribolock, and 1 &#x003BC;L M-MLV-RTase. Then, each sample was incubated at 42&#x000B0;C for 60 min, followed by 70&#x000B0;C for 10 min. cDNA (2 &#x003BC;L) of each sample was mixed with real-time PCR reaction mixture including 10 &#x003BC;L of 2&#x00D7; SYBR Green PCR Mastermix (Takara, Japan) and 1 &#x003BC;L of specific primer pair. The final volume of reaction mixture was 20 &#x003BC;L. Amplification was carried out using 40 cycles of PCR in CFX96 Real-Time PCR Detection System (Bio-Rad), with the following program: denaturation at 95&#x000B0;C for 10 min and 40 cycles of 95&#x000B0;C for 15 s, 60&#x000B0;C for 30 s, and 72&#x000B0;C for 30 s &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_008">8</xref>&#x0005D;. Sequences of the primers used in this study are represented in <bold><xref ref-type="table" rid="j_abm-2019-0051_tab_001">Table 1</xref></bold>. The housekeeping gene, GAPDH was used to normalize target gene expression. The mRNA comparative expression level of each target gene was calculated by 2<sup>&#x02212;&#x00394;&#x00394;CT</sup>. Melting curves were used to determine non-specific amplification.</p>
+<table-wrap id="j_abm-2019-0051_tab_001" position="float"><label>Table 1</label><caption><p>Real-time PCR primer sequences</p></caption>
+<table frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" valign="middle"><bold>Primers</bold></th>
+<th align="left" valign="middle"><bold>Sequence</bold></th>
+<th align="center" valign="middle"><bold>Product size</bold></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top" rowspan="2">&#x003B2;-catenin</td>
+<td align="left" valign="top">F: AAAATGGCAGTGCGTTTAG</td>
+<td align="center" valign="middle" rowspan="2">100 bp</td>
+</tr>
+<tr>
+<td align="left" valign="top">R: TTTGAAGGCAGTCTGTCGTA</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="2">Twist</td>
+<td align="left" valign="top">F: TGCGGAAGATCATCCCCACG</td>
+<td align="center" valign="middle" rowspan="2">137 bp</td>
+</tr>
+<tr>
+<td align="left" valign="top">R: GCTGCAGCTTGCCATCTTGGA</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="2">ZEB1</td>
+<td align="left" valign="top">F: TGCACTGAGTGTGGAAAAGC</td>
+<td align="center" valign="middle" rowspan="2">237 bp</td>
+</tr>
+<tr>
+<td align="left" valign="top">R: TGGTGATGCTGAAAGAGACG</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="2">Vimentin</td>
+<td align="left" valign="top">F: ACCCGCACCAACGAGAAGGT</td>
+<td align="center" valign="middle" rowspan="2">90 bp</td>
+</tr>
+<tr>
+<td align="left" valign="top">R: ATTCTGCTGCTCCAGGAAGCG</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="2">Fibronectin</td>
+<td align="left" valign="top">F: TCCTTGCTGGTATCATGGCAG</td>
+<td align="center" valign="middle" rowspan="2">74 bp</td>
+</tr>
+<tr>
+<td align="left" valign="top">R: AGACCCAGGCTTCTCATACTTGA</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="2">ICAM1</td>
+<td align="left" valign="top">F: AGGCCACCCCAGAGGACAAC</td>
+<td align="center" valign="middle" rowspan="2">406 bp</td>
+</tr>
+<tr>
+<td align="left" valign="top">R: CCCATTATGACTGCGGCTGCTA</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="2">VEGF</td>
+<td align="left" valign="top">F: CCTTGCTGCTCTACCTCCAC</td>
+<td align="center" valign="middle" rowspan="2">280 bp</td>
+</tr>
+<tr>
+<td align="left" valign="top">R: ATCTGCATGGTGATGTTGGA</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="2">GAPDH</td>
+<td align="left" valign="top">F: AAGGTGAAGGTCGGAGTCAAC</td>
+<td align="center" valign="middle" rowspan="2">102 bp</td>
+</tr>
+<tr>
+<td align="left" valign="middle">R: GGGGTCATTGATGGCAACAATA</td>
+</tr>
+</tbody>
+</table>
+</table-wrap>
+</sec>
+<sec id="j_abm-2019-0051_s_001_s_005"><title>Enzyme-linked immunosorbent assay</title>
+<p>MDA-MB-231 cells were seeded in 96-well plates in serum-starved condition for 24, 48, and 72 h. The medium was collected and the levels of secreted MCP1, TGF&#x003B2;1, MMP9, and IL8 were determined using immunoassay kits (IBL, Germany) according to the manufacturer&#x2019;s protocol. The concentration of secreted NO in the medium was also determined using a commercially available enzyme-linked immunosorbent assay (ELISA) kit (Eastbiopharm, China) in accordance with the manufacturer&#x2019;s instructions. The optical density of each well was determined using a micro-plate reader (Stat Fax 2100, Palm City, FL) at 540 nm.</p>
+</sec>
+<sec id="j_abm-2019-0051_s_001_s_006"><title>Statistical analysis</title>
+<p>The data were analyzed and visualized using GraphPad Prism version 6.0. The significance of difference between the groups was assessed by one-way analysis of variance (ANOVA) followed by Dunnett&#x2019;s test. Data are presented as mean &#x00B1; standard deviation (SD).</p>
+</sec>
+</sec>
+<sec id="j_abm-2019-0051_s_002"><title>Results</title>
+<sec id="j_abm-2019-0051_s_002_s_001"><title>Serum starvation suppressed migration in MDA-MB-231 cells</title>
+<p>We examined the effect of serum starvation on MDA-MB-231 cell migration using a transwell assay. It was revealed that serum starvation for 24, 48, and 72 h dramatically reduced the number of cells that had migrated through the transwell membrane (<italic>P</italic> &#x003C;0.01) (<bold><xref ref-type="fig" rid="j_abm-2019-0051_fig_001">Figure 1</xref></bold>).</p>
+<fig id="j_abm-2019-0051_fig_001" position="float" fig-type="figure">
+<label>Figure 1</label>
+<caption><p>Serum starvation inhibited cell migration. (<bold>A</bold>) Cells migrated to the basal side of the membrane were stained and images were captured at a magnification of 100&#x00D7;. (<bold>B</bold>) Results are presented in graphs as the average number of migrated cells on the underside of the filter. &#x0002A;&#x0002A;donates <italic>P</italic> &#x003C; 0.01, as compared to the control. Experiments were performed in triplicate wells for each condition and repeated at least twice. The significance of difference between the groups was assessed by one-way ANOVA followed by Dunnett&#x2019;s test.</p></caption>
+<graphic xlink:href="graphic/j_abm-2019-0051_fig_001.jpg"/>
+</fig>
+<sec id="j_abm-2019-0051_s_002_s_001_s_001"><title>The expression of EMT/migration-related genes were downregulated in breast cancer cells under serum starvation</title>
+<p>To determine the expression of EMT/migration-related genes during serum starvation for 24, 48, and 72 h, total RNA was extracted from the MDA-MB-231 cells to perform real-time PCR. In the serum-starved group, we found that different genes including &#x003B2;-catenin, twist, ZEB1, vimentin, fibronectin, ICAM1, and VEGF were downregulated compared to the non-serum-starved group (<italic>P</italic> &#x003C; 0.05 and <italic>P</italic> &#x003C; 0.01) (<bold><xref ref-type="fig" rid="j_abm-2019-0051_fig_002">Figure 2</xref></bold>). The expression of ICAM1 decreased more than 50% after 24, 48, and 72 h in serum-starved condition (<italic>P</italic> &#x003C; 0.01).</p>
+<fig id="j_abm-2019-0051_fig_002" position="float" fig-type="figure">
+<label>Figure 2</label>
+<caption><p>Expression of migration-related genes in MDA-MB-231 cells were downregulated by serum starvation after 24, 48, and 72 h. Relative levels are presented as fold change compared with untreated. &#x0002A; and &#x0002A;&#x0002A; denote <italic>P</italic> &#x003C; 0.05 and <italic>P</italic> &#x003C; 0.01, respectively, as compared to the control. All experiments were performed in triplicate wells for each condition and repeated at least twice. The significance of difference between the groups was assessed by one-way ANOVA followed by Dunnett&#x2019;s test.</p></caption>
+<graphic xlink:href="graphic/j_abm-2019-0051_fig_002.jpg"/>
+</fig>
+</sec>
+</sec>
+<sec id="j_abm-2019-0051_s_002_s_002"><title>Serum starvation influenced cytokine release by MDA-MB-231 cells</title>
+<p>The concentrations of TGF&#x003B2;1, MMP9, IL8, and NO in the supernatant of MDA-MB-231, after 24, 48, and 72 h serum starvation are summarized in <bold><xref ref-type="fig" rid="j_abm-2019-0051_fig_003">Figure 3</xref></bold>. The secretion of MCP1 was below the detection limit in the control and treated cells at all the studied time points. The mean concentrations of TGF&#x003B2;1 in the supernatant were 15.16 &#x00B1; 0.76, 9.43 &#x00B1; 0.51, and 8.4 &#x00B1; 0.6 pg mL<sup>&#x02212;1</sup>, after 24, 48, and 72 h serum starvation, respectively. They were significantly lower than concentration of TGF&#x003B2;1 in the supernatant of untreated cells (53.3 &#x00B1; 0.76 pg mL<sup>&#x02212;1</sup>; <italic>P</italic> &#x003C; 0.01). The concentrations of MMP9, 48 h (0.06 &#x00B1; 0.01 pg mL<sup>&#x02212;1</sup>), and 72 h (0.07 &#x00B1; 0.01 pg mL<sup>&#x02212;1</sup>) after serum starvation were significantly lower than in control cells (0.08 &#x00B1; 0.01 pg mL<sup>&#x02212;1</sup>; <italic>P</italic> &#x003C; 0.05). The IL8 concentration was also significantly lower following 72 h serum starvation (1044.33 &#x00B1; 9.01 pg mL<sup>&#x02212;1</sup>; <italic>P</italic> &#x003C; 0.01) compared to control (1307 &#x00B1; 7.55 pg mL<sup>&#x02212;1</sup>). Moreover, our results revealed that the concentration of NO in the supernatant of MDA-MB-231 cells increased significantly after 48 h (132.4 &#x00B1; 1.51 pg mL<sup>&#x02212;1</sup>; <italic>P</italic> &#x003C; 0.05) and 72 h (159.16 &#x00B1; 0.76 pg mL<sup>&#x02212;1</sup>; <italic>P</italic> &#x003C; 0.01) serum starvation compared to control (82.33 &#x00B1; 0.76 pg mL<sup>&#x02212;1</sup>).</p>
+<fig id="j_abm-2019-0051_fig_003" position="float" fig-type="figure">
+<label>Figure 3</label>
+<caption><p>Cytokine release was assessed by ELISA. TGF&#x003B2;1, MMP9, IL8, and NO concentrations (mean pg/mL &#x00B1; SD) were measured in the super-natant of MDA-MB-231 cells underwent serum starvation for 24, 48, and 72 h. Significance was set at &#x0002A;<italic>P</italic> &#x003C; 0.05 and &#x0002A;&#x0002A;<italic>P</italic> &#x003C; 0.01. Experiments were performed in triplicate. The significance of difference between the groups was assessed by one-way ANOVA followed by Dunnett&#x2019;s test.</p></caption>
+<graphic xlink:href="graphic/j_abm-2019-0051_fig_003.jpg"/>
+</fig>
+</sec>
+</sec>
+<sec id="j_abm-2019-0051_s_003"><title>Discussion</title>
+<p>Serum starvation is a basic laboratory procedure which has been proved to be very useful in studying cell characteristics such as cell cycle &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_009">9</xref>&#x0005D;, cell metabolism &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_010">10</xref>&#x0005D;, and cell reprogramming &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_011">11</xref>&#x0005D;. Notably, serum starvation activates different signaling pathways including phospho-ERK1/2, phospho-ACC, and mTOR pathways and interestingly, these signaling responses are cell type and culture condition-dependent &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_002">2</xref>&#x0005D;. It has been revealed that serum starvation makes changes in cell response to external stimuli or even completely change the result of an experiment &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_012">12</xref>, <xref ref-type="bibr" rid="j_abm-2019-0051_ref_013">13</xref>, <xref ref-type="bibr" rid="j_abm-2019-0051_ref_014">14</xref>, <xref ref-type="bibr" rid="j_abm-2019-0051_ref_015">15</xref>&#x0005D;. In an attempt to clarify the behavior of cancer cells in response to serum starvation, we examined the migration potential of breast cancer cells. Additionally, the expression of genes mainly involved in cell migration was examined following serum starvation. Our findings clearly revealed decreased cell migration at different time points of 24, 48, and 72 h. Moreover, decreased expression of &#x003B2;-catenin, twist, ZEB1, vimentin, fibronectin, and ICAM-1 as markers involved in EMT and cell migration were demonstrated. This downregulation showed accordance with the inhibition of migration. These data suggest that decreased expression of the studied EMT/migration-related genes may be at least partly involved in cell migration inhibition following serum starvation. Decreased expression of EMT markers also indicates that following serum starvation, cells underwent mesenchymal to epithelial transition (MET) which is the reverse process for EMT.</p>
+<p>In accordance with our findings, Chen et al. showed that synchronization by utilizing transient serum starvation strongly activated the expression of E-cadherin and Epcam in human dermal fibroblasts. Furthermore, serum starvation treatment improved Nanog-positive clones which all imply the role of serum starvation to promote the MET &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_011">11</xref>&#x0005D;. Similarly, Dong et al. showed that serum starvation caused activation of c-Src in non-small-cell lung cancer A549 cells followed by E-cadherin upregulation &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_016">16</xref>&#x0005D;. Increased expression of epithelial markers such as E-cadherin is a fundamental event during MET &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_017">17</xref>&#x0005D;. Rasool et al. observed that the invasiveness of pancreatic adenocarcinoma (Panc-1), and MDA-MB-231 cells through Boyden chamber, sharply attenuated in serum starvation. They also investigated the effect of serum starvation on transcriptional level of EMT/metastasis associated genes including E-cadherin and twist1. They reported a drastic elevation of E-cadherin and reduction in twist1 RNA and protein expression in serum-starved cells, which was in accordance with our results &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_018">18</xref>&#x0005D;. In contrary to our findings, Ye et al. provided evidence of increased activation of EGFR/JAK3/PLD2-PA system in MDA-MB-231 cells after 2 h and 16 h serum starvation. Activation of these signaling pathways mediates chemotaxis and invasion &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_019">19</xref>&#x0005D;. Similarly, Nagelkerke et al. showed that 24 h serum starvation increased the migration of MDA-MB-231 cells in a transwell migration assay &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_020">20</xref>&#x0005D;. This controversy between reported results may be because there is no universal protocol for serum starvation. It may be performed with different concentrations of serum ranging from 0% to 5%. Moreover, the incubation time for serum starvation is also varied in different experiments and could be anytime between 15 min up to several hours, days, or weeks &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_002">2</xref>&#x0005D;. Such differences in the serum starvation protocol may be the reason for inconsistency between the results of different experiments.</p>
+<p>Our results also revealed that incubation of cells under a serum-starved condition led to decreased expression of VEGF. Although VEGF has been recognized as a potent angiogenic factor, it also plays a key role in cell migration &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_021">21</xref>, <xref ref-type="bibr" rid="j_abm-2019-0051_ref_022">22</xref>&#x0005D;. Reports from other laboratories showed that human mesenchymal stromal cells (MSCs) are highly angiogenic under the stress of serum starvation &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_023">23</xref>&#x0005D;. The reasons for this difference are not immediately apparent but may be due to difference in the studied cell types.</p>
+<p>In an effort to identify different players of the cross talk responsible for changes in the behavior of cells following serum starvation, we studied the secretion of cytokines involved in cell migration. Our results for the first time demonstrated that incubation of cells in a serum-free medium for 24, 48, and 72 h led to decreased secretion of TGF&#x003B2;1, MMP9, and IL8. TGF&#x003B2;1-induced EMT was shown to promote targeted migration of breast cancer cells &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_024">24</xref>&#x0005D;. Moreover, it has been suggested that tumor cells produce MMP9, and IL-8 as autocrine growth factors, which promote tumor cell migration and chemotaxis &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_025">25</xref>, <xref ref-type="bibr" rid="j_abm-2019-0051_ref_026">26</xref>&#x0005D;. Here, we showed that changes in cytokine secretion paralleled changes in cell migration. Additionally, the secretion of NO was examined in our study. Our findings represent increased expression of NO in response to 72 h serum starvation. NO induces apoptosis when produced at elevated concentrations &#x0005B;<xref ref-type="bibr" rid="j_abm-2019-0051_ref_027">27</xref>&#x0005D;. Increased expression of NO in our study may suggest the role of serum starvation as an oxidative stress on MDA-MB-231 cells.</p>
+</sec>
+<sec id="j_abm-2019-0051_s_004"><title>Conclusion</title>
+<p>Many researchers are using serum-starved condition to synchronize cells or for chemokine treatment. This study clearly demonstrated that serum starvation results in significant changes in the migration potential of breast cancer cells. Moreover, downregulation of EMT/migration-related genes and altered cytokine secretion showed accordance with the inhibition of migration. It should be noted that, because serum deprivation causes significant changes in transcriptional expression and cytokine secretion leading to changes in cell characteristics, special care seems to be taken when this practice is used in <italic>in vitro</italic> experiments. Further research is necessary to reach more evidence-based information about role of serum starvation during cell preparations.</p>
+</sec>
+</body>
+<back>
+<ack id="j_abm-2019-0051_ack_001"><title>Acknowledgment</title>
+<p>The authors acknowledge the financial support provided by Cancer Prevention Research Center, Shahroud University (project no. 94108).</p>
+</ack>
+<fn-group>
+<fn fn-type="con"><p><bold>Author contributions.</bold> NA contributed substantially to the conception and design of this study. All the authors contributed substantially to the acquisition of data. NA and MF analyzed and interpreted the data. NA drafted the manuscript. All the authors contributed substantially to its critical revision, approved the final version submitted for publication, and take responsibility for the statements made in the published article.</p></fn>
+<fn fn-type="other"><p><bold>Conflict of interest statement.</bold> The authors have completed and submitted the ICMJE Uniform Disclosure Form for Potential Conflicts of Interest. None of the authors disclose any conflict of interest.</p></fn>
+</fn-group>
+<ref-list><title>References</title>
+<ref id="j_abm-2019-0051_ref_001"><label>&#x0005B;1&#x0005D;</label>
+<mixed-citation>Codeluppi S, Gregory EN, Kjell J, Wigerblad G, Olson L, Svensson CI. Influence of rat substrain and growth conditions on the characteristics of primary cultures of adult rat spinal cord astrocytes. J Neurosci Methods. 2011; 197:118&#x2013;27.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Codeluppi</surname><given-names>S</given-names></name>
+<name><surname>Gregory</surname><given-names>EN</given-names></name>
+<name><surname>Kjell</surname><given-names>J</given-names></name>
+<name><surname>Wigerblad</surname><given-names>G</given-names></name>
+<name><surname>Olson</surname><given-names>L</given-names></name>
+<name><surname>Svensson</surname><given-names>CI</given-names></name>
+<article-title>Influence of rat substrain and growth conditions on the characteristics of primary cultures of adult rat spinal cord astrocytes</article-title>
+<source>J Neurosci Methods</source>
+<year>2011</year>
+<volume>197</volume>
+<fpage>118</fpage>
+<lpage>27</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_002"><label>&#x0005B;2&#x0005D;</label>
+<mixed-citation>Pirkmajer S, Chibalin AV. Serum starvation: caveat emptor. AJP Cell Physiol. 2011; 301:C272&#x2013;9.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Pirkmajer</surname><given-names>S</given-names></name>
+<name><surname>Chibalin</surname><given-names>AV</given-names></name>
+<article-title>Serum starvation: caveat emptor</article-title>
+<source>AJP Cell Physiol</source>
+<year>2011</year>
+<volume>301</volume>
+<fpage>C272</fpage>
+<lpage>9</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_003"><label>&#x0005B;3&#x0005D;</label>
+<mixed-citation>Oya N, Z&#x00F6;lzer F, Werner F, Streffer C. Effects of serum starvation on radiosensitivity, proliferation and apoptosis in four human tumor cell lines with different p53 status. Strahlentherapie und Onkol. 2003; 179:99&#x2013;106.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Oya</surname><given-names>N</given-names></name>
+<name><surname>Z&#x00F6;lzer</surname><given-names>F</given-names></name>
+<name><surname>Werner</surname><given-names>F</given-names></name>
+<name><surname>Streffer</surname><given-names>C</given-names></name>
+<article-title>Effects of serum starvation on radiosensitivity, proliferation and apoptosis in four human tumor cell lines with different p53 status</article-title>
+<source>Strahlentherapie und Onkol</source>
+<year>2003</year>
+<volume>179</volume>
+<fpage>99</fpage>
+<lpage>106</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_004"><label>&#x0005B;4&#x0005D;</label>
+<mixed-citation>Braun F, Bertin-Ciftci J, Gallouet AS, Millour J, Juin P. Serum-nutrient starvation induces cell death mediated by bax and puma that is counteracted by p21 and unmasked by Bcl-x L inhibition. PLoS One. 2011; 6:e23577.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Braun</surname><given-names>F</given-names></name>
+<name><surname>Bertin-Ciftci</surname><given-names>J</given-names></name>
+<name><surname>Gallouet</surname><given-names>AS</given-names></name>
+<name><surname>Millour</surname><given-names>J</given-names></name>
+<name><surname>Juin</surname><given-names>P</given-names></name>
+<article-title>Serum-nutrient starvation induces cell death mediated by bax and puma that is counteracted by p21 and unmasked by Bcl-x L inhibition</article-title>
+<source>PLoS One</source>
+<year>2011</year>
+<volume>6</volume>
+<fpage>e23577</fpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_005"><label>&#x0005B;5&#x0005D;</label>
+<mixed-citation>Shang L, Chen S, Du F, Li S, Zhao L, Wang X. Nutrient starvation elicits an acute autophagic response mediated by Ulk1 dephosphorylation and its subsequent dissociation from AMPK. Proc Natl Acad Sci USA. 2011; 108:4788&#x2013;93.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Shang</surname><given-names>L</given-names></name>
+<name><surname>Chen</surname><given-names>S</given-names></name>
+<name><surname>Du</surname><given-names>F</given-names></name>
+<name><surname>Li</surname><given-names>S</given-names></name>
+<name><surname>Zhao</surname><given-names>L</given-names></name>
+<name><surname>Wang</surname><given-names>X</given-names></name>
+<article-title>Nutrient starvation elicits an acute autophagic response mediated by Ulk1 dephosphorylation and its subsequent dissociation from AMPK</article-title>
+<source>Proc Natl Acad Sci USA</source>
+<year>2011</year>
+<volume>108</volume>
+<fpage>4788</fpage>
+<lpage>93</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_006"><label>&#x0005B;6&#x0005D;</label>
+<mixed-citation>Kim D, Xing T, Yang Z, Dudek R, Lu Q, Chen Y-H. Epithelial mesenchymal transition in embryonic development, tissue repair and cancer: a comprehensive overview. J Clin Med. 2017; 7:1.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Kim</surname><given-names>D</given-names></name>
+<name><surname>Xing</surname><given-names>T</given-names></name>
+<name><surname>Yang</surname><given-names>Z</given-names></name>
+<name><surname>Dudek</surname><given-names>R</given-names></name>
+<name><surname>Lu</surname><given-names>Q</given-names></name>
+<name><surname>Chen</surname><given-names>Y-H</given-names></name>
+<article-title>Epithelial mesenchymal transition in embryonic development, tissue repair and cancer: a comprehensive overview</article-title>
+<source>J Clin Med</source>
+<year>2017</year>
+<volume>7</volume>
+<fpage>1</fpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_007"><label>&#x0005B;7&#x0005D;</label>
+<mixed-citation>Mirahmadi M, Ahmadiankia N, Naderi-Meshkin H, Heirani-Tabasi A, Bidkhori HR, Afsharian P, et al. Hypoxia and laser enhance expression of SDF-1 in muscles cells. Cell Mol Biol. 2016; 62(5):31&#x2013;7.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Mirahmadi</surname><given-names>M</given-names></name>
+<name><surname>Ahmadiankia</surname><given-names>N</given-names></name>
+<name><surname>Naderi-Meshkin</surname><given-names>H</given-names></name>
+<name><surname>Heirani-Tabasi</surname><given-names>A</given-names></name>
+<name><surname>Bidkhori</surname><given-names>HR</given-names></name>
+<name><surname>Afsharian</surname><given-names>P</given-names></name>
+<etal/>
+<article-title>Hypoxia and laser enhance expression of SDF-1 in muscles cells</article-title>
+<source>Cell Mol Biol</source>
+<year>2016</year>
+<volume>62</volume>
+<issue>5</issue>
+<fpage>31</fpage>
+<lpage>7</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_008"><label>&#x0005B;8&#x0005D;</label>
+<mixed-citation>Mishan MA, Ahmadiankia N, Matin MM, Heirani-Tabasi A, Shahriyari M, Bidkhori HR, et al. Role of berberine on molecular markers involved in migration of esophageal cancer cells. Cell Mol Biol. 2015; 61:37&#x2013;43.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Mishan</surname><given-names>MA</given-names></name>
+<name><surname>Ahmadiankia</surname><given-names>N</given-names></name>
+<name><surname>Matin</surname><given-names>MM</given-names></name>
+<name><surname>Heirani-Tabasi</surname><given-names>A</given-names></name>
+<name><surname>Shahriyari</surname><given-names>M</given-names></name>
+<name><surname>Bidkhori</surname><given-names>HR</given-names></name>
+<etal/>
+<article-title>Role of berberine on molecular markers involved in migration of esophageal cancer cells</article-title>
+<source>Cell Mol Biol</source>
+<year>2015</year>
+<volume>61</volume>
+<fpage>37</fpage>
+<lpage>43</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_009"><label>&#x0005B;9&#x0005D;</label>
+<mixed-citation>Veraguas D, Gallegos P, Castro F, Rodriguez-Alvarez L. Cell cycle synchronization and analysis of apoptosis-related gene in skin fibroblasts from domestic cat (Felis silvestris catus) and kodkod (<italic>Leopardus guigna</italic>). Reprod Domest Anim. 2017; 52:881&#x2013;9.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Veraguas</surname><given-names>D</given-names></name>
+<name><surname>Gallegos</surname><given-names>P</given-names></name>
+<name><surname>Castro</surname><given-names>F</given-names></name>
+<name><surname>Rodriguez-Alvarez</surname><given-names>L</given-names></name>
+<article-title>Cell cycle synchronization and analysis of apoptosis-related gene in skin fibroblasts from domestic cat (Felis silvestris catus) and kodkod (<italic>Leopardus guigna</italic>)</article-title>
+<source>Reprod Domest Anim</source>
+<year>2017</year>
+<volume>52</volume>
+<fpage>881</fpage>
+<lpage>9</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_010"><label>&#x0005B;10&#x0005D;</label>
+<mixed-citation>Ching JK, Rajguru P, Marupudi N, Banerjee S, Fisher JS. A role for AMPK in increased insulin action after serum starvation. Am J Physiol Cell Physiol. 2010; 299:C1171&#x2013;9.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Ching</surname><given-names>JK</given-names></name>
+<name><surname>Rajguru</surname><given-names>P</given-names></name>
+<name><surname>Marupudi</surname><given-names>N</given-names></name>
+<name><surname>Banerjee</surname><given-names>S</given-names></name>
+<name><surname>Fisher</surname><given-names>JS</given-names></name>
+<article-title>A role for AMPK in increased insulin action after serum starvation</article-title>
+<source>Am J Physiol Cell Physiol</source>
+<year>2010</year>
+<volume>299</volume>
+<fpage>C1171</fpage>
+<lpage>9</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_011"><label>&#x0005B;11&#x0005D;</label>
+<mixed-citation>Chen M, Huang J, Yang X, Liu B, Zhang W, Huang L, et al. Serum starvation induced cell cycle synchronization facilitates human somatic cells reprogramming. PLoS One. 2012; 7:e28203.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Chen</surname><given-names>M</given-names></name>
+<name><surname>Huang</surname><given-names>J</given-names></name>
+<name><surname>Yang</surname><given-names>X</given-names></name>
+<name><surname>Liu</surname><given-names>B</given-names></name>
+<name><surname>Zhang</surname><given-names>W</given-names></name>
+<name><surname>Huang</surname><given-names>L</given-names></name>
+<etal/>
+<article-title>Serum starvation induced cell cycle synchronization facilitates human somatic cells reprogramming</article-title>
+<source>PLoS One</source>
+<year>2012</year>
+<volume>7</volume>
+<fpage>e28203</fpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_012"><label>&#x0005B;12&#x0005D;</label>
+<mixed-citation>Ye X, Lotan R. Potential misinterpretation of data on differential gene expression in normal and malignant cells in vitro. Brief Funct Genomic Proteomic. 2008; 7:322&#x2013;6.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Ye</surname><given-names>X</given-names></name>
+<name><surname>Lotan</surname><given-names>R</given-names></name>
+<article-title>Potential misinterpretation of data on differential gene expression in normal and malignant cells in vitro</article-title>
+<source>Brief Funct Genomic Proteomic</source>
+<year>2008</year>
+<volume>7</volume>
+<fpage>322</fpage>
+<lpage>6</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_013"><label>&#x0005B;13&#x0005D;</label>
+<mixed-citation>Novoa-Herran S, Uma&#x00F1;a-Perez A, Canals F, Sanchez-Gomez M. Serum depletion induces changes in protein expression in the trophoblast-derived cell line HTR-8/SVneo. Cell Mol Biol Lett. 2016; 21:22.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Novoa-Herran</surname><given-names>S</given-names></name>
+<name><surname>Uma&#x00F1;a-Perez</surname><given-names>A</given-names></name>
+<name><surname>Canals</surname><given-names>F</given-names></name>
+<name><surname>Sanchez-Gomez</surname><given-names>M</given-names></name>
+<article-title>Serum depletion induces changes in protein expression in the trophoblast-derived cell line HTR-8/SVneo</article-title>
+<source>Cell Mol Biol Lett</source>
+<year>2016</year>
+<volume>21</volume>
+<fpage>22</fpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_014"><label>&#x0005B;14&#x0005D;</label>
+<mixed-citation>Kempn&#x00E1; P, Hirsch A, Hofer G, Mullis PE, Fl&#x00FC;ck CE. Impact of differential P450c17 phosphorylation by cAMP stimulation and by starvation conditions on enzyme activities and androgen production in NCI-H295R cells. Endocrinology. 2010; 151:3686&#x2013;96.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Kempn&#x00E1;</surname><given-names>P</given-names></name>
+<name><surname>Hirsch</surname><given-names>A</given-names></name>
+<name><surname>Hofer</surname><given-names>G</given-names></name>
+<name><surname>Mullis</surname><given-names>PE</given-names></name>
+<name><surname>Fl&#x00FC;ck</surname><given-names>CE</given-names></name>
+<article-title>Impact of differential P450c17 phosphorylation by cAMP stimulation and by starvation conditions on enzyme activities and androgen production in NCI-H295R cells</article-title>
+<source>Endocrinology</source>
+<year>2010</year>
+<volume>151</volume>
+<fpage>3686</fpage>
+<lpage>96</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_015"><label>&#x0005B;15&#x0005D;</label>
+<mixed-citation>Nishimura K, Watanabe S, Kaku T, Sugishima S. Serum starvation induces abnormal spindle location, RhoA delocalization, and extension of intercellular bridge with the midbody. Biosci Biotechnol Biochem. 2018; 82:821&#x2013;6.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Nishimura</surname><given-names>K</given-names></name>
+<name><surname>Watanabe</surname><given-names>S</given-names></name>
+<name><surname>Kaku</surname><given-names>T</given-names></name>
+<name><surname>Sugishima</surname><given-names>S</given-names></name>
+<article-title>Serum starvation induces abnormal spindle location, RhoA delocalization, and extension of intercellular bridge with the midbody</article-title>
+<source>Biosci Biotechnol Biochem</source>
+<year>2018</year>
+<volume>82</volume>
+<fpage>821</fpage>
+<lpage>6</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_016"><label>&#x0005B;16&#x0005D;</label>
+<mixed-citation>Dong S, Khoo A, Wei J, Bowser RK, Weathington NM, Xiao S, et al. Serum starvation regulates E-cadherin upregulation via activation of c-Src in non-small-cell lung cancer A549 cells. Am J Physiol Cell Physiol. 2014; 307:C893&#x2013;9.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Dong</surname><given-names>S</given-names></name>
+<name><surname>Khoo</surname><given-names>A</given-names></name>
+<name><surname>Wei</surname><given-names>J</given-names></name>
+<name><surname>Bowser</surname><given-names>RK</given-names></name>
+<name><surname>Weathington</surname><given-names>NM</given-names></name>
+<name><surname>Xiao</surname><given-names>S</given-names></name>
+<etal/>
+<article-title>Serum starvation regulates E-cadherin upregulation via activation of c-Src in non-small-cell lung cancer A549 cells</article-title>
+<source>Am J Physiol Cell Physiol</source>
+<year>2014</year>
+<volume>307</volume>
+<fpage>C893</fpage>
+<lpage>9</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_017"><label>&#x0005B;17&#x0005D;</label>
+<mixed-citation>Lamouille S, Xu J, Derynck R. Molecular mechanisms of epithelial&#x2013;mesenchymal transition. Nat Rev Mol Cell Biol. 2014; 15:178&#x2013;96.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Lamouille</surname><given-names>S</given-names></name>
+<name><surname>Xu</surname><given-names>J</given-names></name>
+<name><surname>Derynck</surname><given-names>R</given-names></name>
+<article-title>Molecular mechanisms of epithelial&#x2013;mesenchymal transition</article-title>
+<source>Nat Rev Mol Cell Biol</source>
+<year>2014</year>
+<volume>15</volume>
+<fpage>178</fpage>
+<lpage>96</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_018"><label>&#x0005B;18&#x0005D;</label>
+<mixed-citation>Rasool RU, Nayak D, Chakraborty S, Jamwal VL, Mahajan V, Katoch A, et al. Differential regulation of NM23-H1 under hypoxic and serum starvation conditions in metastatic cancer cells and its implication in EMT. Eur J Cell Biol. 2017; 96:164&#x2013;71.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Rasool</surname><given-names>RU</given-names></name>
+<name><surname>Nayak</surname><given-names>D</given-names></name>
+<name><surname>Chakraborty</surname><given-names>S</given-names></name>
+<name><surname>Jamwal</surname><given-names>VL</given-names></name>
+<name><surname>Mahajan</surname><given-names>V</given-names></name>
+<name><surname>Katoch</surname><given-names>A</given-names></name>
+<etal/>
+<article-title>Differential regulation of NM23-H1 under hypoxic and serum starvation conditions in metastatic cancer cells and its implication in EMT</article-title>
+<source>Eur J Cell Biol</source>
+<year>2017</year>
+<volume>96</volume>
+<fpage>164</fpage>
+<lpage>71</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_019"><label>&#x0005B;19&#x0005D;</label>
+<mixed-citation>Ye Q, Kantonen S, Gomez-Cambronero J. Serum deprivation confers the MDA-MB-231 breast cancer line with an EGFR/JAK3/PLD2 system that maximizes cancer cell invasion. J Mol Biol. 2013; 425:755&#x2013;66.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Ye</surname><given-names>Q</given-names></name>
+<name><surname>Kantonen</surname><given-names>S</given-names></name>
+<name><surname>Gomez-Cambronero</surname><given-names>J</given-names></name>
+<article-title>Serum deprivation confers the MDA-MB-231 breast cancer line with an EGFR/JAK3/PLD2 system that maximizes cancer cell invasion</article-title>
+<source>J Mol Biol</source>
+<year>2013</year>
+<volume>425</volume>
+<fpage>755</fpage>
+<lpage>66</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_020"><label>&#x0005B;20&#x0005D;</label>
+<mixed-citation>Nagelkerke A, Bussink J, Mujcic H, Wouters BG, Lehmann S, Sweep FCGJ, et al. Hypoxia stimulates migration of breast cancer cells via the PERK/ATF4/LAMP3-arm of the unfolded protein response. Breast Cancer Res. 2013; 15:R2.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Nagelkerke</surname><given-names>A</given-names></name>
+<name><surname>Bussink</surname><given-names>J</given-names></name>
+<name><surname>Mujcic</surname><given-names>H</given-names></name>
+<name><surname>Wouters</surname><given-names>BG</given-names></name>
+<name><surname>Lehmann</surname><given-names>S</given-names></name>
+<name><surname>Sweep</surname><given-names>FCGJ</given-names></name>
+<etal/>
+<article-title>Hypoxia stimulates migration of breast cancer cells via the PERK/ATF4/LAMP3-arm of the unfolded protein response</article-title>
+<source>Breast Cancer Res</source>
+<year>2013</year>
+<volume>15</volume>
+<fpage>R2</fpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_021"><label>&#x0005B;21&#x0005D;</label>
+<mixed-citation>Weddell JC, Chen S, Imoukhuede PI. VEGFR1 promotes cell migration and proliferation through PLC&#x003B3; and PI3K pathways. NPJ Syst Biol Appl. 2018; 4:1.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Weddell</surname><given-names>JC</given-names></name>
+<name><surname>Chen</surname><given-names>S</given-names></name>
+<name><surname>Imoukhuede</surname><given-names>PI</given-names></name>
+<article-title>VEGFR1 promotes cell migration and proliferation through PLC&#x003B3; and PI3K pathways</article-title>
+<source>NPJ Syst Biol Appl</source>
+<year>2018</year>
+<volume>4</volume>
+<fpage>1</fpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_022"><label>&#x0005B;22&#x0005D;</label>
+<mixed-citation>Hayakawa K, Pham L-DD, Som AT, Lee BJ, Guo S, Lo EH, et al. Vascular endothelial growth factor regulates the migration of oligodendrocyte precursor cells. J Neurosci. 2011; 31:10666&#x2013;70.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Hayakawa</surname><given-names>K</given-names></name>
+<name><surname>Pham</surname><given-names>L-DD</given-names></name>
+<name><surname>Som</surname><given-names>AT</given-names></name>
+<name><surname>Lee</surname><given-names>BJ</given-names></name>
+<name><surname>Guo</surname><given-names>S</given-names></name>
+<name><surname>Lo</surname><given-names>EH</given-names></name>
+<etal/>
+<article-title>Vascular endothelial growth factor regulates the migration of oligodendrocyte precursor cells</article-title>
+<source>J Neurosci</source>
+<year>2011</year>
+<volume>31</volume>
+<fpage>10666</fpage>
+<lpage>70</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_023"><label>&#x0005B;23&#x0005D;</label>
+<mixed-citation>Oskowitz A, McFerrin H, Gutschow M, Carter ML, Pochampally R. Serum-deprived human multipotent mesenchymal stromal cells (MSCs) are highly angiogenic. Stem Cell Res. 2011; 6:215&#x2013;25.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Oskowitz</surname><given-names>A</given-names></name>
+<name><surname>McFerrin</surname><given-names>H</given-names></name>
+<name><surname>Gutschow</surname><given-names>M</given-names></name>
+<name><surname>Carter</surname><given-names>ML</given-names></name>
+<name><surname>Pochampally</surname><given-names>R</given-names></name>
+<article-title>Serum-deprived human multipotent mesenchymal stromal cells (MSCs) are highly angiogenic</article-title>
+<source>Stem Cell Res</source>
+<year>2011</year>
+<volume>6</volume>
+<fpage>215</fpage>
+<lpage>25</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_024"><label>&#x0005B;24&#x0005D;</label>
+<mixed-citation>Pang MF, Georgoudaki AM, Lambut L, Johansson J, Tabor V, Hagikura K, et al. TGF-&#x003B2;1-induced EMT promotes targeted migration of breast cancer cells through the lymphatic system by the activation of CCR7/CCL21-mediated chemotaxis. Oncogene. 2016; 35:748&#x2013;60.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Pang</surname><given-names>MF</given-names></name>
+<name><surname>Georgoudaki</surname><given-names>AM</given-names></name>
+<name><surname>Lambut</surname><given-names>L</given-names></name>
+<name><surname>Johansson</surname><given-names>J</given-names></name>
+<name><surname>Tabor</surname><given-names>V</given-names></name>
+<name><surname>Hagikura</surname><given-names>K</given-names></name>
+<etal/>
+<article-title>TGF-&#x003B2;1-induced EMT promotes targeted migration of breast cancer cells through the lymphatic system by the activation of CCR7/CCL21-mediated chemotaxis</article-title>
+<source>Oncogene</source>
+<year>2016</year>
+<volume>35</volume>
+<fpage>748</fpage>
+<lpage>60</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_025"><label>&#x0005B;25&#x0005D;</label>
+<mixed-citation>Kuai W-X, Wang Q, Yang XZ, Zhao Y, Yu R, Tang XJ. Interleukin-8 associates with adhesion, migration, invasion and chemosensitivity of human gastric cancer cells. World J Gastroenterol. 2012; 18:979.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Kuai</surname><given-names>W-X</given-names></name>
+<name><surname>Wang</surname><given-names>Q</given-names></name>
+<name><surname>Yang</surname><given-names>XZ</given-names></name>
+<name><surname>Zhao</surname><given-names>Y</given-names></name>
+<name><surname>Yu</surname><given-names>R</given-names></name>
+<name><surname>Tang</surname><given-names>XJ</given-names></name>
+<article-title>Interleukin-8 associates with adhesion, migration, invasion and chemosensitivity of human gastric cancer cells</article-title>
+<source>World J Gastroenterol</source>
+<year>2012</year>
+<volume>18</volume>
+<fpage>979</fpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_026"><label>&#x0005B;26&#x0005D;</label>
+<mixed-citation>Mehner C, Hockla A, Miller E, Ran S, Radisky DC, Radisky ES. Tumor cell-produced matrix metalloproteinase 9 (MMP-9) drives malignant progression and metastasis of basal-like triple negative breast cancer. Oncotarget. 2014; 5:2736&#x2013;49.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Mehner</surname><given-names>C</given-names></name>
+<name><surname>Hockla</surname><given-names>A</given-names></name>
+<name><surname>Miller</surname><given-names>E</given-names></name>
+<name><surname>Ran</surname><given-names>S</given-names></name>
+<name><surname>Radisky</surname><given-names>DC</given-names></name>
+<name><surname>Radisky</surname><given-names>ES</given-names></name>
+<article-title>Tumor cell-produced matrix metalloproteinase 9 (MMP-9) drives malignant progression and metastasis of basal-like triple negative breast cancer</article-title>
+<source>Oncotarget</source>
+<year>2014</year>
+<volume>5</volume>
+<fpage>2736</fpage>
+<lpage>49</lpage>
+</element-citation>
+</ref>
+<ref id="j_abm-2019-0051_ref_027"><label>&#x0005B;27&#x0005D;</label>
+<mixed-citation>Blaise GA, Gauvin D, Gangal M, Authier S. Nitric oxide, cell signaling and cell death. Toxicology. 2005; 208:177&#x2013;92.</mixed-citation>
+<element-citation publication-type="journal" publication-format="print">
+<name><surname>Blaise</surname><given-names>GA</given-names></name>
+<name><surname>Gauvin</surname><given-names>D</given-names></name>
+<name><surname>Gangal</surname><given-names>M</given-names></name>
+<name><surname>Authier</surname><given-names>S</given-names></name>
+<article-title>Nitric oxide, cell signaling and cell death</article-title>
+<source>Toxicology</source>
+<year>2005</year>
+<volume>208</volume>
+<fpage>177</fpage>
+<lpage>92</lpage>
+</element-citation>
+</ref></ref-list>
+</back>
+</article>

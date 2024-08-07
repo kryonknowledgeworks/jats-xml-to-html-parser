@@ -1,0 +1,1398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "https://hibernate.org/dtd/hibernate-configuration-3.0.dtd">  -->
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1 20151215//EN" "JATS-journalpublishing1.dtd">
+
+<article xml:lang="en" article-type="research-article"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML">
+    <front>
+        <journal-meta>
+            <journal-id journal-id-type="publisher-id">MATHI</journal-id>
+            <journal-title-group>
+                <journal-title>Materials Highlights</journal-title>
+            </journal-title-group>
+            <issn pub-type="epub">2666-4933</issn>
+            <publisher>
+                <publisher-name>Atlantis Press</publisher-name>
+            </publisher>
+        </journal-meta>
+        <article-meta>
+            <article-id pub-id-type="publisher-id">MATHI-2-3-46</article-id>
+            <article-id pub-id-type="doi">10.2991/mathi.k.210318.001</article-id>
+            <article-categories>
+                <subj-group subj-group-type="heading">
+                    <subject>Research Article</subject>
+                </subj-group>
+                <subj-group subj-group-type="article type">
+                    <subject>Research Article</subject>
+                </subj-group>
+            </article-categories>
+            <title-group>
+                <article-title>Microstructure and Mechanical Properties of Cu&#x2013;Al Alloy Deposited by Additive Manufacturing</article-title>
+            </title-group>
+            <contrib-group>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Wang</surname>
+                        <given-names>Yanhu</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="AFF1">
+                        <sup>1</sup>
+                    </xref>
+                    <xref ref-type="aff" rid="AFF2">
+                        <sup>2</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author" corresp="yes">
+                    <name>
+                        <surname>Konovalov</surname>
+                        <given-names>Sergey</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="AFF1">
+                        <sup>1</sup>
+                    </xref>
+                    <xref ref-type="aff" rid="AFF2">
+                        <sup>2</sup>
+                    </xref>
+                    <xref ref-type="corresp" rid="C1">
+                        <sup>&#x002A;</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author" corresp="yes">
+                    <name>
+                        <surname>Chen</surname>
+                        <given-names>Xizhang</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="AFF1">
+                        <sup>1</sup>
+                    </xref>
+                    <xref ref-type="aff" rid="AFF2">
+                        <sup>2</sup>
+                    </xref>
+                    <xref ref-type="corresp" rid="C1">
+                        <sup>&#x002A;</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Ivanov</surname>
+                        <given-names>Yurii</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="AFF3">
+                        <sup>3</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Singh</surname>
+                        <given-names>R. Arvind</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="AFF1">
+                        <sup>1</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Jayalakshmi</surname>
+                        <given-names>S.</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="AFF1">
+                        <sup>1</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Pan</surname>
+                        <given-names>Xiaoming</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="AFF1">
+                        <sup>1</sup>
+                    </xref>
+                </contrib>
+                <aff id="AFF1">
+                    <label>1</label>School of Mechanical and Electrical Engineering, Wenzhou University, Chashan Education Town, Wenzhou, Zhejiang 325035, China</aff>
+                <aff id="AFF2">
+                    <label>2</label>Department of Metals Technology and Aviation Materials, Samara National Research University, 34, Moskovskoye Shosse, Samara 443086, Russia</aff>
+                <aff id="AFF3">
+                    <label>3</label>Institute of High Current Electronics, Siberian Branch, Russian Academy of Sciences, 2/3, Akademichesky Avenue, Tomsk 634055, Russia</aff>
+            </contrib-group>
+            <author-notes>
+                <corresp id="C1">
+                    <label>&#x002A;</label>Corresponding authors. Email: <email>ksv@ssau.ru</email>;                    <email>Kernel.chen@gmail.com</email>
+                </corresp>
+            </author-notes>
+            <pub-date pub-type="ppub">
+                <month>06</month>
+                <year>2021</year>
+            </pub-date>
+            <volume>2</volume>
+            <issue>3</issue>
+            <fpage>46</fpage>
+            <lpage>51</lpage>
+            <history>
+                <date date-type="received">
+                    <day>21</day>
+                    <month>12</month>
+                    <year>2020</year>
+                </date>
+                <date date-type="accepted">
+                    <day>15</day>
+                    <month>03</month>
+                    <year>2021</year>
+                </date>
+            </history>
+            <permissions>
+                <copyright-statement>&#x00A9; 2021 The Authors. Published by Atlantis Press B.V.</copyright-statement>
+                <copyright-year>2021</copyright-year>
+                <license license-type="open-access">
+                    <license-p>This is an open access article distributed under the CC BY-NC 4.0 license (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</ext-link>).
+                    </license-p>
+                </license>
+            </permissions>
+            <abstract>
+                <p>In this work, Cu&#x2013;4.9% Al alloy with little Si (the weight percentage is 1.3%) and little Mn (the weight percentage is 0.8%) was deposited by wire arc additive manufacturing. Microstructure and properties of the deposited alloy was investigated. Microstructural characterization was done using optical microscopy, scanning electron microscopy and transmission electron microscopy. Microstructural investigation revealed that aluminum was enriched at the interlayer (i.e. inside the deposited layers), whereas silicon and manganese were found enriched at the border layers (i.e. at the border of the deposited layers). Evaluation of the mechanical properties showed that the deposited sample had good strength and ductility. The addition of silicon effectively improved the hardness and tensile strength properties of the deposited alloy.</p>
+                <p>Anish, Cu&#x2013;4.9% Al alloy with little Si (the weight percentage is 1.3%) and little Mn (the weight percentage is 0.8%) was deposited by wire arc additive manufacturing. Microstructure and properties of the deposited alloy was investigated. Microstructural characterization was done using optical microscopy, scanning electron microscopy and transmission electron microscopy. Microstructural investigation revealed that aluminum was enriched at the interlayer (i.e. inside the deposited layers), whereas silicon and manganese were found enriched at the border layers (i.e. at the border of the deposited layers). Evaluation of the mechanical properties showed that the deposited sample had good strength and ductility. The addition of silicon effectively improved the hardness and tensile strength properties of the deposited alloy.</p>
+            </abstract>
+            <kwd-group>
+                <kwd>Copper&#x2013;Aluminium&#x2013;Silicon alloy</kwd>
+                <kwd>additive manufacturing</kwd>
+                <kwd>microstructure</kwd>
+                <kwd>intermetallic phase</kwd>
+                <kwd>mechanical properties</kwd>
+            </kwd-group>
+        </article-meta>
+    </front>
+    <body>
+        <sec id="s1">
+            <label>1.</label>
+            <title>INTRODUCTION</title>
+            <p>Wire Arc Additive Manufacturing (WAAM) is a new manufacturing technology with which metallic structures can be created by depositing successive layers along a pre-designed route &#x005B;<xref ref-type="bibr" rid="B1">1</xref>&#x2013;<xref ref-type="bibr" rid="B7">7</xref>&#x005D;. It provides high deposition and material utilization rate, saves lead time and costs &#x005B;<xref ref-type="bibr" rid="B8">8</xref>&#x005D;, which are advantageous in manufacturing large-scale metallic components &#x005B;<xref ref-type="bibr" rid="B9">9</xref>&#x2013;<xref ref-type="bibr" rid="B11">11</xref>&#x005D;. Cu&#x2013;Al cast alloys have poor casting properties with high tendency for linear shrinkage and are prone to hot cracking. The Cu&#x2013;Al alloy made by WAAM have no thermal cracking issues &#x005B;<xref ref-type="bibr" rid="B1">1</xref>&#x005D;. In general, various reports show that alloys prepared via arc additive manufacturing process perform better than cast alloys &#x005B;<xref ref-type="bibr" rid="B1">1</xref>&#x2013;<xref ref-type="bibr" rid="B7">7</xref>&#x005D;. Cu&#x2013;Al series alloys have excellent mechanical properties, outstanding wear and corrosion resistance are being widely used in oil pipelines, shipbuilding industries and aerospace applications &#x005B;<xref ref-type="bibr" rid="B12">12</xref>,                <xref ref-type="bibr" rid="B13">13</xref>&#x005D;.</p>
+            <p>Research on Cu&#x2013;Al alloy has found that Al as the solid solution element in Cu&#x2013;Al can increase the formation of deformation twins and dislocation density during deformation twinning process &#x005B;<xref ref-type="bibr" rid="B14">14</xref>&#x005D;. Further, it has been found that addition of microalloying elements in Cu&#x2013;Al alloy can enhance their mechanical properties significantly &#x005B;<xref ref-type="bibr" rid="B3">3</xref>,                <xref ref-type="bibr" rid="B15">15</xref>&#x005D;. Several investigations on growth kinetics of intermetallic compounds such as, CuAl<sub>2</sub>, Cu<sub>9</sub>Al<sub>4</sub>, Cu<sub>3</sub>Al in Cu&#x2013;Al cast alloys have been reported &#x005B;<xref ref-type="bibr" rid="B16">16</xref>&#x2013;<xref ref-type="bibr" rid="B19">19</xref>&#x005D;. However, at present, no report is available on detailed microstructural analysis such as, distribution of microalloying elements and formation of intermetallic phases in Cu&#x2013;Al alloy fabricated by WAAM process.</p>
+            <p>In light of the above-mentioned issues, in this work, Cu&#x2013;Al alloy was deposited by dual WAAM. The aims of the work were (i) to deposit sound samples by standardizing the process parameters, (ii) to investigate the microstructure, namely, alloy element distribution and formation of intermetallic phases in interlayer (i.e. inside the deposited layers) and at border layers (i.e. at the boundaries of the deposited layers) and (iii) to identify the effect of microstructure on hardness and tensile strength properties of the Cu&#x2013;Al alloy.</p>
+        </sec>
+        <sec id="s2">
+            <label>2.</label>
+            <title>EXPERIMENTAL PROCEDURES</title>
+            <p>The deposition of Cu&#x2013;Al alloy was performed by using an Advanced 4000R NC controlled CMT welding machine with a WPC-600 multi-function Argon arc welding wire feeder machine. The WAAM process setup is shown in <xref ref-type="fig" rid="F1">Figure 1</xref>. SAFRA CuSi3 (FRO, Italy) wire with diameter of 1.2 mm and the pure Al wire with diameter of 1.2 mm were used to deposit Cu&#x2013;4.9% Al alloy. The concentration of the elements in the deposited pool was controlled by adjusting the feed rate of pure Al wire and SAFRA-CuSi3 wire at the same time. For example, the concentration of aluminum in the deposited metal can be estimated using the formula given in <xref ref-type="disp-formula" rid="FD1">Equation (1)</xref>. A pure copper plate was used as the substrate with the size of 100 &#x00D7; 50 &#x00D7; 3 mm<sup>3</sup>. The chemical composition of the wires is given in <xref ref-type="table" rid="T1">Table 1</xref>.
+            </p>
+            <fig id="F1" position="float">
+                <label>Figure 1</label>
+                <caption>
+                    <p>WAAM setup.</p>
+                </caption>
+                <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g001.jpeg"/>
+            </fig>
+            <table-wrap id="T1" position="float">
+                <label>Table 1</label>
+                <caption>
+                    <p>Composition of wires (wt. %)</p>
+                </caption>
+                <table frame="hsides" rules="groups">
+                    <thead>
+                        <tr>
+                            <th align="left" valign="middle">
+                                <bold>Elements</bold>
+                            </th>
+                            <th align="center" valign="middle">
+                                <bold>Sn</bold>
+                            </th>
+                            <th align="center" valign="middle">
+                                <bold>Mn</bold>
+                            </th>
+                            <th align="center" valign="middle">
+                                <bold>Si</bold>
+                            </th>
+                            <th align="center" valign="middle">
+                                <bold>Zn</bold>
+                            </th>
+                            <th align="center" valign="middle">
+                                <bold>Cu</bold>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="left" valign="top">SAFRA CuSi<sub>3</sub>
+                            </td>
+                            <td align="center" valign="top">0.1</td>
+                            <td align="center" valign="top">&#x2264;1.0</td>
+                            <td align="center" valign="top">3.0</td>
+                            <td align="center" valign="top">0.1</td>
+                            <td align="center" valign="top">bal.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </table-wrap>
+            <p>After many trials, it was found that height of the deposited sample varied greatly made by one-way production. To deposit the alloy, the round-trip processing method was used instead of the one-way processing method, i.e. the CMT welding head was used in the round-trip configuration to deposit the samples. The round-trip processing method ensures that the thickness of each deposited layer is the same. In this way, it is possible to avoid different heights at different locations on the sample. <xref ref-type="fig" rid="F2">Figure 2a</xref> is the deposited sample after cutting. It is evident from <xref ref-type="fig" rid="F2">Figure 2a</xref> that overall height of the sample is relatively uniform. Deposition parameters are listed in <xref ref-type="table" rid="T2">Table 2</xref>. Samples were cut from the deposited alloy for microstructural analyses and mechanical properties testing, as shown in <xref ref-type="fig" rid="F2">Figure 2b</xref>.
+            </p>
+            <fig id="F2" position="float">
+                <label>Figure 2</label>
+                <caption>
+                    <p>(a) The as-fabricated sample, (b) sampling location diagram, (c) the TEM sample, (d) the size of the tensile sample.</p>
+                </caption>
+                <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g002.jpeg"/>
+            </fig>
+            <table-wrap id="T2" position="float">
+                <label>Table 2</label>
+                <caption>
+                    <p>WAAM process parameters</p>
+                </caption>
+                <table frame="hsides" rules="groups">
+                    <thead>
+                        <tr>
+                            <th align="left" valign="middle">
+                                <bold>Parameter</bold>
+                            </th>
+                            <th align="center" valign="middle">
+                                <bold>Value</bold>
+                            </th>
+                            <th align="center" valign="middle">
+                                <bold>Unit</bold>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="left" valign="top">Deposition current</td>
+                            <td align="center" valign="top">98</td>
+                            <td align="center" valign="top">A</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Deposition voltage</td>
+                            <td align="center" valign="top">10.4</td>
+                            <td align="center" valign="top">V</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">SAFRA CuSi<sub>3</sub> speed</td>
+                            <td align="center" valign="top">8.5</td>
+                            <td align="center" valign="top">m/min</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Pure Al wire speed</td>
+                            <td align="center" valign="top">1</td>
+                            <td align="center" valign="top">m/min</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Travel speed</td>
+                            <td align="center" valign="top">0.35</td>
+                            <td align="center" valign="top">m/min</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Pure argon</td>
+                            <td align="center" valign="top">20</td>
+                            <td align="center" valign="top">L/min</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Dwell time between deposition layers</td>
+                            <td align="center" valign="top">30</td>
+                            <td align="center" valign="top">s</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Angle between the torch and filler wire</td>
+                            <td align="center" valign="top">50</td>
+                            <td align="center" valign="top">&#x00B0;</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Distance between the torch and workpiece</td>
+                            <td align="center" valign="top">18</td>
+                            <td align="center" valign="top">mm</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top">Pure copper plate thickness</td>
+                            <td align="center" valign="top">3</td>
+                            <td align="center" valign="top">mm</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </table-wrap>
+            <p>Chemical composition analysis was performed by Energy Dispersive Spectroscopy. The microstructures of the metallographic sample were acquired using metallographic microscopes with digital camera. Metallographic samples were etched using hydrochloric acid and ferric chloride solution. The etchant comprised of 120 ml H<sub>2</sub>O &#x002B; 30 ml HCl &#x002B; 10 g FeCl<sub>3</sub>. Intermetallic phases were analyzed using a JEOL-2100F-Cryo-Transmission Electron Microscope (TEM). Sample for TEM study was prepared by ion (argon) etching (Ion Slicer EM-09100IS installation). Micro-hardness of the deposited alloy was measured at 1.5 mm intervals from the bottom to the top of the metallographic sample, using HXD-1000TM/LCD digital microhardness tester (Shanghai Optics Instrument, Shanghai, China) with test load 4.9N, dwell time 15 s. In the paper the term &#x2018;interlayer&#x2019; refers to the region &#x2018;inside the deposited layers&#x2019; and the term &#x2018;border layer&#x2019; refers to the region &#x2018;at the borders of the deposited layers&#x2019;, as is shown in the schematic (<xref ref-type="fig" rid="F2">Figure 2c</xref>). A schematic of the tensile test specimen is shown in <xref ref-type="fig" rid="F2">Figure 2d</xref>.
+                <disp-formula id="FD1">
+                    <mml:math id="m1" display='block'>
+                        <mml:mrow>
+                            <mml:mtext>wt</mml:mtext>
+                            <mml:mrow>
+                                <mml:mo>(</mml:mo>
+                                <mml:mrow>
+                                    <mml:mtext>Al</mml:mtext>
+                                </mml:mrow>
+                                <mml:mo>)</mml:mo>
+                            </mml:mrow>
+                            <mml:mo>%</mml:mo>
+                            <mml:mo>=</mml:mo>
+                            <mml:mfrac>
+                                <mml:mrow>
+                                    <mml:mn>27</mml:mn>
+                                    <mml:mo>&#x00D7;</mml:mo>
+                                    <mml:msub>
+                                        <mml:mrow>
+                                            <mml:mi>v</mml:mi>
+                                        </mml:mrow>
+                                        <mml:mrow>
+                                            <mml:mtext>pure</mml:mtext>
+                                            <mml:mo>&#x02009;</mml:mo>
+                                            <mml:mtext>Al</mml:mtext>
+                                        </mml:mrow>
+                                    </mml:msub>
+                                </mml:mrow>
+                                <mml:mrow>
+                                    <mml:mn>27</mml:mn>
+                                    <mml:mo>&#x00D7;</mml:mo>
+                                    <mml:msub>
+                                        <mml:mrow>
+                                            <mml:mi>v</mml:mi>
+                                        </mml:mrow>
+                                        <mml:mrow>
+                                            <mml:mtext>pure</mml:mtext>
+                                            <mml:mo>&#x02009;</mml:mo>
+                                            <mml:mtext>Al</mml:mtext>
+                                            <mml:mo>&#x02009;</mml:mo>
+                                        </mml:mrow>
+                                    </mml:msub>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:mn>64</mml:mn>
+                                    <mml:mo>&#x00D7;</mml:mo>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:mn>95</mml:mn>
+                                    <mml:mo>%</mml:mo>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:msub>
+                                        <mml:mrow>
+                                            <mml:mi>v</mml:mi>
+                                        </mml:mrow>
+                                        <mml:mrow>
+                                            <mml:msub>
+                                                <mml:mrow>
+                                                    <mml:mrow>
+                                                        <mml:mtext>CuSi</mml:mtext>
+                                                    </mml:mrow>
+                                                </mml:mrow>
+                                                <mml:mn>3</mml:mn>
+                                            </mml:msub>
+                                        </mml:mrow>
+                                    </mml:msub>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:mn>28</mml:mn>
+                                    <mml:mo>&#x00D7;</mml:mo>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:mn>3</mml:mn>
+                                    <mml:mo>%</mml:mo>
+                                    <mml:mo>&#x02009;</mml:mo>
+                                    <mml:msub>
+                                        <mml:mrow>
+                                            <mml:mi>v</mml:mi>
+                                        </mml:mrow>
+                                        <mml:mrow>
+                                            <mml:msub>
+                                                <mml:mrow>
+                                                    <mml:mrow>
+                                                        <mml:mtext>CuSi</mml:mtext>
+                                                    </mml:mrow>
+                                                </mml:mrow>
+                                                <mml:mn>3</mml:mn>
+                                            </mml:msub>
+                                        </mml:mrow>
+                                    </mml:msub>
+                                </mml:mrow>
+                            </mml:mfrac>
+                            <mml:mo>&#x00D7;</mml:mo>
+                            <mml:mn>100</mml:mn>
+                            <mml:mo>%</mml:mo>
+                        </mml:mrow>
+                    </mml:math>
+                    <label>(1)</label>
+                </disp-formula>
+            </p>
+        </sec>
+        <sec id="s3">
+            <label>3.</label>
+            <title>RESULTS AND DISCUSSION</title>
+            <sec id="s3.1">
+                <label>3.1.</label>
+                <title>Element Detection</title>
+                <p>The results of the elemental composition measured by the scan transmission electron microscope (STEM) in the interlayer and the border layers are given in <xref ref-type="fig" rid="F3">Figure 3</xref>. The main content of the sample is copper, followed by aluminum. Silicon and manganese are present in small quantities. Oxygen, aluminum, silicon, magnesium and copper are detected at the border layer. The border layer has higher concentration of Si and Mn elements when compared to the interlayer. In Cu&#x2013;Al alloy rich in Cu, aluminum easily forms CuAl<sub>2</sub> intermetallic phase with copper &#x005B;<xref ref-type="bibr" rid="B20">20</xref>&#x005D;, and very small amounts of silicon and manganese will form other intermetallic phases. As the concentration of aluminum in the Cu&#x2013;Al alloy increases, a concentration difference will occur, and the Cu&#x2013;Al intermetallic phase will reverse diffuse into the formed copper solid solution &#x005B;<xref ref-type="bibr" rid="B1">1</xref>&#x005D;. But as the concentration of copper in solid solution increases, and when the concentration reaches a certain level, Cu&#x2013;Al intermetallic phase will no longer diffuse inwards after they diffuse into the copper solid solution. While a small number of elements such as silicon, magnesium and oxygen due to the low concentration, which are not occurred back diffuse to the copper solid solution. As the concentration of copper solid solution continues to increase, they will accelerate diffusion into the outside of the copper solid solution. When they encounter oxygen or other elements, they will form a compound, which will stop when the diffusion reaches a certain distance. So that the alloy layer is rich in aluminum atoms, and silicon and oxygen elements will accumulate in the border layer.</p>
+                <fig id="F3" position="float">
+                    <label>Figure 3</label>
+                    <caption>
+                        <p>Elemental composition of the TEM sample: 1 &#x2013; oxygen, 2 &#x2013; aluminum, 3 &#x2013; silicon, 4 &#x2013; manganese, the rest is copper.</p>
+                    </caption>
+                    <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g003.jpeg"/>
+                </fig>
+                <p>Elemental analysis was conducted at spots with a 3-mm interval between spots, along the height of the sample starting from the bottom, to estimate the amounts of Al, Si and Mn. The test results are shown in <xref ref-type="fig" rid="F4">Figure 4</xref>. The Al, Si and Mn contents slightly from the bottom to the top of the deposited sample. The mean values for Al, Si and Mn content are 5.1%, 1.1% and 0.6%, respectively, which are near to the design value 4.9%, 1.3% and 0.8%.</p>
+                <fig id="F4" position="float">
+                    <label>Figure 4</label>
+                    <caption>
+                        <p>Al, Si and Mn content along the height of the deposited alloy.</p>
+                    </caption>
+                    <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g004.jpeg"/>
+                </fig>
+            </sec>
+            <sec id="s3.2">
+                <label>3.2.</label>
+                <title>Metallographic Structure of the Sample</title>
+                <p>The results of elemental analysis of the TEM sample showed (i) the main constituent element to be copper, (ii) small amount of aluminum and (iii) significantly less content of silicon and manganese. In the deposited alloy, the elements are not uniformly distributed: (i) interlayer is enriched with aluminum atoms and (ii) border layers are enriched with atoms of silicon and manganese. From the metallographic diagram (<xref ref-type="fig" rid="F5">Figure 5b</xref>), a border between layers can be seen. At the border region, large columnar grains can be seen, while in the interlayer region fine columnar grains are observed. The variation in the grain size between the two regions is mainly due to temperature gradient and element distribution. The driving force for the columnar grain growth comes from the temperature gradient during the deposition of each layer. When compared to the interlayer, heat dissipation is faster at the border layers, resulting in a large temperature gradient and the driving force for the grain growth. Since the Al element is more distributed at interlayer and less at the border regions, the <italic>&#x03B1;</italic> (Cu) phase is more at interlayer than in the border layers. At the border layers region, some spots are seen (shown by the arrows in <xref ref-type="fig" rid="F5">Figure 5a</xref>) more distributed in large grains, while within the layer, fewer such black spots are seen. These black spots may be silicon compounds. Inside the layer region, i.e. in the interlayer there are small clumps (as shown in <xref ref-type="fig" rid="F5">Figure 5c</xref>), which could be aluminum compounds.</p>
+                <fig id="F5" position="float">
+                    <label>Figure 5</label>
+                    <caption>
+                        <p>Microstructures of the deposited alloy.</p>
+                    </caption>
+                    <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g005.jpeg"/>
+                </fig>
+                <p>Regions in the border layer and interlayer were further analyzed using TEM (<xref ref-type="fig" rid="F6">Figure 6</xref>). In the border region, a cluster of white areas (petal-like appearance) inside large columnar grains can be seen. Some granular material is also seen distributed at the grain border (marked by circles in <xref ref-type="fig" rid="F6">Figure 6</xref>). The petal-like white areas and the granular material were found to be second phase particles (formed during the deposition of the Cu&#x2013;Al alloy), by using X-ray micro-spectral analysis (these second phase particles are also seen in <xref ref-type="fig" rid="F7">Figure 7</xref>).                    <xref ref-type="fig" rid="F7">Figure 7a</xref> shows the result of X-ray microanalysis of the second phase particles. They mainly contain manganese and silicon. The microelectron diffraction pattern of reflections belonging to the same crystalline plane indicates that the second phase particles are a single crystal. Small-angle boundaries and dislocation substructure are not seen in the second phase particles. Microelectron diffraction pattern shows that the second phase particle is the Mn<sub>5</sub>Si<sub>2</sub> intermetallic phase. <xref ref-type="fig" rid="F7">Figure 7b</xref> shows the result of X-ray microanalysis of a second phase particle in the interlayer region. The second phase particle mainly contains copper and aluminum. In the Cu&#x2013;Al alloy, aluminum and copper easily form intermetallic instead of solid solution before they diffuse into the welding pool &#x005B;<xref ref-type="bibr" rid="B21">21</xref>&#x005D;. Results of the microelectron diffraction pattern obtained for the second phase particle shows that it is the CuAl<sub>2</sub> intermetallic phase.</p>
+                <fig id="F6" position="float">
+                    <label>Figure 6</label>
+                    <caption>
+                        <p>Transmission electron microscopic images of the microstructure in the (a) border layer region and (b) interlayer region of the TEM sample.</p>
+                    </caption>
+                    <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g006.jpeg"/>
+                </fig>
+                <fig id="F7" position="float">
+                    <label>Figure 7</label>
+                    <caption>
+                        <p>Transmission electron microscopic images of the second-phase particles in the (a) border layer region and (b) at the interlayer region.</p>
+                    </caption>
+                    <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g007.jpeg"/>
+                </fig>
+            </sec>
+            <sec id="s3.3">
+                <label>3.3.</label>
+                <title>Hardness Tests</title>
+                <p>The measured microhardness values of the deposited alloy with increasing height from the bottom of the deposited sample are shown in <xref ref-type="fig" rid="F8">Figure 8</xref>. The hardness measured along the build direction ranges from 158 &#x00B1; 5 to 207 &#x00B1; 5 Hv. The average hardness values of the lower region, middle region and upper region are 180 &#x00B1; 5, 200 &#x00B1; 5 and 187 &#x00B1; 5 Hv, respectively. The hardness value in the lower region is the lowest. The hardness value in the middle region is the highest. The hardness value in the middle region is slightly lower than that in the middle region. The lower hardness value in the lower region may be due to the dif&#xFB01;culty to open the adequate size of molten pool in the &#xFB01;rst two deposited layers. As a result, the alloy composition becomes non-uniform, and intermetallic compounds do not form. When a new layer is deposited, the previous layer gets re-melted and other layers will undergo reheating and causes a secondary solid phase transformation which is conducive to alloy homogenization and promotes formation of intermetallic phases such as CuAl<sub>2</sub> and Cu<sub>9</sub>Al<sub>4</sub> &#x005B;<xref ref-type="bibr" rid="B21">21</xref>,                    <xref ref-type="bibr" rid="B22">22</xref>&#x005D;. By comparing the hardness of Cu&#x2013;5% Al alloys (133&#x2013;172 Hv &#x005B;<xref ref-type="bibr" rid="B23">23</xref>,                    <xref ref-type="bibr" rid="B24">24</xref>&#x005D;, as is shown in <xref ref-type="fig" rid="F8">Figure 8</xref>), it can be found that the hardness of Cu&#x2013;Al alloy containing a small amount of silicon (2.2%) is significantly higher. The addition of silicon to the Cu&#x2013;Al alloy increases the hardness of the alloy due to the formation and presence of Mn<sub>5</sub>Si<sub>2</sub> intermetallic phase.</p>
+                <fig id="F8" position="float">
+                    <label>Figure 8</label>
+                    <caption>
+                        <p>Measured microhardness values with increasing in height from the bottom of the deposited Cu&#x2013;Al&#x2013;Si alloy sample. Hardness value of Cu&#x2013;5% Al alloy which has no silicon &#x005B;<xref ref-type="bibr" rid="B23">23</xref>,                            <xref ref-type="bibr" rid="B25">25</xref>&#x005D; is also shown for comparison purpose.</p>
+                    </caption>
+                    <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g008.jpeg"/>
+                </fig>
+            </sec>
+            <sec id="s3.4">
+                <label>3.4.</label>
+                <title>Tensile Tests</title>
+                <p>The average Ultimate Tensile Strength (UTS), 0.2% offset Yield Strength (0.2% YS) and Elongation (EL) values of the samples tested in the horizontal direction (<xref ref-type="fig" rid="F1">Figure 1c</xref>) are given in <xref ref-type="fig" rid="F9">Figure 9</xref>. Results are shown for the tensile samples taken from the bottom, middle and top regions of the deposited alloy. The test results of samples taken from different regions show only ~10 MPa difference in UTS, ~6 MPa difference in YS and about ~0.8% difference in elongation. This implies isotropic tensile properties in the deposited alloy along the build direction. In <xref ref-type="fig" rid="F9">Figure 9</xref>, it is found that the tensile and yield strength of the Cu&#x2013;Al&#x2013;Si alloy are significantly improved when compared to those of Cu&#x2013;5% Al alloy &#x005B;<xref ref-type="bibr" rid="B25">25</xref>&#x005D;, while the ductility is reduced. Silicon addition to Cu&#x2013;Al alloy influences the tensile properties as it promotes the formation of second phase particles. The addition of silicon can also improve the fluidity and promote the homogenization of the alloy &#x005B;<xref ref-type="bibr" rid="B26">26</xref>&#x005D;.</p>
+                <fig id="F9" position="float">
+                    <label>Figure 9</label>
+                    <caption>
+                        <p>Tensile test results of the samples taken from bottom, middle and top regions of the deposited Cu&#x2013;Al&#x2013;Si alloy. Tensile properties of Cu&#x2013;5% Al alloys which have no silicon &#x005B;<xref ref-type="bibr" rid="B25">25</xref>&#x005D; are also shown for comparison purpose.</p>
+                    </caption>
+                    <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MATHI-2-3-46-g009.jpeg"/>
+                </fig>
+            </sec>
+        </sec>
+        <sec id="s4">
+            <label>4.</label>
+            <title>CONCLUSION</title>
+            <p>The microstructure, phase characterization, and mechanical properties of Cu&#x2013;Al&#x2013;Si alloy deposited by the twin wire WAAM technique was investigated in this study. The following are the conclusions drawn from the study:
+                <list list-type="order">
+                    <list-item>
+                        <label>(1)</label>
+                        <p>The deposited Cu&#x2013;Al&#x2013;Si alloy showed enrichment of different constituent elements within the deposited layers and boundaries of the deposited layers. Formation of intermetallic phases, i.e. CuAl<sub>2</sub> and Mn<sub>5</sub>Si<sub>2</sub> second phase particles were identified.</p>
+                    </list-item>
+                    <list-item>
+                        <label>(2)</label>
+                        <p>Silicon addition improved tensile strength and yield strength also improved hardness due to due to the formation of second phase particles.</p>
+                    </list-item>
+                </list>
+            </p>
+        </sec>
+    </body>
+    <back>
+        <sec sec-type="COI-statement">
+            <title>CONFLICTS OF INTEREST</title>
+            <p>The authors declare they have no conflicts of interest.</p>
+        </sec>
+        <sec>
+            <title>AUTHORS&#x2019; CONTRIBUTION</title>
+            <p>YW is responsible for writing a draft. SK and XC are responsible for writing guidance and experimental guidance. YI is responsible for sample testing. RAS and SJ are responsible for the moisteningness and modification of the paper. XP is responsible for sample production.</p>
+        </sec>
+        <ack>
+            <title>ACKNOWLEDGMENTS</title>
+            <p>This work was sponsored by the National Natural Science Foundation of China under the Grant No. 51975419 and Zhejiang Provincial Natural Science Foundation of China under Grant No. LY20E050027 and Foreign Experts Bureau Project of China under Grant No. QN20200116001.</p>
+        </ack>
+        <ref-list>
+            <title>REFERENCES</title>
+            <ref id="B1">
+                <label>&#x005B;1&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Dong</surname>
+                            <given-names>B</given-names>
+                        </name>
+                        <name>
+                            <surname>Pan</surname>
+                            <given-names>Z</given-names>
+                        </name>
+                        <name>
+                            <surname>Shen</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Ma</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Li</surname>
+                            <given-names>H</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Fabrication of copper-rich Cu-Al alloy using the wire-arc additive manufacturing process</article-title>
+                    <source>Metall Mater Trans B</source>
+                    <year>2017</year>
+                    <volume>48</volume>
+                    <fpage>3143</fpage>
+                    <lpage>51</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s11663-017-1071-0"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B2">
+                <label>&#x005B;2&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Bai</surname>
+                            <given-names>JY</given-names>
+                        </name>
+                        <name>
+                            <surname>Yang</surname>
+                            <given-names>CL</given-names>
+                        </name>
+                        <name>
+                            <surname>Lin</surname>
+                            <given-names>SB</given-names>
+                        </name>
+                        <name>
+                            <surname>Dong</surname>
+                            <given-names>BL</given-names>
+                        </name>
+                        <name>
+                            <surname>Fan</surname>
+                            <given-names>CL</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Mechanical properties of 2219-Al components produced by additive manufacturing with TIG</article-title>
+                    <source>Int J Adv Manuf Technol</source>
+                    <year>2016</year>
+                    <volume>86</volume>
+                    <fpage>479</fpage>
+                    <lpage>85</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00170-015-8168-x"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B3">
+                <label>&#x005B;3&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Wang</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>X</given-names>
+                        </name>
+                        <name>
+                            <surname>Konovalov</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Su</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Siddiquee</surname>
+                            <given-names>AN</given-names>
+                        </name>
+                        <name>
+                            <surname>Gangil</surname>
+                            <given-names>N</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>In-situ wire-feed additive manufacturing of Cu-Al alloy by addition of silicon</article-title>
+                    <source>Appl Surf Sci</source>
+                    <year>2019</year>
+                    <volume>487</volume>
+                    <fpage>1366</fpage>
+                    <lpage>75</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.apsusc.2019.05.068"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B4">
+                <label>&#x005B;4&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Liu</surname>
+                            <given-names>K</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>X</given-names>
+                        </name>
+                        <name>
+                            <surname>Shen</surname>
+                            <given-names>Q</given-names>
+                        </name>
+                        <name>
+                            <surname>Pan</surname>
+                            <given-names>Z</given-names>
+                        </name>
+                        <name>
+                            <surname>Singh</surname>
+                            <given-names>RA</given-names>
+                        </name>
+                        <name>
+                            <surname>Jayalakshmi</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <etal/>
+                    </person-group>
+                    <article-title>Microstructural evolution and mechanical properties of deep cryogenic treated Cu&#x2013;Al&#x2013;Si alloy fabricated by Cold Metal Transfer (CMT) process</article-title>
+                    <source>Mater Charact</source>
+                    <year>2020</year>
+                    <volume>159</volume>
+                    <comment>110011.</comment>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.matchar.2019.110011"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B5">
+                <label>&#x005B;5&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Liu</surname>
+                            <given-names>K</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>X</given-names>
+                        </name>
+                        <name>
+                            <surname>Zhang</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Pan</surname>
+                            <given-names>Z</given-names>
+                        </name>
+                        <name>
+                            <surname>Singh</surname>
+                            <given-names>RA</given-names>
+                        </name>
+                        <name>
+                            <surname>Jayalakshmi</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <etal/>
+                    </person-group>
+                    <article-title>Location dependence of microstructure and mechanical properties of Cu&#x2013;Al alloy fabricated by dual wire CMT</article-title>
+                    <source>Mater Res Express</source>
+                    <year>2019</year>
+                    <volume>6</volume>
+                    <fpage>126567</fpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1088/2053-1591/ab583e"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B6">
+                <label>&#x005B;6&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Cong</surname>
+                            <given-names>B</given-names>
+                        </name>
+                        <name>
+                            <surname>Ding</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Williams</surname>
+                            <given-names>S</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Effect of arc mode in cold metal transfer process on porosity of additively manufactured Al-6.3%Cu alloy</article-title>
+                    <source>Int J Adv Manuf Technol</source>
+                    <year>2015</year>
+                    <volume>76</volume>
+                    <fpage>1593</fpage>
+                    <lpage>606</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00170-014-6346-x"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B7">
+                <label>&#x005B;7&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Cong</surname>
+                            <given-names>B</given-names>
+                        </name>
+                        <name>
+                            <surname>Qi</surname>
+                            <given-names>Z</given-names>
+                        </name>
+                        <name>
+                            <surname>Qi</surname>
+                            <given-names>B</given-names>
+                        </name>
+                        <name>
+                            <surname>Sun</surname>
+                            <given-names>H</given-names>
+                        </name>
+                        <name>
+                            <surname>Zhao</surname>
+                            <given-names>G</given-names>
+                        </name>
+                        <name>
+                            <surname>Ding</surname>
+                            <given-names>J</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>A comparative study of additively manufactured thin wall and block structure with Al-6.3%Cu alloy using cold metal transfer process</article-title>
+                    <source>Appl Sci (Switzerland)</source>
+                    <year>2017</year>
+                    <volume>7</volume>
+                    <fpage>275</fpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/app7030275"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B8">
+                <label>&#x005B;8&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Wang</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>X</given-names>
+                        </name>
+                        <name>
+                            <surname>Konovalov</surname>
+                            <given-names>SV</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Additive manufacturing based on welding arc: a low-cost method</article-title>
+                    <source>J Surf Invest</source>
+                    <year>2017</year>
+                    <volume>11</volume>
+                    <fpage>1317</fpage>
+                    <lpage>28</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1134/S1027451017060210"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B9">
+                <label>&#x005B;9&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Martina</surname>
+                            <given-names>F</given-names>
+                        </name>
+                        <name>
+                            <surname>Mehnen</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Williams</surname>
+                            <given-names>SW</given-names>
+                        </name>
+                        <name>
+                            <surname>Colegrove</surname>
+                            <given-names>P</given-names>
+                        </name>
+                        <name>
+                            <surname>Wang</surname>
+                            <given-names>F</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Investigation of the benefits of plasma deposition for the additive layer manufacture of Ti&#x2013;6Al&#x2013;4V</article-title>
+                    <source>J Mater Process Technol</source>
+                    <year>2012</year>
+                    <volume>212</volume>
+                    <fpage>1377</fpage>
+                    <lpage>86</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jmatprotec.2012.02.002"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B10">
+                <label>&#x005B;10&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Ding</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Shen</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Pan</surname>
+                            <given-names>Z</given-names>
+                        </name>
+                        <name>
+                            <surname>Cuiuri</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Li</surname>
+                            <given-names>H</given-names>
+                        </name>
+                        <name>
+                            <surname>Larkin</surname>
+                            <given-names>N</given-names>
+                        </name>
+                        <etal/>
+                    </person-group>
+                    <article-title>Towards an automated robotic arc-welding-based additive manufacturing system from CAD to finished part</article-title>
+                    <source>Comput Aided Des</source>
+                    <year>2016</year>
+                    <volume>73</volume>
+                    <fpage>66</fpage>
+                    <lpage>75</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.cad.2015.12.003"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B11">
+                <label>&#x005B;11&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Williams</surname>
+                            <given-names>SW</given-names>
+                        </name>
+                        <name>
+                            <surname>Martina</surname>
+                            <given-names>F</given-names>
+                        </name>
+                        <name>
+                            <surname>Addison</surname>
+                            <given-names>AC</given-names>
+                        </name>
+                        <name>
+                            <surname>Ding</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Pardal</surname>
+                            <given-names>G</given-names>
+                        </name>
+                        <name>
+                            <surname>Colegrove</surname>
+                            <given-names>P</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Wire &#x002B; arc additive manufacturing</article-title>
+                    <source>Mater Sci Technol</source>
+                    <year>2016</year>
+                    <volume>32</volume>
+                    <fpage>641</fpage>
+                    <lpage>7</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1179/1743284715Y.0000000073"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B12">
+                <label>&#x005B;12&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Dimat&#x00E9; Castellanos</surname>
+                            <given-names>LM</given-names>
+                        </name>
+                        <name>
+                            <surname>Olaya Fl&#x00F3;rez</surname>
+                            <given-names>JJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Alfonso Orjuela</surname>
+                            <given-names>JE</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Resistencia a la corrosi&#x00F3;n en recubrimientos cu-al producidos con el sistema de proyecci&#x00F3;n t&#x00E9;rmica por llama</article-title>
+                    <source>Ingen Invest</source>
+                    <year>2012</year>
+                    <volume>32</volume>
+                    <fpage>18</fpage>
+                    <lpage>23</lpage>
+                </nlm-citation>
+            </ref>
+            <ref id="B13">
+                <label>&#x005B;13&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Gustmann</surname>
+                            <given-names>T</given-names>
+                        </name>
+                        <name>
+                            <surname>Neves</surname>
+                            <given-names>A</given-names>
+                        </name>
+                        <name>
+                            <surname>K&#x00FC;hn</surname>
+                            <given-names>U</given-names>
+                        </name>
+                        <name>
+                            <surname>Gargarella</surname>
+                            <given-names>P</given-names>
+                        </name>
+                        <name>
+                            <surname>Kiminami</surname>
+                            <given-names>CS</given-names>
+                        </name>
+                        <name>
+                            <surname>Bolfarini</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <etal/>
+                    </person-group>
+                    <article-title>Influence of processing parameters on the fabrication of a Cu-Al-Ni-Mn shape-memory alloy by selective laser melting</article-title>
+                    <source>Addit Manuf</source>
+                    <year>2016</year>
+                    <volume>11</volume>
+                    <fpage>23</fpage>
+                    <lpage>31</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.addma.2016.04.003"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B14">
+                <label>&#x005B;14&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Rohatgi</surname>
+                            <given-names>A</given-names>
+                        </name>
+                        <name>
+                            <surname>Vecchio</surname>
+                            <given-names>KS</given-names>
+                        </name>
+                        <name>
+                            <surname>Gray</surname>
+                            <given-names>GT</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>The influence of stacking fault energy on the mechanical behavior of Cu and Cu-Al alloys: deformation twinning, work hardening, and dynamic recovery</article-title>
+                    <source>Metall Mater Trans A</source>
+                    <year>2001</year>
+                    <volume>32</volume>
+                    <fpage>135</fpage>
+                    <lpage>45</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s11661-001-0109-7"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B15">
+                <label>&#x005B;15&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Rajkovic</surname>
+                            <given-names>V</given-names>
+                        </name>
+                        <name>
+                            <surname>Bozic</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Stasic</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Wang</surname>
+                            <given-names>H</given-names>
+                        </name>
+                        <name>
+                            <surname>Jovanovic</surname>
+                            <given-names>MT</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Processing, characterization and properties of copper-based composites strengthened by low amount of alumina particles</article-title>
+                    <source>Powder Technol</source>
+                    <year>2014</year>
+                    <volume>268</volume>
+                    <fpage>392</fpage>
+                    <lpage>400</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.powtec.2014.08.051"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B16">
+                <label>&#x005B;16&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Li</surname>
+                            <given-names>H</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>W</given-names>
+                        </name>
+                        <name>
+                            <surname>Dong</surname>
+                            <given-names>L</given-names>
+                        </name>
+                        <name>
+                            <surname>Shi</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Liu</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Fu</surname>
+                            <given-names>YQ</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Interfacial bonding mechanism and annealing effect on Cu-Al joint produced by solid-liquid compound casting.</article-title>
+                    <source>J Mater Process Technol</source>
+                    <year>2018</year>
+                    <volume>252</volume>
+                    <fpage>795</fpage>
+                    <lpage>803</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jmatprotec.2017.10.050"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B17">
+                <label>&#x005B;17&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Chan</surname>
+                            <given-names>W</given-names>
+                        </name>
+                        <name>
+                            <surname>Shuhua</surname>
+                            <given-names>L</given-names>
+                        </name>
+                        <name>
+                            <surname>Juntao</surname>
+                            <given-names>Z</given-names>
+                        </name>
+                        <name>
+                            <surname>Yihui</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Qing</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Quantitative analysis of microstructural evolution at Cu/Al solid-liquid bonding interface</article-title>
+                    <source>Rare Metal Mater Eng</source>
+                    <year>2018</year>
+                    <volume>47</volume>
+                    <fpage>1037</fpage>
+                    <lpage>42</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S1875-5372(18)30116-4"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B18">
+                <label>&#x005B;18&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Mishler</surname>
+                            <given-names>M</given-names>
+                        </name>
+                        <name>
+                            <surname>Ouvarov-Bancalero</surname>
+                            <given-names>V</given-names>
+                        </name>
+                        <name>
+                            <surname>Chae</surname>
+                            <given-names>SH</given-names>
+                        </name>
+                        <name>
+                            <surname>Nguyen</surname>
+                            <given-names>L</given-names>
+                        </name>
+                        <name>
+                            <surname>Kim</surname>
+                            <given-names>CU</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Intermetallic compound growth and stress development in Al-Cu diffusion couple</article-title>
+                    <source>J Electron Mater</source>
+                    <year>2018</year>
+                    <volume>47</volume>
+                    <fpage>855</fpage>
+                    <lpage>65</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s11664-017-5877-y"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B19">
+                <label>&#x005B;19&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Lee</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Jeong</surname>
+                            <given-names>H</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Intermetallic formation at interface of Al/Cu clad fabricated by hydrostatic extrusion and its properties</article-title>
+                    <source>J Nanosci Nanotechnol</source>
+                    <year>2015</year>
+                    <volume>15</volume>
+                    <fpage>8589</fpage>
+                    <lpage>92</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1166/jnn.2015.11494"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B20">
+                <label>&#x005B;20&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Xu</surname>
+                            <given-names>H</given-names>
+                        </name>
+                        <name>
+                            <surname>Liu</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Silberschmidt</surname>
+                            <given-names>VV</given-names>
+                        </name>
+                        <name>
+                            <surname>Pramana</surname>
+                            <given-names>SS</given-names>
+                        </name>
+                        <name>
+                            <surname>White</surname>
+                            <given-names>TJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>Z</given-names>
+                        </name>
+                        <etal/>
+                    </person-group>
+                    <article-title>Behavior of aluminum oxide, intermetallics and voids in Cu&#x2013;Al wire bonds</article-title>
+                    <source>Acta Mater</source>
+                    <year>2011</year>
+                    <volume>59</volume>
+                    <fpage>5661</fpage>
+                    <lpage>73</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.actamat.2011.05.041"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B21">
+                <label>&#x005B;21&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Adorno</surname>
+                            <given-names>AT</given-names>
+                        </name>
+                        <name>
+                            <surname>Silva</surname>
+                            <given-names>RAG</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Ageing behavior in the Cu&#x2013;10 wt.%Al and Cu&#x2013;10 wt.%Al&#x2013;4 wt.%Ag alloys</article-title>
+                    <source>J Alloys Compounds</source>
+                    <year>2009</year>
+                    <volume>473</volume>
+                    <fpage>139</fpage>
+                    <lpage>44</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jallcom.2008.05.072"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B22">
+                <label>&#x005B;22&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Kuo HH</surname>
+                            <given-names></given-names>
+                        </name>
+                        <name>
+                            <surname>Wang</surname>
+                            <given-names>WH</given-names>
+                        </name>
+                        <name>
+                            <surname>Hsu</surname>
+                            <given-names>YF</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Microstructural characterization of precipitates in Cu&#x2013;10 wt.%Al&#x2013;0.8 wt.%Be shape-memory alloy</article-title>
+                    <source>Mater Sci Eng A</source>
+                    <year>2006</year>
+                    <volume>430</volume>
+                    <fpage>292</fpage>
+                    <lpage>300</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.msea.2006.05.061"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B23">
+                <label>&#x005B;23&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>An</surname>
+                            <given-names>XH</given-names>
+                        </name>
+                        <name>
+                            <surname>Qu</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Wu</surname>
+                            <given-names>SD</given-names>
+                        </name>
+                        <name>
+                            <surname>Zhang</surname>
+                            <given-names>ZF</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Effects of stacking fault energy on the thermal stability and mechanical properties of nanostructured Cu&#x2013;Al alloys during thermal annealing</article-title>
+                    <source>J Mater Res</source>
+                    <year>2011</year>
+                    <volume>26</volume>
+                    <fpage>407</fpage>
+                    <lpage>15</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1557/jmr.2010.39"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B24">
+                <label>&#x005B;24&#x005D;</label>
+                <nlm-citation publication-type="book">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Lu</surname>
+                            <given-names>JP</given-names>
+                        </name>
+                        <name>
+                            <surname>Li</surname>
+                            <given-names>XH</given-names>
+                        </name>
+                    </person-group>
+                    <source>Metallographic spectrum of processed copper and copper alloys</source>
+                    <year>2010</year>
+                    <publisher-loc>Chang Sha</publisher-loc>
+                    <publisher-name>Central South University Press</publisher-name>
+                    <fpage>12</fpage>
+                    <comment>(in Chinese).</comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B25">
+                <label>&#x005B;25&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Ren</surname>
+                            <given-names>CX</given-names>
+                        </name>
+                        <name>
+                            <surname>Wang</surname>
+                            <given-names>Q</given-names>
+                        </name>
+                        <name>
+                            <surname>Hou</surname>
+                            <given-names>JP</given-names>
+                        </name>
+                        <name>
+                            <surname>Zhang</surname>
+                            <given-names>ZJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Yang</surname>
+                            <given-names>HJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Zhang</surname>
+                            <given-names>ZF</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Exploring the strength and ductility improvement of Cu-Al alloys</article-title>
+                    <source>Mater Sci Eng A</source>
+                    <year>2020</year>
+                    <volume>786</volume>
+                    <comment>139441.</comment>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.msea.2020.139441"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+            <ref id="B26">
+                <label>&#x005B;26&#x005D;</label>
+                <nlm-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Lee</surname>
+                            <given-names>HT</given-names>
+                        </name>
+                        <name>
+                            <surname>Wu</surname>
+                            <given-names>JL</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>The effects of peak temperature and cooling rate on the susceptibility to intergranular corrosion of alloy 690 by laser beam and gas tungsten arc welding</article-title>
+                    <source>Corros Sci</source>
+                    <year>2009</year>
+                    <volume>51</volume>
+                    <fpage>439</fpage>
+                    <lpage>45</lpage>
+                    <comment>
+                        <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.corsci.2009.01.002"/>
+                    </comment>
+                </nlm-citation>
+            </ref>
+        </ref-list>
+    </back>
+</article>

@@ -4,6 +4,7 @@ import com.kjms.xmlparser.Exception.HandleException;
 import com.kjms.xmlparser.Exception.JatsException;
 import com.kjms.xmlparser.mapbuilder.MapBuilder;
 import com.kjms.xmlparser.html.HTMLBuilder;
+import com.kjms.xmlparser.util.CustomEntityResolver;
 import com.kjms.xmlparser.util.Util;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,9 +28,9 @@ public class KryonXMLParser {
 
     public static void main(String[] args){
 
-//        parse("D:\\muthu\\project\\jats-xml-to-html-converter\\xml\\ijssis-2023-0001.xml",
-//                "D:\\muthu\\project\\jats-xml-to-html-converter\\out\\ijssis-2023-0001.html",true);
-        mapParser("D:\\jats-xml-to-html-converter\\xml\\ijssis-2023-0001.xml",true);
+        parse("C:\\Users\\TK-SDK\\Documents\\jobnest\\xml\\ijssis-2023-0001.xml",
+                "C:\\Users\\TK-SDK\\Documents\\jobnest\\out\\ijssis-2023-0001.html",true);
+//        mapParser("C:\\Users\\TK-SDK\\Documents\\jobnest\\xml\\ijssis-2023-0001.xml",true);
     }
 
    public static String parse(String relativeFilePath,String outputFilePath,Boolean enableDebugMode){
@@ -46,6 +47,7 @@ public class KryonXMLParser {
            factory.setNamespaceAware(true);
            factory.setValidating(true);
            DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+            documentBuilder.setEntityResolver(new CustomEntityResolver());
            documentBuilder.setErrorHandler(new JatsException());
            Document document = documentBuilder.parse(inputFile);
            String xlinkNamespaceURI = "http://www.w3.org/1999/xlink";
@@ -68,6 +70,7 @@ public class KryonXMLParser {
             factory.setNamespaceAware(true);
             factory.setValidating(true);
             DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+            documentBuilder.setEntityResolver(new CustomEntityResolver());
             documentBuilder.setErrorHandler(new JatsException());
             Document document = documentBuilder.parse(file);
             String xlinkNamespaceURI = "http://www.w3.org/1999/xlink";
@@ -90,6 +93,7 @@ public class KryonXMLParser {
             factory.setNamespaceAware(true);
             factory.setValidating(true);
             DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+            documentBuilder.setEntityResolver(new CustomEntityResolver());
             documentBuilder.setErrorHandler(new JatsException());
             Document document = documentBuilder.parse(file);
             String xlinkNamespaceURI = "http://www.w3.org/1999/xlink";
