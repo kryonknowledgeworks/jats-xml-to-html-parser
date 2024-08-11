@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.kjms.parser</groupId>
-    <artifactId>kryon-xml-parser</artifactId>
-    <name>kryon-xml-parser</name>
+    <groupId>com.kryonknowledgeworks</groupId>
+    <artifactId>kkw-xml-to-html-parser</artifactId>
+    <name>Kryon Knowledge Works XML to HTML Parser</name>
     <version>1.0</version>
     <packaging>jar</packaging>
 
