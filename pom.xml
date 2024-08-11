@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.kryonknowledgeworks</groupId>
-    <artifactId>kkw-xml-to-html-parser</artifactId>
+    <artifactId>jats2html</artifactId>
     <name>Kryon Knowledge Works XML to HTML Parser</name>
     <version>1.0</version>
     <packaging>jar</packaging>
