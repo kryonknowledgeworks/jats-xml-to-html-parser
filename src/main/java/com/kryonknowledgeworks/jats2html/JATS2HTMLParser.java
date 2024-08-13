@@ -21,17 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class KryonXMLParser {
-
-//    public static String filePath = "";
-
-
-    public static void main(String[] args){
-
-        parse("C:\\Users\\TK-SDK\\Documents\\jobnest\\xml\\ijssis-2023-0001.xml",
-                "C:\\Users\\TK-SDK\\Documents\\jobnest\\out\\ijssis-2023-0001.html",true);
-//        mapParser("C:\\Users\\TK-SDK\\Documents\\jobnest\\xml\\ijssis-2023-0001.xml",true);
-    }
+public class JATS2HTMLParser {
 
    public static String parse(String relativeFilePath,String outputFilePath,Boolean enableDebugMode){
        String html = "";
@@ -127,13 +117,10 @@ public class KryonXMLParser {
         for (int i = 0; i < graphicNodes.getLength(); i++) {
             Element graphicElement = (Element) graphicNodes.item(i);
             String href = graphicElement.getAttributeNS("http://www.w3.org/1999/xlink", "href");
-            if (href != null && !href.isEmpty()) {
+            if (!href.isEmpty()) {
                 hrefs.add(href.replace("/", "\\"));
             }
         }
         return hrefs;
     }
-
-
-
 }

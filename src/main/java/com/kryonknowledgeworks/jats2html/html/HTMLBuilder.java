@@ -1,6 +1,6 @@
 package com.kryonknowledgeworks.jats2html.html;
 
-import com.kryonknowledgeworks.jats2html.KryonXMLParser;
+import com.kryonknowledgeworks.jats2html.JATS2HTMLParser;
 import com.kryonknowledgeworks.jats2html.elements.Article;
 import org.w3c.dom.Document;
 
@@ -21,7 +21,7 @@ public class HTMLBuilder {
     public String buildHTML(String outputPath) throws IOException {
         String doctype = "<!DOCTYPE html>";
         Article article = new Article(document.getDocumentElement());
-        InputStream inputStream = KryonXMLParser.class.getClassLoader().getResourceAsStream("style.css");
+        InputStream inputStream = JATS2HTMLParser.class.getClassLoader().getResourceAsStream("style.css");
 
         Path tempFile = Files.createTempFile("style", ".css");
         Files.copy(inputStream, tempFile, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
@@ -30,7 +30,7 @@ public class HTMLBuilder {
         byte[] bytes = Files.readAllBytes(tempFile);
         String style = new String(bytes, StandardCharsets.UTF_8);
 
-        InputStream scriptStream = KryonXMLParser.class.getClassLoader().getResourceAsStream("script.js");
+        InputStream scriptStream = JATS2HTMLParser.class.getClassLoader().getResourceAsStream("script.js");
 
         Path scriptTempFile = Files.createTempFile("script", ".js");
         Files.copy(scriptStream, scriptTempFile, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
