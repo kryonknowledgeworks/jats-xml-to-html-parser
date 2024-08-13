@@ -1,17 +1,14 @@
 package com.kryonknowledgeworks.jats2html.html;
 
+import com.kryonknowledgeworks.jats2html.KryonXMLParser;
 import com.kryonknowledgeworks.jats2html.elements.Article;
-import com.sun.tools.javac.Main;
 import org.w3c.dom.Document;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class HTMLBuilder {
 
