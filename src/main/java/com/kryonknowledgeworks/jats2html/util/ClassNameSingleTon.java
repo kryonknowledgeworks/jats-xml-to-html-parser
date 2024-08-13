@@ -1,6 +1,6 @@
 package com.kryonknowledgeworks.jats2html.util;
 
-import com.sun.tools.javac.Main;
+import com.kjms.xmlparser.KryonXMLParser;
 import org.w3c.dom.Node;
 
 import java.io.*;
@@ -8,12 +8,14 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.JarURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
+import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 
 public class ClassNameSingleTon {
@@ -51,6 +53,9 @@ public class ClassNameSingleTon {
                 classNames.add(classNameToTag(file));
             }
         }
+
+        System.out.println("classNames");
+        System.out.println(classNames);
 
         return classNames;
     }
@@ -94,28 +99,44 @@ public class ClassNameSingleTon {
     private static List<String> listFilesFromJar(String path) {
         List<String> files = new ArrayList<>();
         try {
-            ClassLoader classLoader = Main.class.getClassLoader();
+            ClassLoader classLoader = KryonXMLParser.class.getClassLoader();
             Enumeration<URL> resources = classLoader.getResources(path);
-
             while (resources.hasMoreElements()) {
                 URL resource = resources.nextElement();
                 String protocol = resource.getProtocol();
-                if (protocol.equals("jar")) {
-                    // If the protocol is jar, the path needs to be parsed differently
-                    String jarPath = resource.getPath();
-                    String filePath = jarPath.substring(jarPath.indexOf("!") + 1);
-                    if (filePath.startsWith("/")) {
-                        // Remove leading slash if present
-                        filePath = filePath.substring(1);
+
+                if ("jar".equals(protocol)) {
+                    // Use JarURLConnection to handle JAR resources
+                    JarURLConnection jarURLConnection = (JarURLConnection) resource.openConnection();
+                    try (JarFile jarFile = jarURLConnection.getJarFile()) {
+                        jarFile.stream()
+                                .filter(entry -> !entry.isDirectory() && entry.getName().startsWith(path))
+                                .forEach(entry -> files.add(entry.getName()));
                     }
-                    files.addAll(listFilesFromJarPath(filePath));
-                } else if (protocol.equals("file")) {
-                    // For file protocol, it can be read directly
-                    files.addAll(listResourceFiles(path, resource));
+                } else if ("file".equals(protocol)) {
+                    // For file protocol, handle resources on the filesystem
+                    files.addAll(listResourceFilesFromFileSystem(path, resource));
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        return files;
+    }
+
+    private static List<String> listResourceFilesFromFileSystem(String path, URL resource) {
+        List<String> files = new ArrayList<>();
+        File directory = new File(resource.getPath());
+
+        if (directory.exists() && directory.isDirectory()) {
+            File[] fileArray = directory.listFiles();
+            if (fileArray != null) {
+                for (File file : fileArray) {
+                    if (file.isFile()) {
+                        files.add(file.getName());
+                    }
+                }
+            }
         }
         return files;
     }
@@ -280,6 +301,8 @@ public class ClassNameSingleTon {
     }
 
     public static String classNameToTag(String className) {
+
+        className = className.replace("com/kjms/xmlparser/elements/", "").replace(".class", "");
 
         StringBuilder result = new StringBuilder();
         result.append(Character.toLowerCase(className.charAt(0))); // Convert the first character to lowercase
