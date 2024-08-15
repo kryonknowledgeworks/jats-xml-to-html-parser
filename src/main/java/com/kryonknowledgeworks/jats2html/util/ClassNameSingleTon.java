@@ -1,6 +1,7 @@
 package com.kryonknowledgeworks.jats2html.util;
 
-import com.kjms.xmlparser.KryonXMLParser;
+import com.kryonknowledgeworks.jats2html.JATS2HTMLParser;
+import com.kryonknowledgeworks.jats2html.constants.ParserConstants;
 import org.w3c.dom.Node;
 
 import java.io.*;
@@ -25,8 +26,8 @@ public class ClassNameSingleTon {
     public List<String> tagNamesMap;
 
     private ClassNameSingleTon() {
-        tagNames = getTagNamesFromFolder(Constants.ELEMENTS_PATH);
-        tagNamesMap = getTagNamesFromFolder(Constants.FRONT_ELEMENTS_PATH);
+        tagNames = getTagNamesFromFolder(ParserConstants.ELEMENTS_PATH);
+        tagNamesMap = getTagNamesFromFolder(ParserConstants.FRONT_ELEMENTS_PATH);
     }
 
     public static synchronized ClassNameSingleTon getInstance() {
@@ -99,7 +100,7 @@ public class ClassNameSingleTon {
     private static List<String> listFilesFromJar(String path) {
         List<String> files = new ArrayList<>();
         try {
-            ClassLoader classLoader = KryonXMLParser.class.getClassLoader();
+            ClassLoader classLoader = JATS2HTMLParser.class.getClassLoader();
             Enumeration<URL> resources = classLoader.getResources(path);
             while (resources.hasMoreElements()) {
                 URL resource = resources.nextElement();
