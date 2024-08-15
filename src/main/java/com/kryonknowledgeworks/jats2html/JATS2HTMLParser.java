@@ -35,16 +35,7 @@ import java.util.Map;
  * <p>The class is designed to be easily extendable and reusable, offering a range
  * of methods to handle various XML parsing tasks with optional debugging support.</p>
  */
-public class KryonXMLParser {
-
-    public static void main(String[] args) {
-        String path = "E:\\Technocryon-freelance\\information\\amns.2021.1.00033\\amns.2021.1.00033.xml";
-        String outputPath = "E:\\Technocryon-freelance\\information\\output";
-
-        String html = parse(path,outputPath,true);
-        System.out.println(html);
-    }
-
+public class JATS2HTMLParser {
 
     /**
      * Parses the input file located at the specified input file path and writes the
