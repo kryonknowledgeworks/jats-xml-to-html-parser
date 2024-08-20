@@ -49,7 +49,7 @@ public class ClassNameSingleTon {
                 }
             }
         } else {
-            List<String> files = listFilesFromJar("com/kjms/xmlparser/elements");
+            List<String> files = listFilesFromJar(ParserConstants.ELEMENT_CLASS_DIR);
             for (String file : files) {
                 classNames.add(classNameToTag(file));
             }
@@ -160,7 +160,7 @@ public class ClassNameSingleTon {
 
     public static Object createInstanceFromClassName(String className, Object... constructorParams)
             throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        Class<?> clazz = Class.forName("com.kjms.xmlparser.elements." + className);
+        Class<?> clazz = Class.forName(ParserConstants.ELEMENT_CLASS_PATH + className);
 
         // Find the constructor with matching parameter types
         Class<?>[] parameterTypes = new Class[constructorParams.length];
@@ -180,7 +180,7 @@ public class ClassNameSingleTon {
 
     public static Object createInstanceFromClassNameForMap(String className, Object... constructorParams)
             throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        Class<?> clazz = Class.forName("com.kjms.xmlparser.front.element." + className);
+        Class<?> clazz = Class.forName(ParserConstants.FRONT_ELEMENT_CLASS_PATH + className);
 
         // Find the constructor with matching parameter types
         Class<?>[] parameterTypes = new Class[constructorParams.length];
@@ -199,7 +199,7 @@ public class ClassNameSingleTon {
 
 
     public static Boolean isImplement(String className) throws ClassNotFoundException {
-        Class<?> clazz = Class.forName("com.kjms.xmlparser.elements." + className);
+        Class<?> clazz = Class.forName(ParserConstants.ELEMENT_CLASS_PATH + className);
 
         try {
             Field field = clazz.getDeclaredField("IMPLEMENT");
@@ -214,7 +214,7 @@ public class ClassNameSingleTon {
     }
 
     public static Boolean isImplementForMap(String className) throws ClassNotFoundException {
-        Class<?> clazz = Class.forName("com.kjms.xmlparser.front.element." + className);
+        Class<?> clazz = Class.forName(ParserConstants.FRONT_ELEMENT_CLASS_PATH + className);
 
         try {
             Field field = clazz.getDeclaredField("IMPLEMENT");
@@ -303,7 +303,7 @@ public class ClassNameSingleTon {
 
     public static String classNameToTag(String className) {
 
-        className = className.replace("com/kjms/xmlparser/elements/", "").replace(".class", "");
+        className = className.replace(ParserConstants.ELEMENT_CLASS_DIR, "").replace(".class", "");
 
         StringBuilder result = new StringBuilder();
         result.append(Character.toLowerCase(className.charAt(0))); // Convert the first character to lowercase

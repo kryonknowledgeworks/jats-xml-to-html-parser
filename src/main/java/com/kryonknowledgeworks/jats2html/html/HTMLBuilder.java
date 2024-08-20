@@ -4,6 +4,7 @@ import com.kryonknowledgeworks.jats2html.JATS2HTMLParser;
 import com.kryonknowledgeworks.jats2html.elements.Article;
 import org.w3c.dom.Document;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -42,12 +43,9 @@ public class HTMLBuilder {
         String html = doctype + "<html><head>" +
                 "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">" +
                 "<style>" + style + "</style></head>" + article.element() + "<script>"+  script +"</script>" + "</html>";
-//        File theDir = new File(outputPath);
-//        FileWriter myWriter = new FileWriter(outputPath);
-//        myWriter.write(html.replaceAll("italic", "i").replaceAll("<italic", "<i").replaceAll("/italic>", "/i>")
-//                .replaceAll("/bold>", "/b>").replaceAll("<bold", "<b").replaceAll("/underline>", "/u>").replaceAll("<underline", "<u")
-//                .replaceAll("<small_cap", "<span class=\"smallcaps\"").replaceAll("/small_cap>", "/span>"));
-//        myWriter.close();
+        FileWriter myWriter = new FileWriter(outputPath);
+        myWriter.write(html);
+        myWriter.close();
 
         return html;
     }
