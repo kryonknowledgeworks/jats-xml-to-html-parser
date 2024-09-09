@@ -1,8 +1,10 @@
 package com.kryonknowledgeworks.jats2html.front.element;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MapBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -52,6 +54,14 @@ public class Article {
 //                            childMap.add(node1.getTextContent());
 
                     }
+                }
+            }
+
+            if (!MapBuilder.XMLmap.isEmpty()){
+                Element e = (Element) node;
+                String  articleType = e.getAttribute("article-type");
+                if (!articleType.isEmpty()){
+                    MapBuilder.XMLmap.put("ArticleType", articleType);
                 }
             }
 
