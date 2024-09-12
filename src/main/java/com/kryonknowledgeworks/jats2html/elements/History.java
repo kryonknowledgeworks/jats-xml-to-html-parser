@@ -12,7 +12,7 @@ import java.util.List;
 
 public class History implements Tag {
 
-    public static Boolean IMPLEMENT = false;
+    public static Boolean IMPLEMENT = true;
 
     public static String ELEMENT_LABEL_FULL = "<history>";
     public static String ELEMENT_LABEL = "history";
@@ -29,6 +29,8 @@ public class History implements Tag {
             elementFilter();
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+
+            this.html += "<h4>History</h4>";
 
             for (Node node1 : nodeList) {
 

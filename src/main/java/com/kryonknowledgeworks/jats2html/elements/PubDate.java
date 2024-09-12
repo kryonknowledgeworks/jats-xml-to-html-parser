@@ -4,6 +4,7 @@ import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class PubDate implements Tag {
 
-    public static Boolean IMPLEMENT = false;
+    public static Boolean IMPLEMENT = true;
 
     public static String ELEMENT_FULL = "<pub-date>";
     public static String ELEMENT = "pub-date";
@@ -29,6 +30,10 @@ public class PubDate implements Tag {
             elementFilter();
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+
+            Element e = (Element) node;
+
+            this.html += "<p> " + e.getAttribute("pub-type") + ":";
 
             for (Node node1 : nodeList) {
 
@@ -48,10 +53,13 @@ public class PubDate implements Tag {
 
             }
 
+
             int lastIndex = this.html.lastIndexOf("-");
             if (lastIndex != -1) {
                 this.html = this.html.substring(0, lastIndex) + this.html.substring(lastIndex + 1);
             }
+
+            this.html += "</p>";
 
 
 

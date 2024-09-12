@@ -7,7 +7,9 @@ import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/article-meta.html
 public class ArticleMeta implements Tag {
@@ -35,6 +37,16 @@ public class ArticleMeta implements Tag {
 
             String doi = "";
 
+            String volume = "";
+
+            String issue = "";
+
+            String fPage = "";
+
+            String lPage = "";
+
+            String allDate = "";
+
             String abstractData = "";
 
             String remaining = "";
@@ -48,7 +60,31 @@ public class ArticleMeta implements Tag {
                         if (node1.getNodeName().equals("article-id")){
                             Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
                             doi = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        } else if(node1.getNodeName().equals("abstract")) {
+                        }else if(node1.getNodeName().equals("title-group")) {
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        }
+                        else if(node1.getNodeName().equals("volume")) {
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            volume = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        }
+                        else if(node1.getNodeName().equals("issue")) {
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            issue = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        }
+                        else if(node1.getNodeName().equals("pub-date")) {
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            allDate += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        }
+                        else if(node1.getNodeName().equals("fpage")) {
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            fPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        }
+                        else if(node1.getNodeName().equals("lpage")) {
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            lPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        }
+                        else if(node1.getNodeName().equals("abstract")) {
                             Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
                             abstractData = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         } else {
@@ -58,12 +94,17 @@ public class ArticleMeta implements Tag {
                     }
                 } else if (!node1.getNodeName().equals("#text")){
 
-                 
+
                     this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
                 }
 
             }
-            this.html = abstractData + "<div class='card'><div class='card-body'>" + remaining + doi + "</div></div>";
+
+            String coverDate = extractCoverDate(allDate);
+
+            String volumeDetails = "<p><span style='color:#ee4823'>Volume " + volume + ", Issue " + issue + "</span>, " + coverDate + ", Pages " + fPage + "-" + lPage  + "  </p>";
+
+            this.html += volumeDetails + abstractData + "<div class='card'><div class='card-body'>" + remaining + doi + "</div></div>";
 
         } catch (Exception e) {
             HandleException.processException(e);
@@ -85,5 +126,64 @@ public class ArticleMeta implements Tag {
     @Override
     public Boolean isChildAvailable() {
         return this.node.hasChildNodes();
+    }
+
+    private static String extractCoverDate(String html) {
+        String startTag = "<p> cover-date:";
+        int startIndex = html.indexOf(startTag);
+
+        if (startIndex == -1) {
+            return null;  // cover-date not found
+        }
+
+        // Move the start index to the end of the "cover-date" label
+        startIndex += startTag.length();
+
+        // Find the end of the <p> tag
+        int endIndex = html.indexOf("</p>", startIndex);
+        if (endIndex == -1) {
+            return null;  // closing </p> not found
+        }
+
+        // Extract the content within <span> tags and format it
+        String content = html.substring(startIndex, endIndex);
+
+        // Remove all the <span> tags and other HTML tags
+        content = content.replaceAll("<span>", "").replaceAll("</span>", "").trim();
+
+        String[] dateParts = content.split("-");
+        if (dateParts.length != 3) {
+            return null;  // Invalid date format
+        }
+
+        // Extract the month and year
+        String month = dateParts[1].trim();
+        String year = dateParts[2].trim();
+
+        // Convert the month number to the month name
+        String monthName = getMonthName(month);
+
+        // Return the formatted cover-date (e.g., "March 2022")
+        return monthName + " " + year;
+    }
+
+    private static String getMonthName(String monthNumber) {
+        // Map of month numbers to month names
+        Map<String, String> monthMap = new HashMap<>();
+        monthMap.put("01", "January");
+        monthMap.put("02", "February");
+        monthMap.put("03", "March");
+        monthMap.put("04", "April");
+        monthMap.put("05", "May");
+        monthMap.put("06", "June");
+        monthMap.put("07", "July");
+        monthMap.put("08", "August");
+        monthMap.put("09", "September");
+        monthMap.put("10", "October");
+        monthMap.put("11", "November");
+        monthMap.put("12", "December");
+
+        // Return the corresponding month name
+        return monthMap.getOrDefault(monthNumber, "Unknown Month");
     }
 }
