@@ -13,7 +13,7 @@ import java.util.List;
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/lpage.html
 public class Lpage implements Tag {
 
-    public static Boolean IMPLEMENT = false;
+    public static Boolean IMPLEMENT = true;
 
     public static String ELEMENT_LPAGE_FULL = "<lpage>";
     public static String ELEMENT_LPAGE = "lpage";

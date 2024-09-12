@@ -13,7 +13,7 @@ import java.util.List;
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/fpage.html
 public class Fpage implements Tag    {
 
-    public static Boolean IMPLEMENT = false;
+    public static Boolean IMPLEMENT = true;
 
     public static String ELEMENT_FPAGE_FULL = "<fpage>";
     public static String ELEMENT_FPAGE = "fpage";

@@ -27,7 +27,6 @@ public class HTMLBuilder {
         Path tempFile = Files.createTempFile("style", ".css");
         Files.copy(inputStream, tempFile, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 
-        // Read the content of the file into a string
         byte[] bytes = Files.readAllBytes(tempFile);
         String style = new String(bytes, StandardCharsets.UTF_8);
 
@@ -36,7 +35,6 @@ public class HTMLBuilder {
         Path scriptTempFile = Files.createTempFile("script", ".js");
         Files.copy(scriptStream, scriptTempFile, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 
-        // Read the content of the file into a string
         byte[] scriptBytes = Files.readAllBytes(scriptTempFile);
         String script = new String(scriptBytes, StandardCharsets.UTF_8);
 

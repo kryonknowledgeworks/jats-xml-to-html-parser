@@ -10,7 +10,7 @@ import java.util.List;
 
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/volume.html
 public class Volume implements Tag {
-    public static Boolean IMPLEMENT = false;
+    public static Boolean IMPLEMENT = true;
     public static String ELEMENT_VOLUME_FULL = "<volume>";
     public static String ELEMENT_VOLUME = "volume";
 

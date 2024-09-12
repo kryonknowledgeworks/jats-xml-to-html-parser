@@ -4,6 +4,7 @@ import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -30,7 +31,11 @@ public class Date implements Tag {
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            for (Node node1 : nodeList) {
+            Element e = (Element) node;
+
+            this.html += "<p> <b>" + e.getAttribute("date-type") + "</b> :";
+
+            for (Node node1 : nodeList)     {
 
                 if (tagNames.contains(node1.getNodeName())) {
 
@@ -39,6 +44,7 @@ public class Date implements Tag {
 
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
                         this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        this.html += "-";
                     }
                 } else if (!node1.getNodeName().equals("#text")){
 
@@ -46,6 +52,14 @@ public class Date implements Tag {
                 }
 
             }
+
+
+            int lastIndex = this.html.lastIndexOf("-");
+            if (lastIndex != -1) {
+                this.html = this.html.substring(0, lastIndex) + this.html.substring(lastIndex + 1);
+            }
+
+            this.html += "</p>";
 
         } catch (Exception e) {
             HandleException.processException(e);
