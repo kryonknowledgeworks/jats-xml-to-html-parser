@@ -27,7 +27,7 @@ public class ClassNameSingleTon {
 
     private ClassNameSingleTon() {
         tagNames = getTagNamesFromFolder(ParserConstants.ELEMENTS_PATH);
-        tagNamesMap = getTagNamesFromFolder(ParserConstants.FRONT_ELEMENTS_PATH);
+        tagNamesMap = getFrontTagNamesFromFolder(ParserConstants.FRONT_ELEMENTS_PATH);
     }
 
     public static synchronized ClassNameSingleTon getInstance() {
@@ -52,6 +52,30 @@ public class ClassNameSingleTon {
             List<String> files = listFilesFromJar(ParserConstants.ELEMENT_CLASS_DIR);
             for (String file : files) {
                 classNames.add(classNameToTag(file));
+            }
+        }
+
+        System.out.println("classNames");
+        System.out.println(classNames);
+
+        return classNames;
+    }
+
+    private List<String> getFrontTagNamesFromFolder(String folderPath) {
+        List<String> classNames = new ArrayList<>();
+        File folder = new File(folderPath);
+
+        if (folder.exists() && folder.isDirectory()) {
+            List<File> files = listFiles(folder);
+            for (File file : files) {
+                if (file.getName().endsWith(".java")) {
+                    classNames.add(classNameToTag(file.getName().replace(".java", "")));
+                }
+            }
+        } else {
+            List<String> files = listFilesFromJar(ParserConstants.FRONT_ELEMENT_CLASS_DIR);
+            for (String file : files) {
+                classNames.add(frontClassNameToTag(file));
             }
         }
 
@@ -304,6 +328,26 @@ public class ClassNameSingleTon {
     public static String classNameToTag(String className) {
 
         className = className.replace(ParserConstants.ELEMENT_CLASS_DIR, "").replace(".class", "");
+
+        StringBuilder result = new StringBuilder();
+        result.append(Character.toLowerCase(className.charAt(0))); // Convert the first character to lowercase
+
+        for (int i = 1; i < className.length(); i++) {
+            char c = className.charAt(i);
+            if (Character.isUpperCase(c)) {
+                result.append('-'); // Add hyphen before the uppercase letter
+                result.append(Character.toLowerCase(c)); // Convert the uppercase letter to lowercase
+            } else {
+                result.append(c);
+            }
+        }
+
+        return result.toString();
+    }
+
+    public static String frontClassNameToTag(String className) {
+
+        className = className.replace(ParserConstants.FRONT_ELEMENT_CLASS_DIR, "").replace(".class", "");
 
         StringBuilder result = new StringBuilder();
         result.append(Character.toLowerCase(className.charAt(0))); // Convert the first character to lowercase
