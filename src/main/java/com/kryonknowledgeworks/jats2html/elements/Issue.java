@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Issue implements Tag {
 
-    public static Boolean IMPLEMENT = false;
+    public static Boolean IMPLEMENT = true;
 
     public static String ELEMENT_FULL = "<issue>";
     public static String ELEMENT= "issue";
