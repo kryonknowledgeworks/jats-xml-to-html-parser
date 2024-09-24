@@ -44,6 +44,10 @@ public class Abstract {
                             Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassNameForMap(className, node1);
                             textContent += ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML").get("Italic");
                         }
+                        if (Boolean.TRUE.equals(ClassNameSingleTon.isImplementForMap(className)) && !node1.getNodeName().equals("#text") && className.equals("Bold")) {
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassNameForMap(className, node1);
+                            textContent += ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML").get("Bold");
+                        }
 
                     }else{
 
