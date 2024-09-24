@@ -48,6 +48,9 @@ public class JATS2HTMLParser {
      *                        (true for enabling debug mode, false otherwise)
      * @return a string message indicating the result of the parsing process
      */
+
+
+
     public static String parse(String inputFilePath, String outputFilePath, Boolean enableDebugMode) {
         try {
             System.setProperty("file.encoding", "UTF-8");
@@ -154,5 +157,10 @@ public class JATS2HTMLParser {
             }
         }
         return hRefs;
+    }
+
+    public static void main(String[] args)
+    {
+        System.out.println("Abstract "+loadMetaDataFromXml("D:\\AADNIC-2019-KRYON\\XML\\AADNIC-2019-145.xml",true).get("Abstract"));
     }
 }
