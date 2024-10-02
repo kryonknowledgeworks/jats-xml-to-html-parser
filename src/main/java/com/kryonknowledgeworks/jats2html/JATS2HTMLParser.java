@@ -161,6 +161,6 @@ public class JATS2HTMLParser {
 
     public static void main(String[] args)
     {
-        System.out.println("Abstract "+loadMetaDataFromXml("D:\\AADNIC-2019-KRYON\\XML\\AADNIC-2019-145.xml",true).get("Abstract"));
+        System.out.println(loadMetaDataFromXml("D:\\amns.2021.1.00008\\amns.2021.1.00008\\amns.2021.1.00008.xml",true));
     }
 }
