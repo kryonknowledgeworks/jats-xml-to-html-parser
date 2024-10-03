@@ -56,7 +56,7 @@ public class Issue {
                     if (node1.getNodeName().equals("#text")   && !node1.getTextContent().isBlank()){
                         textContent = node1.getTextContent();
 
-                        map.put(node1.getParentNode().getNodeName(),textContent);
+//                        map.put(node1.getParentNode().getNodeName(),textContent);
                     }
                 }
             }

@@ -3,6 +3,7 @@ package com.kryonknowledgeworks.jats2html.front.element;
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -11,7 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Year {
+
+public class ElementCitation {
     public static Boolean IMPLEMENT = true;
 
     String parentKeyName = this.getClass().getSimpleName();
@@ -24,7 +26,7 @@ public class Year {
 
     Map<String,Object> map = new HashMap<>();
 
-    public Year(Node node){
+    public ElementCitation(Node node){
         try{
             this.node = node;
 
@@ -51,10 +53,14 @@ public class Year {
                 }
             }
 
+            Element e = (Element) node;
+            String  publicationType = e.getAttribute("publication-type");
+
             if (childMap.size() > 0 && textContent == ""){
-                map.put(parentKeyName,childMap);
+
+                map.put(publicationType,childMap);
             }else if(textContent.length() > 0){
-                map.put(parentKeyName,textContent);
+                map.put(publicationType,textContent);
             }
 
         }catch (Exception e){
