@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Italic {
+public class PublisherLoc {
     public static Boolean IMPLEMENT = true;
 
     String parentKeyName = this.getClass().getSimpleName();
@@ -25,42 +25,30 @@ public class Italic {
 
     Map<String,Object> map = new HashMap<>();
 
-    public Italic(Node node){
+    public PublisherLoc(Node node){
         try{
             this.node = node;
-            nodeList = Util.getChildNode(node);
 
+
+            nodeList = Util.getChildNode(node);
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNamesMap;
             List<Object> childMap = new ArrayList<>();
             String textContent = "";
 
-
-
-            for (Node node1 : nodeList){
-
-
+            for (Node node1 : nodeList) {
                 if (tagNames.contains(node1.getNodeName())) {
-
-
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplementForMap(className)) && !node1.getNodeName().equals("#text")) {
-
+                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplementForMap(className))) {
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassNameForMap(className, node1);
                         childMap.add(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
                     }
-
                 }else{
-
-                    if (node1.getNodeName().equals("#text")   && !node1.getTextContent().isBlank()){
-                        textContent = "<i>" + node1.getTextContent() + "</i>";
-
-//                        map.put(node1.getParentNode().getNodeName(),textContent);
+                    if (node1.getNodeType() == Node.TEXT_NODE  && !node1.getTextContent().isBlank()){
+                        textContent = node1.getTextContent();
                     }
                 }
             }
-
 
 
             if (childMap.size() > 0 && textContent == ""){
@@ -68,6 +56,7 @@ public class Italic {
             }else if(textContent.length() > 0){
                 map.put(parentKeyName,textContent);
             }
+
 
         }catch (Exception e){
             HandleException.processException(e);
