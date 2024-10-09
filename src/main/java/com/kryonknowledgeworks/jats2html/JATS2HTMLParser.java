@@ -158,9 +158,4 @@ public class JATS2HTMLParser {
         }
         return hRefs;
     }
-
-    public static void main(String[] args) {
-        System.out.println( parse("D:\\AADNIC-2019-KRYON\\XML\\AADNIC-2019-120.xml","D:\\AADNIC-2019-KRYON\\XML",false));
-        System.out.println( loadMetaDataFromXml("D:\\AADNIC-2019-KRYON\\XML\\AADNIC-2019-120.xml",true));
-    }
 }
