@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Year {
+
+public class PublisherLoc {
     public static Boolean IMPLEMENT = true;
 
     String parentKeyName = this.getClass().getSimpleName();
@@ -24,7 +25,7 @@ public class Year {
 
     Map<String,Object> map = new HashMap<>();
 
-    public Year(Node node){
+    public PublisherLoc(Node node){
         try{
             this.node = node;
 
@@ -35,27 +36,27 @@ public class Year {
             List<Object> childMap = new ArrayList<>();
             String textContent = "";
 
-
             for (Node node1 : nodeList) {
-                if (tagNames.contains(node1.getNodeName()) && !node1.getNodeName().equals("#text")) {
+                if (tagNames.contains(node1.getNodeName())) {
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplementForMap(className)) && !node1.getNodeName().equals("#text")) {
+                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplementForMap(className))) {
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassNameForMap(className, node1);
                         childMap.add(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
                     }
                 }else{
-                    if (node1.getNodeName().equals("#text")  && !node1.getTextContent().isBlank()){
+                    if (node1.getNodeType() == Node.TEXT_NODE  && !node1.getTextContent().isBlank()){
                         textContent = node1.getTextContent();
-//                        childMap.add(node1.getTextContent());
                     }
                 }
             }
+
 
             if (childMap.size() > 0 && textContent == ""){
                 map.put(parentKeyName,childMap);
             }else if(textContent.length() > 0){
                 map.put(parentKeyName,textContent);
             }
+
 
         }catch (Exception e){
             HandleException.processException(e);

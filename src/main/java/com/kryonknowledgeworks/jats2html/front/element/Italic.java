@@ -56,7 +56,7 @@ public class Italic {
                     if (node1.getNodeName().equals("#text")   && !node1.getTextContent().isBlank()){
                         textContent = "<i>" + node1.getTextContent() + "</i>";
 
-                        map.put(node1.getParentNode().getNodeName(),textContent);
+//                        map.put(node1.getParentNode().getNodeName(),textContent);
                     }
                 }
             }

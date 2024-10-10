@@ -65,6 +65,12 @@ public class Article {
                 }
             }
 
+            for (Object child : childMap){
+                if (child instanceof Map<?,?> && ((Map<?, ?>) child).containsKey("Back")){
+                    MapBuilder.XMLmap.put("Back",((Map<?, ?>) child).get("Back"));
+                }
+            }
+
             if (childMap.size() > 0 && textContent == ""){
                 map.put(parentKeyName,childMap);
             }else if(textContent.length() > 0){
