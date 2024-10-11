@@ -74,6 +74,8 @@ public class Title implements Tag {
                 this.html+= htmlTagBinder("h3", Util.getHtmlEscapeData(node.getTextContent()));
             }else if(node.getParentNode().getNodeName().equals("ack")){
                 this.html+= htmlTagBinder("h3", Util.getHtmlEscapeData(node.getTextContent()));
+            }else if(node.getParentNode().getNodeName().equals("caption") && node.getParentNode().getParentNode().getNodeName().equals("fig")){
+                this.html+=Util.getHtmlEscapeData(node.getTextContent());
             }else {
                 this.html += htmlTagBinder(HTML_TAG, node.getFirstChild().getNodeValue());
             }
