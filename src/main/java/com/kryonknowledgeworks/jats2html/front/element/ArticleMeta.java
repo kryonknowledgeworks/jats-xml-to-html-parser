@@ -68,9 +68,9 @@ public class ArticleMeta {
                       Map toGetMap = (Map) childMap.get(0);
 
                       if (toGetMap.get(ClassNameSingleTon.tagToClassName(nodeI)) != null){
-                          MapBuilder.XMLmap.put(ClassNameSingleTon.tagToClassName(nodeI),toGetMap.get(ClassNameSingleTon.tagToClassName(nodeI)));
+                          map.put(ClassNameSingleTon.tagToClassName(nodeI),toGetMap.get(ClassNameSingleTon.tagToClassName(nodeI)));
                       }else{
-                          MapBuilder.XMLmap.put(ClassNameSingleTon.tagToClassName(nodeI),childMap);
+                          map.put(ClassNameSingleTon.tagToClassName(nodeI),childMap);
                       }
                   }
             }
