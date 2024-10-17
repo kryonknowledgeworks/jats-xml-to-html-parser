@@ -45,36 +45,23 @@ public class Article {
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplementForMap(className)) && !node1.getNodeName().equals("#text")) {
 
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassNameForMap(className, node1);
-                        childMap.add(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
+                        map.putAll(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
                     }
                 }else{
                     if (node1.getNodeName().equals("#text") && !node1.getTextContent().isBlank()){
 
                         textContent = node1.getTextContent();
-//                            childMap.add(node1.getTextContent());
 
                     }
                 }
             }
 
-            if (!MapBuilder.XMLmap.isEmpty()){
+            if (!map.isEmpty()){
                 Element e = (Element) node;
                 String  articleType = e.getAttribute("article-type");
                 if (!articleType.isEmpty()){
-                    MapBuilder.XMLmap.put("ArticleType", articleType);
+                    map.put("ArticleType", articleType);
                 }
-            }
-
-            for (Object child : childMap){
-                if (child instanceof Map<?,?> && ((Map<?, ?>) child).containsKey("Back")){
-                    MapBuilder.XMLmap.put("Back",((Map<?, ?>) child).get("Back"));
-                }
-            }
-
-            if (childMap.size() > 0 && textContent == ""){
-                map.put(parentKeyName,childMap);
-            }else if(textContent.length() > 0){
-                map.put(parentKeyName,textContent);
             }
 
             }catch (Exception e){

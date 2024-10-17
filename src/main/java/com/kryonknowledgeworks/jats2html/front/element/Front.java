@@ -40,21 +40,15 @@ public class Front {
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplementForMap(className)) && !node1.getNodeName().equals("#text")) {
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassNameForMap(className, node1);
-                        childMap.add(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
+                        map.putAll(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
                     }
                 }else{
                     if (node1.getNodeName().equals("#text")  && !node1.getTextContent().isBlank()){
                         textContent = node1.getTextContent();
-//                        childMap.add(node1.getTextContent());
                     }
                 }
             }
 
-            if (childMap.size() > 0 && textContent == ""){
-                map.put(parentKeyName,childMap);
-            }else if(textContent.length() > 0){
-                map.put(parentKeyName,textContent);
-            }
 
         }catch (Exception e){
             HandleException.processException(e);
