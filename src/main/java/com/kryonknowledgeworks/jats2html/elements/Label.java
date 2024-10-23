@@ -51,7 +51,7 @@ public class Label implements Tag {
             if (node.getParentNode().getNodeName().equals("fig") || node.getParentNode().getNodeName().equals("table-wrap")) {
                 this.html += "<span class='label'>" + node.getTextContent() + " - " + " </span>";
             } else {
-                this.html += "<span class='label'>" + node.getTextContent() + "</span>";
+                this.html += "<span class='label'>" + node.getTextContent() + (node.getTextContent().trim().isEmpty() ? "" : ".") + "</span>";
             }
 
 

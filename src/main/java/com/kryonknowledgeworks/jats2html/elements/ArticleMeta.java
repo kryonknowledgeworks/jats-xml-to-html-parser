@@ -102,7 +102,33 @@ public class ArticleMeta implements Tag {
 
             String coverDate = extractCoverDate(allDate);
 
-            String volumeDetails = "<p><span style='color:#ee4823'>Volume " + volume + ", Issue " + issue + "</span>, " + coverDate + ", Pages " + fPage + "-" + lPage  + "  </p>";
+            StringBuilder volumeDetails = new StringBuilder();
+
+            volumeDetails.append("<p><span style='color:#ee4823'>");
+
+            if (volume != null){
+
+                volumeDetails.append("Volume ").append(volume);
+            }
+
+            if (issue != null){
+
+                volumeDetails.append(", Issue ").append(issue);
+            }
+
+            volumeDetails.append("</span>");
+
+            if (coverDate != null){
+
+                volumeDetails.append(", ").append(coverDate);
+            }
+
+            if (fPage != null && lPage != null){
+
+                volumeDetails.append(", Pages ").append(fPage).append("-").append(lPage);
+            }
+
+            volumeDetails.append("  </p>");
 
             this.html += volumeDetails + abstractData + "<div class='card'><div class='card-body'>" + remaining + doi + "</div></div>";
 
