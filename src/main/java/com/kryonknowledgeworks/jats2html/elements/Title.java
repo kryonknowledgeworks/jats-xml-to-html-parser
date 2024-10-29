@@ -65,7 +65,7 @@ public class Title implements Tag {
             Label label = new Label(Util.getCurrentNode(Util.getChildNode(node.getParentNode()), "label"));
 
             if (node.getParentNode().getNodeName().equals("sec")){
-                this.html+= htmlTagBinder("h4", label.element()+ (label.element().contains(".") ? "" : ".") + " " + Util.getHtmlEscapeData(node.getTextContent()));
+                this.html+= htmlTagBinder("h4", label.element()+ " " + Util.getHtmlEscapeData(node.getTextContent()));
             } else if(node.getParentNode().getNodeName().equals("abstract")){
                 this.html+= htmlTagBinder("h4", Util.getHtmlEscapeData(node.getTextContent()));
             }else if(node.getParentNode().getNodeName().equals("kwd-group")){

@@ -71,7 +71,7 @@ public class Fig implements Tag {
 
             this.html += "</div>";
 
-            this.html = this.html.replace("data-name=''", "data-name='" + graphicName.split("-")[0].replace("<span class='label'>", "").trim() + "'");
+            this.html = this.html.replace("data-name=''", "data-name='" + Util.getHtmlEscapeData(graphicName.split("-")[0].replace("<span class='label'>", "").replace("<span>", "").replace("</span>","").trim()) + "'");
 
         } catch (Exception e) {
             HandleException.processException(e);
