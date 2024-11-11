@@ -158,4 +158,9 @@ public class JATS2HTMLParser {
         }
         return hRefs;
     }
+
+    public static void main(String[] args) {
+        Map<String, Object> mapAff = loadMetaDataFromXml("D:\\amns.2021.2.00044.xml",false);
+        Map<String, Object> mapAffq = mapAff;
+    }
 }
