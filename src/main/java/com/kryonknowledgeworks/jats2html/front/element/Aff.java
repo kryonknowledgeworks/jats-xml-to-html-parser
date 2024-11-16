@@ -54,8 +54,12 @@ public class Aff {
                     }
                 }else{
                     if (node1.getNodeName().equals("#text")  && !node1.getTextContent().isBlank()){
-                        textContent = node1.getTextContent();
-//                        childMap.add(node1.getTextContent());
+//                        textContent = node1.getTextContent();
+                        if(node1.getTextContent().trim().length()>1){
+                            Map<String,String> address = new HashMap<>();
+                            address.put("singleLineAddress",node1.getTextContent());
+                            childMap.add(address);
+                        }
                     }
                 }
             }
