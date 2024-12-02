@@ -37,6 +37,7 @@ public class Contrib {
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNamesMap;
             String textContent = "";
             List childMap =  new ArrayList();
+            List<String> aff = new ArrayList<>();
 
             for (Node node1 : nodeList) {
                 if (tagNames.contains(node1.getNodeName()) && !node1.getNodeName().equals("#text")) {
@@ -45,7 +46,14 @@ public class Contrib {
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassNameForMap(className, node1);
                         Element element = (Element) node1.getParentNode();
                         parentKeyName = (element.getAttribute("corresp").equals("yes"))?"Corresp":"Author";
-                        childMap.add(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
+                        if (node1.getNodeName().equals("xref")){
+                            Element e = (Element) node1;
+                            if(e.getAttribute("ref-type").equals("aff") && e.hasAttribute("rid")){
+                                aff.add(e.getAttribute("rid"));
+                            }
+                        }else{
+                            childMap.add(ClassNameSingleTon.invokeMethodForMap(instanceFromClassName, "getMapXML"));
+                        }
                     }
                 }else{
                     if (!node1.getTextContent().isBlank()){
@@ -58,6 +66,12 @@ public class Contrib {
 
 //            map.put(parentKeyName,childMap);
 
+
+            if(!aff.isEmpty()){
+                Map<String,List<String>> affList = new HashMap<>();
+                affList.put("aff",aff);
+                childMap.add(affList);
+            }
 
             if (childMap.size() > 0 && textContent == ""){
                 map.put(parentKeyName,childMap);
