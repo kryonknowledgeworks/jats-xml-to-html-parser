@@ -30,7 +30,7 @@ public class History implements Tag {
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            this.html += "<h4>History</h4>";
+            this.html += "<div class='mb-3' ><h4>History</h4>";
 
             for (Node node1 : nodeList) {
 
@@ -48,6 +48,8 @@ public class History implements Tag {
                 }
 
             }
+
+            this.html += "</div>";
 
         } catch (Exception e) {
             HandleException.processException(e);

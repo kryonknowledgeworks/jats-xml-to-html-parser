@@ -9,7 +9,7 @@ body {
 }
 
 .card{
- background-color: #EAEBEE;
+ background-color: #EAEBEE !important;
 }
 
 p{
@@ -279,6 +279,10 @@ div.formula span.label {
 .tableWrapFoot span::before{
     content : " ";
     padding-right:5px;
+}
+
+.historyPTag{
+margin-bottom: 0px;
 }
 
 /*.bg-hr{*/

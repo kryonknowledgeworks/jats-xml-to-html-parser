@@ -28,7 +28,7 @@ public class LicenseP implements Tag {
             this.node = node;
             elementFilter();
 
-            this.html += "<p>";
+            this.html += "<div>";
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -84,7 +84,7 @@ public class LicenseP implements Tag {
             }
 
             if (!node.getParentNode().getNodeName().equals("fig") && !node.getParentNode().getNodeName().equals("caption") && !node.getParentNode().getNodeName().equals("list-item")){
-                this.html += "</p>";
+                this.html += "</div>";
             }
 
         } catch (Exception e) {

@@ -12,10 +12,7 @@ import java.lang.reflect.Method;
 import java.net.JarURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 
@@ -386,5 +383,33 @@ public class ClassNameSingleTon {
         }
 
         return result.toString();
+    }
+    public static String getMonthName(String monthNumber) {
+        // Map of month numbers to month names
+        Map<String, String> monthMap = new HashMap<>();
+        monthMap.put("01", "January");
+        monthMap.put("02", "February");
+        monthMap.put("03", "March");
+        monthMap.put("04", "April");
+        monthMap.put("05", "May");
+        monthMap.put("06", "June");
+        monthMap.put("07", "July");
+        monthMap.put("08", "August");
+        monthMap.put("09", "September");
+        monthMap.put("10", "October");
+        monthMap.put("11", "November");
+        monthMap.put("12", "December");
+
+        // Return the corresponding month name
+        return monthMap.getOrDefault(monthNumber, "Unknown Month");
+    }
+
+    public static String capitalizeFirstLetter(String input) {
+        if (input == null || input.isEmpty()) {
+            return input; // Return the original string if it's null or empty
+        }
+
+        // Capitalize the first letter and append the rest of the string
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 }

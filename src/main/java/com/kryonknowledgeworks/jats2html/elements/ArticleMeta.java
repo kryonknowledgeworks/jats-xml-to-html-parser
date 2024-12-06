@@ -187,29 +187,10 @@ public class ArticleMeta implements Tag {
         String year = dateParts[2].trim();
 
         // Convert the month number to the month name
-        String monthName = getMonthName(month);
+        String monthName = ClassNameSingleTon.getMonthName(month);
 
         // Return the formatted cover-date (e.g., "March 2022")
         return monthName + " " + year;
     }
 
-    private static String getMonthName(String monthNumber) {
-        // Map of month numbers to month names
-        Map<String, String> monthMap = new HashMap<>();
-        monthMap.put("01", "January");
-        monthMap.put("02", "February");
-        monthMap.put("03", "March");
-        monthMap.put("04", "April");
-        monthMap.put("05", "May");
-        monthMap.put("06", "June");
-        monthMap.put("07", "July");
-        monthMap.put("08", "August");
-        monthMap.put("09", "September");
-        monthMap.put("10", "October");
-        monthMap.put("11", "November");
-        monthMap.put("12", "December");
-
-        // Return the corresponding month name
-        return monthMap.getOrDefault(monthNumber, "Unknown Month");
-    }
 }
