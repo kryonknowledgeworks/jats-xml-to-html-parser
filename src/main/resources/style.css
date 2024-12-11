@@ -285,6 +285,12 @@ div.formula span.label {
 margin-bottom: 0px;
 }
 
+.sup-span a{
+    color:black;
+    text-decoration: none;
+}
+
+
 /*.bg-hr{*/
 /*    height:1.3px;*/
 /*    border-width:0;*/

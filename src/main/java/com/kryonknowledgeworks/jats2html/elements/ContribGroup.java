@@ -50,10 +50,10 @@ public class ContribGroup implements Tag {
 
                             String type = node1.getAttributes().getNamedItem("contrib-type").getNodeValue();
 
-                            if (!map.containsKey(type)){
+                             if (!map.containsKey(type)){
                                 map.put(type, element);
                             } else {
-                                map.put(type, map.get(type) + element);
+                                map.put(type, map.get(type) + ", " +element);
                             }
 
                             Email email = new Email(node1);

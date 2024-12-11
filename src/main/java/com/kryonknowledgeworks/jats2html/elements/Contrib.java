@@ -28,6 +28,16 @@ public class Contrib implements Tag {
 
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
+        String lastXrefNode = null;
+
+        for (int i = 0; i < nodeList.size(); i++) {
+            Node nodec = nodeList.get(i);
+            if ("xref".equals(nodec.getNodeName())) {
+                lastXrefNode =  nodec.getAttributes().getNamedItem("rid").getNodeValue();
+            }
+        }
+
+
         for (Node node1 : nodeList) {
 
             if (tagNames.contains(node1.getNodeName())) {
@@ -35,7 +45,11 @@ public class Contrib implements Tag {
                 String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
                     Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    if ("xref".equals(node1.getNodeName()) &&  node1.getAttributes().getNamedItem("rid").getNodeValue().equals(lastXrefNode)) {
+                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element").replaceFirst(",(?!.*,)", "");;
+                    }else{
+                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
                 }
             } else if (!node1.getNodeName().equals("#text")){
 

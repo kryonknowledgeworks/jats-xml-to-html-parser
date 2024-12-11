@@ -49,7 +49,7 @@ public class Name implements Tag {
                 }
         }
 
-        this.html += " ,</span>";
+        this.html += "</span>";
 
     }
 

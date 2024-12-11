@@ -11,8 +11,7 @@ import org.w3c.dom.NodeList;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.kryonknowledgeworks.jats2html.util.Util.elementFilter;
-import static com.kryonknowledgeworks.jats2html.util.Util.htmlTagBinder;
+import static com.kryonknowledgeworks.jats2html.util.Util.*;
 
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/xref.html
 public class Xref implements Tag {
@@ -61,7 +60,7 @@ public class Xref implements Tag {
                 if(ridNode!=null) {
                     rid = node.getAttributes().getNamedItem("rid").getNodeValue();
                     rid=rid.substring(rid.length() - 1);
-                    this.html += htmlTagBinder(Sub.HTML_TAG, rid + ",");
+                    this.html += "<sup class='sup-span' >"+htmlTagBinderWithId("a", "href","#aff_@_"+rid,rid + ",")+"</sup>";
                 }
                 this.nodeList = elementFilter(node.getChildNodes());
             } else {

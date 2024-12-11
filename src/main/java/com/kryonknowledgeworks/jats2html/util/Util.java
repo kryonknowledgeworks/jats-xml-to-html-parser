@@ -66,6 +66,12 @@ public class Util {
 
     }
 
+    public static String htmlTagBinderWithId(String tag,String attribute,String tagId, String data) {
+
+        return "<" + tag + " "+attribute +"=" + tagId +">" + data + "</" + tag + ">";
+
+    }
+
     public static String htmlTagInject(String tag, List<String> injectDatas, String sourceData) {
 
         StringBuilder data = new StringBuilder(sourceData.replaceAll(tag, ""));
