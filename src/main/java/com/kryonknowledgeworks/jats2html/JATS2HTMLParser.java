@@ -160,7 +160,7 @@ public class JATS2HTMLParser {
     }
 
     public static void main(String[] args) {
-        parse("D:\\amns.2021.2.00005\\amns.2021.2.00005\\amns.2021.2.00005.xml","D:\\Code-Copy",false);
+        parse("D:\\amns.2021.1.00009\\amns.2021.1.00009\\amns.2021.1.00009.xml","D:\\Code-Copy",false);
     }
 
 }

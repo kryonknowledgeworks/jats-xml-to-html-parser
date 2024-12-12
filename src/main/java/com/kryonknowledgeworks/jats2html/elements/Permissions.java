@@ -27,7 +27,7 @@ public class Permissions implements Tag {
             this.node = node;
             this.nodeList = Util.elementFilter(node.getChildNodes());
 
-            this.html += "<h4>Copyrights</h4>";
+
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 

@@ -66,9 +66,9 @@ public class Util {
 
     }
 
-    public static String htmlTagBinderWithId(String tag,String attribute,String tagId, String data) {
+    public static String htmlTagBinderWithId(String tag,String id,String classAttribute ,String tagId, String data) {
 
-        return "<" + tag + " "+attribute +"=" + tagId +">" + data + "</" + tag + ">";
+        return "<" + tag + " "+id +(tagId!=null&&!tagId.isEmpty()?"=":"")+tagId +" "+ classAttribute+ ">" + data + "</" + tag + ">";
 
     }
 

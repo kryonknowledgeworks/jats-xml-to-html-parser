@@ -51,7 +51,7 @@ public class ArticleMeta implements Tag {
 
             String remaining = "";
 
-            for (Node node1 : nodeList) {
+                for (Node node1 : nodeList) {
 
                 if (tagNames.contains(node1.getNodeName())) {
 
@@ -130,7 +130,7 @@ public class ArticleMeta implements Tag {
 
             volumeDetails.append("  </p>");
 
-            this.html += volumeDetails + abstractData + "<div class='card'><div class='card-body'>" + remaining + doi + "</div></div>";
+            this.html += volumeDetails + "<div id='top-contents'>" + abstractData  + remaining + doi + "</div>";
 
         } catch (Exception e) {
             HandleException.processException(e);

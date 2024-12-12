@@ -9,6 +9,8 @@ import org.w3c.dom.Node;
 import java.util.*;
 import java.util.List;
 
+import static com.kryonknowledgeworks.jats2html.util.Util.htmlTagBinderWithId;
+
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/contrib-group.html
 public class ContribGroup implements Tag {
 
@@ -37,7 +39,11 @@ public class ContribGroup implements Tag {
             String elementHtml = "";
 
             String emailElementHtml = "";
-
+            char c = '`';
+            char[] symbols = {
+                    '\u2666',  '\u25CB', '\u25CF', '\u25A0', '\u25A1', '\u25C6', '\u25C7', '\u25B2', '\u25BC' // Shapes: ○ ● ■ □ ◆ ◇ ▲ ▼ ♦
+            };
+            int i = -1;
             for (Node node1 : nodeList) {
 
                 if (tagNames.contains(node1.getNodeName())) {
@@ -49,16 +55,42 @@ public class ContribGroup implements Tag {
                         if(node1.getNodeName().equals("contrib")){
 
                             String type = node1.getAttributes().getNamedItem("contrib-type").getNodeValue();
-
-                             if (!map.containsKey(type)){
-                                map.put(type, element);
-                            } else {
-                                map.put(type, map.get(type) + ", " +element);
+                            Node correspNode = node1.getAttributes().getNamedItem("corresp");
+                            Boolean authorType = Boolean.FALSE;
+                            if (correspNode != null && "yes".equals(correspNode.getNodeValue())) {
+                                authorType = Boolean.TRUE;
                             }
 
                             Email email = new Email(node1);
 
-                            emailElementHtml += email.element();
+                            if(!email.element().isEmpty()){
+                                String isComma = "";
+                                if(element.contains("<sup class='sup-span' >")){
+                                    isComma+=",";
+                                }
+                                element+="<sup class='sup-span' >" + isComma;
+                                if(authorType){
+                                    i++;
+                                    emailElementHtml += "<div class='mt-1'><span class='aff-serial' id='aff_@_CA"+symbols[i]+"'>"+symbols[i]+"</span> Corresponding author. Email:";
+                                    element+=htmlTagBinderWithId("a", "href","","#aff_@_CA"+symbols[i],""+symbols[i] )+"</sup>";
+                                }else{
+                                    c++;
+                                    emailElementHtml += "<div class='mt-1'><span class='aff-serial' id='aff_@_A"+c+"'>"+(c)+"</span> Author. Email:";
+                                    element+=htmlTagBinderWithId("a", "href","","#aff_@_A"+c, ""+c)+"</sup>";
+                                }
+                                emailElementHtml += email.element()+"</div>";
+                            }
+
+
+
+                             if (!map.containsKey(type)){
+                                map.put(type, element);
+                             } else {
+                                map.put(type, map.get(type) + ", " +element);
+                             }
+
+
+
 
                         } else {
                             elementHtml += element;
@@ -71,12 +103,13 @@ public class ContribGroup implements Tag {
             }
 
             for (Map.Entry<String, String> entry : map.entrySet()) {
+                this.html+="<div id='author-contents' class='mb-3'>";
                 this.html += Util.htmlTagBinder("h4", ClassNameSingleTon.tagToClassName(entry.getKey()));
                 this.html +=  "<div class='authors-block'>" + entry.getValue();
             }
 
             this.html += elementHtml;
-            this.html += emailElementHtml + "</div>";
+            this.html += emailElementHtml + "</div></div>";
 
 
 

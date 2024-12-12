@@ -60,7 +60,7 @@ public class Xref implements Tag {
                 if(ridNode!=null) {
                     rid = node.getAttributes().getNamedItem("rid").getNodeValue();
                     rid=rid.substring(rid.length() - 1);
-                    this.html += "<sup class='sup-span' >"+htmlTagBinderWithId("a", "href","#aff_@_"+rid,rid + ",")+"</sup>";
+                    this.html += "<sup class='sup-span' >"+htmlTagBinderWithId("a", "href","","#aff_@_"+rid,rid + ",")+"</sup>";
                 }
                 this.nodeList = elementFilter(node.getChildNodes());
             } else {

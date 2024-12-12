@@ -42,7 +42,7 @@ public class Aff implements Tag {
             if(ridNode!=null) {
                 id = node.getAttributes().getNamedItem("id").getNodeValue();
                 id=id.substring(id.length() - 1);
-                affNav = htmlTagBinderWithId("span","id","aff_@_"+id,id);
+                affNav = htmlTagBinderWithId("span","id","class='aff-serial'","aff_@_"+id,id);
             }
 
             for (Node node1 : nodeList) {
@@ -74,7 +74,7 @@ public class Aff implements Tag {
                 this.html += Util.htmlTagBinder(Label.ELEMENT_HTML,  new StringBuffer(this.node.getTextContent()).deleteCharAt(0).toString());
 
             if(nodeList.size()>0 && label==null)
-                this.html += Util.htmlTagBinder(Label.ELEMENT_HTML,  affNav+" "+ this.node.getTextContent());
+                this.html += Util.htmlTagBinderWithId(Label.ELEMENT_HTML, "id","class='mt-1'","", affNav+" "+ this.node.getTextContent());
             if (nodeList.size() == 0){
                 this.html += Util.htmlTagBinder("div", node.getTextContent());
             }

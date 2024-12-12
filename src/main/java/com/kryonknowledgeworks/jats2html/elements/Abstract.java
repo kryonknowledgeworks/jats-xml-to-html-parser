@@ -33,7 +33,7 @@ public class Abstract implements Tag {
             this.node = node;
             nodeList = Util.getChildNode(node);
 
-            this.html += "<div class='nav-data' data-name='Abstract' id='abstract' order='1'>";
+            this.html += "<div class='nav-data mb-3' data-name='Abstract' id='abstract' order='1'>";
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 

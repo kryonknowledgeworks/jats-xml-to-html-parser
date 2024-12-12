@@ -195,9 +195,18 @@ ul{
 .authors-block,
 .copyright-block,
 .access-block,
-.keywords-block,
-.doi-block {
+.keywords-block {
     margin-bottom: 20px;
+}
+
+.doi-block {
+    margin-bottom: 10px;
+}
+
+.aff-serial{
+    display: inline-block;
+    width: 13px;
+    font-size: 15px;
 }
 
 .key {
@@ -288,6 +297,33 @@ margin-bottom: 0px;
 .sup-span a{
     color:black;
     text-decoration: none;
+}
+
+#top-contents {
+ display: flex;
+ flex-direction: column;
+ }
+
+#copyrights-content{
+  order:8;
+}
+#open-access-content{
+   order:7;
+}
+#keywords-content{
+   order:4;
+}
+#doi-content{
+   order:5;
+}
+#history-content{
+   order:3;
+}
+#abstract{
+   order:6;
+}
+#author-contents{
+   order:1;
 }
 
 

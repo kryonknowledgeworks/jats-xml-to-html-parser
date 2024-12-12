@@ -55,7 +55,7 @@ public class KwdGroup implements Tag {
 
             }
             if (this.html != ""){
-                this.html = "<div class='keywords-block'>" + this.html.substring(0, this.html.length() - 2) + "." + "</div>";
+                this.html = "<div class='keywords-block mb-3'  id='keywords-content'>" + this.html.substring(0, this.html.length() - 2) + "." + "</div>";
 
             }
 

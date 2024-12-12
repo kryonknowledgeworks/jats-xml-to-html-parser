@@ -57,7 +57,7 @@ public class Email implements Tag {
                          rid = xref.getAttributes().getNamedItem("rid").getNodeValue();
                          rid=rid.substring(rid.length() - 1);
                     }
-                    this.html += Util.htmlTagBinder("div",  rid + " Corresponding author. Email: " + node1.getFirstChild().getNodeValue());
+                    this.html += node1.getFirstChild().getNodeValue();
 
 
                 }
