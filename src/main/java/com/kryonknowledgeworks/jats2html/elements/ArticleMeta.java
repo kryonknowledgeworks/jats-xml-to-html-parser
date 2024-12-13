@@ -104,23 +104,21 @@ public class ArticleMeta implements Tag {
 
             StringBuilder volumeDetails = new StringBuilder();
 
-            volumeDetails.append("<p><span style='color:#ee4823'>");
+            volumeDetails.append("<p>");
 
             if (volume != null){
 
-                volumeDetails.append("Volume ").append(volume);
+                volumeDetails.append("<span class='volume-name' id='parser-volume-name'>").append("Volume ").append(volume).append("</span>");
             }
 
             if (issue != null){
 
-                volumeDetails.append(", Issue ").append(issue);
+                volumeDetails.append("<span class='issue-name' id='parser-issue-name'>,  ").append("Issue ").append(issue).append("</span>");
             }
 
-            volumeDetails.append("</span>");
 
             if (coverDate != null){
-
-                volumeDetails.append(", ").append(coverDate);
+                volumeDetails.append("<span class='issue-date' id='parser-issue-date'>, ").append(coverDate).append("</span>");
             }
 
             if (fPage != null && lPage != null){

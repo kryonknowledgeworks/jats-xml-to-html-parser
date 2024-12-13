@@ -33,6 +33,7 @@ public class License implements Tag {
                 this.html += "<div class='mb-3' id='open-access-content' ><h4>"+ ClassNameSingleTon.tagToClassName(node.getAttributes().getNamedItem("license-type").getNodeValue()) +"</h4>" + "<div class= 'access-block'>";
             }
 
+
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
             for (Node node1 : nodeList) {
@@ -50,6 +51,10 @@ public class License implements Tag {
                     this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
                 }
 
+            }
+            if (node.getAttributes().getNamedItem("xlink:href") != null) {
+                String xlinkHref = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
+                this.html+="<a class='blank' href='"+xlinkHref+"' >"+xlinkHref+"</a>";
             }
             this.html += "</div></div>";
 

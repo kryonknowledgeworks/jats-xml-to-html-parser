@@ -3,6 +3,7 @@ package com.kryonknowledgeworks.jats2html.util;
 import com.kryonknowledgeworks.jats2html.JATS2HTMLParser;
 import com.kryonknowledgeworks.jats2html.constants.ParserConstants;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import java.io.*;
 import java.lang.reflect.Constructor;

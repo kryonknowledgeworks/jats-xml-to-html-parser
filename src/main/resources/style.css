@@ -192,17 +192,13 @@ ul{
     font: menu;
 }
 
-.authors-block,
-.copyright-block,
-.access-block,
 .keywords-block {
     margin-bottom: 20px;
 }
 
-.doi-block {
-    margin-bottom: 10px;
+#top-contents p {
+    margin: 0px;
 }
-
 .aff-serial{
     display: inline-block;
     width: 13px;
@@ -321,6 +317,9 @@ margin-bottom: 0px;
 }
 #abstract{
    order:6;
+}
+#co-author-contents{
+   order:2;
 }
 #author-contents{
    order:1;

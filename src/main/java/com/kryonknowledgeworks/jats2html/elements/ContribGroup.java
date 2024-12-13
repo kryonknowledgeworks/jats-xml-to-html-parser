@@ -37,7 +37,7 @@ public class ContribGroup implements Tag {
             Map<String, String> map = new HashMap<>();
 
             String elementHtml = "";
-
+            String coAuthorName = "";
             String emailElementHtml = "";
             char c = '`';
             char[] symbols = {
@@ -59,6 +59,7 @@ public class ContribGroup implements Tag {
                             Boolean authorType = Boolean.FALSE;
                             if (correspNode != null && "yes".equals(correspNode.getNodeValue())) {
                                 authorType = Boolean.TRUE;
+                                coAuthorName = Util.extractName(node1.getChildNodes());
                             }
 
                             Email email = new Email(node1);
@@ -108,9 +109,11 @@ public class ContribGroup implements Tag {
                 this.html +=  "<div class='authors-block'>" + entry.getValue();
             }
 
+
+
             this.html += elementHtml;
             this.html += emailElementHtml + "</div></div>";
-
+            this.html += coAuthorName;
 
 
         } catch (Exception e) {

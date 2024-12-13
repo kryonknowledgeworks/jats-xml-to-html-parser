@@ -28,13 +28,14 @@ public class LicenseP implements Tag {
             this.node = node;
             elementFilter();
 
-            this.html += "<div>";
+            this.html += "<p>";
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
             Node paragraph = node.getFirstChild();
 
             if (paragraph.getNodeValue() != null){
+
                 this.html += paragraph.getNodeValue();
             } else {
 
@@ -84,7 +85,7 @@ public class LicenseP implements Tag {
             }
 
             if (!node.getParentNode().getNodeName().equals("fig") && !node.getParentNode().getNodeName().equals("caption") && !node.getParentNode().getNodeName().equals("list-item")){
-                this.html += "</div>";
+                this.html += "</p>";
             }
 
         } catch (Exception e) {

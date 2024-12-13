@@ -49,7 +49,7 @@ public class History implements Tag {
 
             }
 
-            this.html += "</div>";
+            this.html += "<p class='historyPTag available-online' id='parser-available-online'></p></div>";
 
         } catch (Exception e) {
             HandleException.processException(e);

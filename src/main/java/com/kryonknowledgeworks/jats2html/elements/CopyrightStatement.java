@@ -42,7 +42,7 @@ public class CopyrightStatement implements Tag {
 
             }
 
-            this.html += "<div class='mb-3' id='copyrights-content' ><h4>Copyrights</h4><div class='copyright-block'>" + (node.getFirstChild().getNodeValue() != null ? node.getFirstChild().getNodeValue() : "") + "</div></div>";
+            this.html += "<div class='mb-3' id='copyrights-content' ><h4>Copyrights</h4><p class='copyright-block'>" + (node.getFirstChild().getNodeValue() != null ? node.getFirstChild().getNodeValue() : "") + "</p></div>";
 
 
         } catch (Exception e) {

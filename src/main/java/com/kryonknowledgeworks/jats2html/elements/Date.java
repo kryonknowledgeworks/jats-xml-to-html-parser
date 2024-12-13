@@ -38,7 +38,7 @@ public class Date implements Tag {
                 classToAppend = " class='historyPTag' ";
             }
 
-            this.html += String.format("<div%s> %s", classToAppend, ClassNameSingleTon.capitalizeFirstLetter(e.getAttribute("date-type")));
+            this.html += String.format("<p%s> %s", classToAppend, ClassNameSingleTon.capitalizeFirstLetter(e.getAttribute("date-type")));
 
 
 
@@ -73,7 +73,7 @@ public class Date implements Tag {
                 this.html = this.html.substring(0, lastIndex) + this.html.substring(lastIndex + 1);
             }
 
-            this.html += "</div>";
+            this.html += "</p>";
 
         } catch (Exception e) {
             HandleException.processException(e);

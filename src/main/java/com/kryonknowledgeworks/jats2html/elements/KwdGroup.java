@@ -31,6 +31,7 @@ public class KwdGroup implements Tag {
             this.nodeList = elementFilter(node.getChildNodes());
 
             boolean containTitle = false;
+            boolean pTagToAdd = false;
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -42,10 +43,15 @@ public class KwdGroup implements Tag {
                         containTitle = true;
                     }
 
+
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
                         this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
+                    if(!pTagToAdd){
+                        this.html+="<p>";
+                        pTagToAdd = true;
                     }
                 } else if (!node1.getNodeName().equals("#text")){
 
@@ -55,7 +61,7 @@ public class KwdGroup implements Tag {
 
             }
             if (this.html != ""){
-                this.html = "<div class='keywords-block mb-3'  id='keywords-content'>" + this.html.substring(0, this.html.length() - 2) + "." + "</div>";
+                this.html = "<div class='keywords-block mb-3'  id='keywords-content'>" + this.html.substring(0, this.html.length() - 2) + "." + "</p></div>";
 
             }
 
