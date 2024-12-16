@@ -32,8 +32,15 @@ public class Date implements Tag {
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
             Element e = (Element) node;
+            Boolean parentHistory = e.getParentNode().getNodeName().equals("history");
+            String classToAppend = "";
+            if(parentHistory){
+                classToAppend = " class='historyPTag' ";
+            }
 
-            this.html += "<p> <b>" + e.getAttribute("date-type") + "</b> :";
+            this.html += String.format("<p%s> %s", classToAppend, ClassNameSingleTon.capitalizeFirstLetter(e.getAttribute("date-type")));
+
+
 
             for (Node node1 : nodeList)     {
 
@@ -41,10 +48,17 @@ public class Date implements Tag {
 
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-
                         Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        this.html += "-";
+
+                        if(parentHistory){
+                            if (node1.getNodeName().equals("month"))
+                                this.html += " " + ClassNameSingleTon.getMonthName(ClassNameSingleTon.invokeMethod(instanceFromClassName, "element").replaceAll("<[^>]+>", "").trim());
+                            else
+                                this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element").replaceAll("<[^>]+>", "");
+                       }else{
+                           this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                           this.html += "-";
+                       }
                     }
                 } else if (!node1.getNodeName().equals("#text")){
 

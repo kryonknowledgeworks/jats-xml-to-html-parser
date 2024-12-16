@@ -35,6 +35,7 @@ public class LicenseP implements Tag {
             Node paragraph = node.getFirstChild();
 
             if (paragraph.getNodeValue() != null){
+
                 this.html += paragraph.getNodeValue();
             } else {
 

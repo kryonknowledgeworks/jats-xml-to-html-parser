@@ -10,6 +10,9 @@ import org.w3c.dom.NodeList;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kryonknowledgeworks.jats2html.util.Util.htmlTagBinder;
+import static com.kryonknowledgeworks.jats2html.util.Util.htmlTagBinderWithId;
+
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/aff.html
 public class Aff implements Tag {
 
@@ -33,6 +36,14 @@ public class Aff implements Tag {
             elementFilter();
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+            Node ridNode=  node.getAttributes().getNamedItem("id");
+            String  id="";
+            String  affNav = "";
+            if(ridNode!=null) {
+                id = node.getAttributes().getNamedItem("id").getNodeValue();
+                id=id.substring(id.length() - 1);
+                affNav = htmlTagBinderWithId("span","id","class='aff-serial'","aff_@_"+id,id);
+            }
 
             for (Node node1 : nodeList) {
 
@@ -63,7 +74,7 @@ public class Aff implements Tag {
                 this.html += Util.htmlTagBinder(Label.ELEMENT_HTML,  new StringBuffer(this.node.getTextContent()).deleteCharAt(0).toString());
 
             if(nodeList.size()>0 && label==null)
-                this.html += Util.htmlTagBinder(Label.ELEMENT_HTML,  new StringBuffer(this.node.getTextContent()).toString());
+                this.html += Util.htmlTagBinderWithId(Label.ELEMENT_HTML, "id","class='mt-1'","", affNav+" "+ this.node.getTextContent());
             if (nodeList.size() == 0){
                 this.html += Util.htmlTagBinder("div", node.getTextContent());
             }

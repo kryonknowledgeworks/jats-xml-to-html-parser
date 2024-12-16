@@ -66,6 +66,33 @@ public class Util {
 
     }
 
+    public static String htmlTagBinderWithId(String tag,String id,String classAttribute ,String tagId, String data) {
+
+        return "<" + tag + " "+id +(tagId!=null&&!tagId.isEmpty()?"=":"")+tagId +" "+ classAttribute+ ">" + data + "</" + tag + ">";
+
+    }
+    public static String extractName(NodeList nameNodes) {
+        String surname = "";
+        String givenNames = "";
+        for (int i = 0; i < nameNodes.getLength(); i++) {
+            Node nameNode = nameNodes.item(i);
+
+             if (nameNode != null && nameNode.getNodeName().equals("name")) {
+
+                    NodeList childNodes = nameNode.getChildNodes();
+                    for (int j = 0; j < childNodes.getLength(); j++) {
+                       Node child = childNodes.item(j);
+                       if (child.getNodeName().equals("surname")) {
+                           surname = child.getTextContent().trim();
+                        } else if (child.getNodeName().equals("given-names")) {
+                            givenNames = child.getTextContent().trim();
+                        }
+                    }
+
+             }
+        }
+        return "<div id='co-author-contents' class='mb-3'><h4>Corresponding Author</h4><p class='authors-block'>"+(surname + " " + givenNames).trim()+"</p></div>";
+    }
     public static String htmlTagInject(String tag, List<String> injectDatas, String sourceData) {
 
         StringBuilder data = new StringBuilder(sourceData.replaceAll(tag, ""));

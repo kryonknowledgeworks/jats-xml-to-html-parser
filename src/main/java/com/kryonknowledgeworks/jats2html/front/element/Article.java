@@ -57,6 +57,8 @@ public class Article {
             }
 
             if (!map.isEmpty()){
+                map.put("ProofType","");
+                map.put("Abbreviation","");
                 Element e = (Element) node;
                 String  articleType = e.getAttribute("article-type");
                 if (!articleType.isEmpty()){

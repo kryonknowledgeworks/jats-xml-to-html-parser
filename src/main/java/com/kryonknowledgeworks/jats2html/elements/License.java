@@ -30,8 +30,9 @@ public class License implements Tag {
 
             if (node.getAttributes().getNamedItem("license-type") != null){
 
-                this.html += "<h4>"+ ClassNameSingleTon.tagToClassName(node.getAttributes().getNamedItem("license-type").getNodeValue()) +"</h4>" + "<div class= 'access-block'>";
+                this.html += "<div class='mb-3' id='open-access-content' ><h4>"+ ClassNameSingleTon.tagToClassName(node.getAttributes().getNamedItem("license-type").getNodeValue()) +"</h4>" + "<div class= 'access-block'>";
             }
+
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -51,7 +52,11 @@ public class License implements Tag {
                 }
 
             }
-            this.html += "</div>";
+            if (node.getAttributes().getNamedItem("xlink:href") != null) {
+                String xlinkHref = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
+                this.html+="<a class='blank' href='"+xlinkHref+"' >"+xlinkHref+"</a>";
+            }
+            this.html += "</div></div>";
 
         } catch (Exception e) {
             HandleException.processException(e);

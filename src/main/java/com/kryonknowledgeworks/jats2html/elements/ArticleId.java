@@ -53,7 +53,7 @@ public class ArticleId implements Tag {
             String pubIdType = node.getAttributes().getNamedItem("pub-id-type").getNodeValue();
 
             if (pubIdType.equals("doi")){
-                this.html += "<h4>DOI</h4><div class='doi-block'>" + node.getFirstChild().getNodeValue() +"</div>";
+                this.html += "<div class='mb-3' id='doi-content'><h4>DOI</h4><a class='blank' href='https://doi.org/"+node.getFirstChild().getNodeValue()+"'>" + node.getFirstChild().getNodeValue() +"</a></div>";
             }
 
 

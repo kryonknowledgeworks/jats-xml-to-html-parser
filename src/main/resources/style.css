@@ -9,7 +9,7 @@ body {
 }
 
 .card{
- background-color: #EAEBEE;
+ background-color: #EAEBEE !important;
 }
 
 p{
@@ -192,12 +192,17 @@ ul{
     font: menu;
 }
 
-.authors-block,
-.copyright-block,
-.access-block,
-.keywords-block,
-.doi-block {
+.keywords-block {
     margin-bottom: 20px;
+}
+
+#top-contents p {
+    margin: 0px;
+}
+.aff-serial{
+    display: inline-block;
+    width: 13px;
+    font-size: 15px;
 }
 
 .key {
@@ -280,6 +285,46 @@ div.formula span.label {
     content : " ";
     padding-right:5px;
 }
+
+.historyPTag{
+margin-bottom: 0px;
+}
+
+.sup-span a{
+    color:black;
+    text-decoration: none;
+}
+
+#top-contents {
+ display: flex;
+ flex-direction: column;
+ }
+
+#copyrights-content{
+  order:8;
+}
+#open-access-content{
+   order:7;
+}
+#keywords-content{
+   order:4;
+}
+#doi-content{
+   order:5;
+}
+#history-content{
+   order:3;
+}
+#abstract{
+   order:6;
+}
+#co-author-contents{
+   order:2;
+}
+#author-contents{
+   order:1;
+}
+
 
 /*.bg-hr{*/
 /*    height:1.3px;*/

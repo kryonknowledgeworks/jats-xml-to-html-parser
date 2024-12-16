@@ -51,7 +51,7 @@ public class ArticleMeta implements Tag {
 
             String remaining = "";
 
-            for (Node node1 : nodeList) {
+                for (Node node1 : nodeList) {
 
                 if (tagNames.contains(node1.getNodeName())) {
 
@@ -104,23 +104,21 @@ public class ArticleMeta implements Tag {
 
             StringBuilder volumeDetails = new StringBuilder();
 
-            volumeDetails.append("<p><span style='color:#ee4823'>");
+            volumeDetails.append("<p>");
 
             if (volume != null){
 
-                volumeDetails.append("Volume ").append(volume);
+                volumeDetails.append("<span class='volume-name' id='parser-volume-name'>").append("Volume ").append(volume).append("</span>");
             }
 
             if (issue != null){
 
-                volumeDetails.append(", Issue ").append(issue);
+                volumeDetails.append("<span class='issue-name' id='parser-issue-name'>,  ").append("Issue ").append(issue).append("</span>");
             }
 
-            volumeDetails.append("</span>");
 
             if (coverDate != null){
-
-                volumeDetails.append(", ").append(coverDate);
+                volumeDetails.append("<span class='issue-date' id='parser-issue-date'>, ").append(coverDate).append("</span>");
             }
 
             if (fPage != null && lPage != null){
@@ -130,7 +128,7 @@ public class ArticleMeta implements Tag {
 
             volumeDetails.append("  </p>");
 
-            this.html += volumeDetails + abstractData + "<div class='card'><div class='card-body'>" + remaining + doi + "</div></div>";
+            this.html += volumeDetails + "<div id='top-contents'>" + abstractData  + remaining + doi + "</div>";
 
         } catch (Exception e) {
             HandleException.processException(e);
@@ -187,29 +185,10 @@ public class ArticleMeta implements Tag {
         String year = dateParts[2].trim();
 
         // Convert the month number to the month name
-        String monthName = getMonthName(month);
+        String monthName = ClassNameSingleTon.getMonthName(month);
 
         // Return the formatted cover-date (e.g., "March 2022")
         return monthName + " " + year;
     }
 
-    private static String getMonthName(String monthNumber) {
-        // Map of month numbers to month names
-        Map<String, String> monthMap = new HashMap<>();
-        monthMap.put("01", "January");
-        monthMap.put("02", "February");
-        monthMap.put("03", "March");
-        monthMap.put("04", "April");
-        monthMap.put("05", "May");
-        monthMap.put("06", "June");
-        monthMap.put("07", "July");
-        monthMap.put("08", "August");
-        monthMap.put("09", "September");
-        monthMap.put("10", "October");
-        monthMap.put("11", "November");
-        monthMap.put("12", "December");
-
-        // Return the corresponding month name
-        return monthMap.getOrDefault(monthNumber, "Unknown Month");
-    }
 }
