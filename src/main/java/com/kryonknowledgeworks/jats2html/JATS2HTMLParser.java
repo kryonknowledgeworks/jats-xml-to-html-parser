@@ -4,7 +4,7 @@ import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Exception.JatsException;
 import com.kryonknowledgeworks.jats2html.constants.ParserConstants;
 import com.kryonknowledgeworks.jats2html.html.HTMLBuilder;
-//import com.kryonknowledgeworks.jats2html.mapbuilder.MapBuilder;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MapBuilder;
 import com.kryonknowledgeworks.jats2html.util.CustomEntityResolver;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.apache.commons.lang3.StringUtils;
@@ -85,27 +85,27 @@ public class JATS2HTMLParser {
      *                        (true for enabling debug mode, false otherwise)
      * @return a map containing key-value pairs representing the data and structure of the XML file
      */
-//    public static Map<String, Object> loadMetaDataFromXml(String inputFilePath, Boolean enableDebugMode) {
-//        try {
-//            System.setProperty("file.encoding", "UTF-8");
-//            new HandleException(enableDebugMode);
-//            File inputFile = new File(inputFilePath);
-//            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//            factory.setNamespaceAware(true);
-//            factory.setValidating(true);
-//            DocumentBuilder documentBuilder = factory.newDocumentBuilder();
-//            documentBuilder.setEntityResolver(new CustomEntityResolver());
-//            documentBuilder.setErrorHandler(new JatsException());
-//            Document document = documentBuilder.parse(inputFile);
-//            document.getDocumentElement().setAttribute(ParserConstants.XMLNS_XLINK, ParserConstants.X_LINK_NAMESPACE_URI);
-//            document.getDocumentElement().normalize();
-//            return new MapBuilder(document).buildMap();
-//        } catch (Exception e) {
-//            new HandleException(enableDebugMode);
-//            HandleException.processException(e);
-//        }
-//        return new HashMap<>();
-//    }
+    public static Map<String, Object> loadMetaDataFromXml(String inputFilePath, Boolean enableDebugMode) {
+        try {
+            System.setProperty("file.encoding", "UTF-8");
+            new HandleException(enableDebugMode);
+            File inputFile = new File(inputFilePath);
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            factory.setValidating(true);
+            DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+            documentBuilder.setEntityResolver(new CustomEntityResolver());
+            documentBuilder.setErrorHandler(new JatsException());
+            Document document = documentBuilder.parse(inputFile);
+            document.getDocumentElement().setAttribute(ParserConstants.XMLNS_XLINK, ParserConstants.X_LINK_NAMESPACE_URI);
+            document.getDocumentElement().normalize();
+            return new MapBuilder(document).buildMap();
+        } catch (Exception e) {
+            new HandleException(enableDebugMode);
+            HandleException.processException(e);
+        }
+        return new HashMap<>();
+    }
 
     /**
      * Loads and parses an XML file from the specified input file path, extracting
