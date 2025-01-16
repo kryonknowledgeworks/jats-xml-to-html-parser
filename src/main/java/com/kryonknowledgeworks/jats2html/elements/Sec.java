@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -23,7 +24,7 @@ public class Sec implements Tag {
 
     String sechtml = "";
 
-    public Sec(Node node) {
+    public Sec(Node node, MetaDataBuilder metaDataBuilder) {
         try {
             this.node = node;
             elementFilter();
@@ -52,14 +53,14 @@ public class Sec implements Tag {
 
                         if (node1.getNodeName().equals("title")) {
 
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
 
                             title = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
 
                         } else {
 
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
 
                         }

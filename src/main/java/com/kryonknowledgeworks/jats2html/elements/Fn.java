@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -24,7 +25,7 @@ public class Fn implements Tag {
 
     String fnHtml="";
 
-    public Fn(Node node) {
+    public Fn(Node node, MetaDataBuilder metaDataBuilder) {
 
         try{
             this.node = node;
@@ -36,7 +37,7 @@ public class Fn implements Tag {
                 } else {
                     String className = ClassNameSingleTon.tagToClassName(pNode.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, pNode);
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, pNode, metaDataBuilder);
                         fnHtml += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element").replace("<p>","<span>").replace("</p>","</span>");
                     }
                 }

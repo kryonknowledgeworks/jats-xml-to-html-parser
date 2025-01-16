@@ -252,6 +252,14 @@ div.formula span.label {
 .fig-name .label {
     font-weight: bold;
 }
+
+
+
+.ref_div{
+    display: inline-flex;
+    margin-bottom: 15px;
+}
+
 .nav-head{
     cursor: pointer;
     font-weight:600;

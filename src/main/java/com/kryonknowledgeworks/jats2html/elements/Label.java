@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -25,7 +26,7 @@ public class Label implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Label(Node node) {
+    public Label(Node node, MetaDataBuilder metaDataBuilder) {
         try {
             this.node = node;
             this.nodeList = Util.getChildNode(node);
@@ -40,7 +41,7 @@ public class Label implements Tag {
 
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                        ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                     }
                 }
                 else if (!node1.getNodeName().equals("#text") ) {
@@ -50,6 +51,8 @@ public class Label implements Tag {
 
             if (node.getParentNode().getNodeName().equals("fig") || node.getParentNode().getNodeName().equals("table-wrap")) {
                 this.html += "<span class='label'>" + node.getTextContent() + " - " + " </span>";
+            } else if (node.getParentNode().getNodeName().equals("ref")) {
+                this.html += "<a style=\"width: 40px; text-align: left;\" class='ref_label' href=#"+ node.getParentNode().getAttributes().getNamedItem("id").getNodeValue() + "_back>" + node.getTextContent() + "</a>";
             } else {
                 this.html += "<span class='label'>" + node.getTextContent() + (node.getTextContent().trim().isEmpty() ? "" : ".") + "</span>";
             }

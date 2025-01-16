@@ -1,6 +1,7 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -22,7 +23,7 @@ public class MixedCitation implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public MixedCitation(Node node) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public MixedCitation(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
 
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
@@ -37,7 +38,7 @@ public class MixedCitation implements Tag {
 
                 String className = ClassNameSingleTon.tagToClassName(paragraph.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, paragraph);
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, paragraph, metaDataBuilder);
                     this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                 }
             } else if (!paragraph.getNodeName().equals("#text")){
@@ -58,7 +59,7 @@ public class MixedCitation implements Tag {
 
                 String className = ClassNameSingleTon.tagToClassName(sibling.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling);
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling, metaDataBuilder);
                     this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                 }
             } else if (!sibling.getNodeName().equals("#text")){

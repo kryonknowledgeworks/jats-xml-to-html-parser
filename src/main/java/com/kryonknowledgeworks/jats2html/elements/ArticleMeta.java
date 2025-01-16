@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -26,7 +27,7 @@ public class ArticleMeta implements Tag {
 
     String html = "";
 
-    public ArticleMeta(Node node) {
+    public ArticleMeta(Node node, MetaDataBuilder metaDataBuilder) {
         try {
 
             this.node = node;
@@ -58,44 +59,44 @@ public class ArticleMeta implements Tag {
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
                         if (node1.getNodeName().equals("article-id")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             doi = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }else if(node1.getNodeName().equals("title-group")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else if(node1.getNodeName().equals("volume")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             volume = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else if(node1.getNodeName().equals("issue")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             issue = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else if(node1.getNodeName().equals("pub-date")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             allDate += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else if(node1.getNodeName().equals("fpage")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             fPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else if(node1.getNodeName().equals("lpage")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             lPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else if(node1.getNodeName().equals("abstract")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             abstractData = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         } else {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             remaining += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                     }
                 } else if (!node1.getNodeName().equals("#text")){
 
 
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+                    this.html += Util.unParsedTagBuilder(node1);
                 }
 
             }

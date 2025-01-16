@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -21,7 +22,7 @@ public class MmlMath implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public MmlMath(Node node) {
+    public MmlMath(Node node, MetaDataBuilder metaDataBuilder) {
         try {
 
             this.node = node;

@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -22,7 +23,7 @@ public class Ref implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Ref(Node node) {
+    public Ref(Node node, MetaDataBuilder metaDataBuilder) {
         try {
             String refId = node.getAttributes().getNamedItem("id").getNodeValue();
             this.node = node;
@@ -32,7 +33,7 @@ public class Ref implements Tag {
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            this.html += "<p id='" + id +"'>";
+            this.html += "<div  class='ref_div' id='" + id +"'>";
 
             for (Node node1 : nodeList) {
 
@@ -47,7 +48,7 @@ public class Ref implements Tag {
                             Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, refId);
                             this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         } else {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
 
@@ -55,11 +56,11 @@ public class Ref implements Tag {
                 } else if (!node1.getNodeName().equals("#text")){
 
                  
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+                    this.html += Util.unParsedTagBuilder(node1);
                 }
             }
 
-            this.html += "</p>";
+            this.html += "</div>";
 
 //            Label label = new Label(Util.getCurrentNode(nodeList, Label.ELEMENT_LABEL));
 //            List<Node> nlmCitationNode = Util.getCurrentNodes(nodeList, NlmCitation.ELEMENT_NLM_CITATION);

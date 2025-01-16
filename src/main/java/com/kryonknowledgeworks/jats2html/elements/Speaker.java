@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -22,7 +23,7 @@ public class Speaker implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Speaker(Node node) {
+    public Speaker(Node node, MetaDataBuilder metaDataBuilder) {
         try {
 
             this.node = node;
@@ -40,7 +41,7 @@ public class Speaker implements Tag {
 //
 //                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
 //                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-//                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+//                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
 //                        this.html += node1.getTextContent();
 //                    }
 //                } else if (!node1.getNodeName().equals("#text")){

@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -25,7 +26,7 @@ public class TableWrap implements Tag {
     String html = "";
 
 
-    public TableWrap(Node node) {
+    public TableWrap(Node node, MetaDataBuilder metaDataBuilder) {
         try {
             this.node = node;
 
@@ -51,22 +52,22 @@ public class TableWrap implements Tag {
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
 
                         if (node1.getNodeName().equals("table")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, id);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, id, metaDataBuilder);
                             this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else if(node1.getNodeName().equals("table-wrap-foot")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             tableWrapFootEle += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                         else {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             tableName += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                         }
                     }
                 } else if (!node1.getNodeName().equals("#text")){
 
                  
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+                    this.html += Util.unParsedTagBuilder(node1);
                 }
 
             }

@@ -1,6 +1,7 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -19,7 +20,7 @@ public class Volume implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Volume(Node node) {
+    public Volume(Node node, MetaDataBuilder metaDataBuilder) {
         this.node = node;
         this.html= Util.getHtmlEscapeData(node.getTextContent());
     }
