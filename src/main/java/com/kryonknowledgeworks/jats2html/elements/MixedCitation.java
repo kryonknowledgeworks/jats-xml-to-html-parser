@@ -30,6 +30,8 @@ public class MixedCitation implements Tag {
 
         Node paragraph = node.getFirstChild();
 
+        this.html += "<td><p>";
+
         if (paragraph.getNodeValue() != null){
             this.html += paragraph.getNodeValue();
         } else {
@@ -48,6 +50,8 @@ public class MixedCitation implements Tag {
 
         }
         Node sibling = paragraph.getNextSibling();
+
+
 
         while (sibling != null){
 
@@ -71,7 +75,7 @@ public class MixedCitation implements Tag {
 
         }
 
-        this.html += "</p>";
+        this.html += "</p></td>";
     }
 
     @Override

@@ -33,7 +33,9 @@ public class Ref implements Tag {
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            this.html += "<div  class='ref_div' id='" + id +"'>";
+            this.html += "<tr id='" + id +"'>";
+
+            boolean citationPresent = false;
 
             for (Node node1 : nodeList) {
 
@@ -41,12 +43,25 @@ public class Ref implements Tag {
 
                     String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        if (node1.getNodeName().equals("element-citation")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, refId);
-                            this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        if (node1.getNodeName().equals("element-citation") ){
+                            if (!citationPresent){
+                                Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, refId, metaDataBuilder);
+                                this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                                citationPresent = true;
+                            }
+
                         } else if (node1.getNodeName().equals("nlm-citation")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, refId);
-                            this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                            if (!citationPresent){
+                                Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, refId, metaDataBuilder);
+                                this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                                citationPresent = true;
+                            }
+                        }else if (node1.getNodeName().equals("mixed-citation")){
+                            if (!citationPresent){
+                                Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                                this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                                citationPresent = true;
+                            }
                         } else {
                             Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                             this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
@@ -60,7 +75,7 @@ public class Ref implements Tag {
                 }
             }
 
-            this.html += "</div>";
+            this.html += "</tr>";
 
 //            Label label = new Label(Util.getCurrentNode(nodeList, Label.ELEMENT_LABEL));
 //            List<Node> nlmCitationNode = Util.getCurrentNodes(nodeList, NlmCitation.ELEMENT_NLM_CITATION);

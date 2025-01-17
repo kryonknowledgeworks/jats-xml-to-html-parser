@@ -50,6 +50,9 @@ public class RefList implements Tag {
             }
 
             Title title = new Title(Util.getCurrentNode(this.nodeList, Title.ELEMENT_TITLE), metaDataBuilder);
+
+            refHtml += "<table><colgroup><col style=\"width: 5%;\"><col></colgroup><thead><tr><th></th><th></th></tr></thead><tbody>";
+
             List<Node> refList = Util.getCurrentNodes(this.nodeList, Ref.ELEMENT_REF_SEC);
             for (Node nodeData : refList) {
                 Ref ref = new Ref(nodeData, metaDataBuilder);
@@ -57,6 +60,8 @@ public class RefList implements Tag {
             }
 
             this.html += title.element() + refHtml;
+
+            this.html += "</tbody></table>";
             this.html += "</div>";
         } catch (Exception e) {
             HandleException.processException(e);

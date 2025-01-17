@@ -52,7 +52,7 @@ public class Label implements Tag {
             if (node.getParentNode().getNodeName().equals("fig") || node.getParentNode().getNodeName().equals("table-wrap")) {
                 this.html += "<span class='label'>" + node.getTextContent() + " - " + " </span>";
             } else if (node.getParentNode().getNodeName().equals("ref")) {
-                this.html += "<a style=\"width: 40px; text-align: left;\" class='ref_label' href=#"+ node.getParentNode().getAttributes().getNamedItem("id").getNodeValue() + "_back>" + node.getTextContent() + "</a>";
+                this.html += "<td style=\"vertical-align: top;\"><span><a class='ref_label' href=#"+ node.getParentNode().getAttributes().getNamedItem("id").getNodeValue() + "_back>" + node.getTextContent() + "</a></span></td>";
             } else {
                 this.html += "<span class='label'>" + node.getTextContent() + (node.getTextContent().trim().isEmpty() ? "" : ".") + "</span>";
             }

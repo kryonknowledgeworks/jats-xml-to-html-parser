@@ -16,13 +16,24 @@ public class JatsException implements ErrorHandler {
         System.out.println("Line : " + exception.getLineNumber());
         System.out.println(exception.getMessage());
         System.out.println("XML File Not In Jats Format");
-       // System.exit(0);
+
+        try {
+            throw new ParserException(exception.getLocalizedMessage());
+        } catch (ParserException e) {
+            throw new RuntimeException(e);
+        }
+        // System.exit(0);
     }
 
     @Override
     public void fatalError(SAXParseException exception) throws SAXException {
         System.out.println(exception.getMessage());
         System.out.println("XML File Not In Jats Format");
+        try {
+            throw new ParserException(exception.getMessage());
+        } catch (ParserException e) {
+            throw new RuntimeException(e);
+        }
       //  System.exit(0);
     }
 }

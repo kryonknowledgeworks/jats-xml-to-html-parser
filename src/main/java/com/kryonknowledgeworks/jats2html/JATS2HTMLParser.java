@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Exception.JatsException;
+import com.kryonknowledgeworks.jats2html.Exception.ParserException;
 import com.kryonknowledgeworks.jats2html.constants.ParserConstants;
 import com.kryonknowledgeworks.jats2html.html.HTMLBuilder;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MapBuilder;
@@ -51,10 +52,10 @@ public class JATS2HTMLParser {
 
 
 
-    public static String parse(String inputFilePath, String outputFilePath, Boolean enableDebugMode) {
+    public static String parse(String inputFilePath, String outputFilePath, Boolean enableDebugMode) throws ParserException {
         try {
             System.setProperty("file.encoding", "UTF-8");
-            new HandleException(enableDebugMode);
+            new ParserException(enableDebugMode);
             File inputFile = new File(inputFilePath);
             File outputFile = new File(outputFilePath);
             Util.copyDirectories(inputFile.getParentFile().toString(), outputFile.getParentFile().toString());
@@ -69,8 +70,7 @@ public class JATS2HTMLParser {
             document.getDocumentElement().normalize();
             return new HTMLBuilder(document).buildHTML(outputFilePath);
         } catch (Exception e) {
-            new HandleException(enableDebugMode);
-            HandleException.processException(e);
+            ParserException.ParserExceptionHandler(e);
         }
         return StringUtils.EMPTY;
     }
@@ -85,10 +85,10 @@ public class JATS2HTMLParser {
      *                        (true for enabling debug mode, false otherwise)
      * @return a map containing key-value pairs representing the data and structure of the XML file
      */
-    public static Map<String, Object> loadMetaDataFromXml(String inputFilePath, Boolean enableDebugMode) {
+    public static Map<String, Object> loadMetaDataFromXml(String inputFilePath, Boolean enableDebugMode) throws ParserException {
         try {
             System.setProperty("file.encoding", "UTF-8");
-            new HandleException(enableDebugMode);
+            new ParserException(enableDebugMode);
             File inputFile = new File(inputFilePath);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
@@ -101,8 +101,7 @@ public class JATS2HTMLParser {
             document.getDocumentElement().normalize();
             return new MapBuilder(document).buildMap();
         } catch (Exception e) {
-            new HandleException(enableDebugMode);
-            HandleException.processException(e);
+            ParserException.ParserExceptionHandler(e);
         }
         return new HashMap<>();
     }
@@ -118,10 +117,10 @@ public class JATS2HTMLParser {
      *                        (true for enabling debug mode, false otherwise)
      * @return a list of strings containing the graphic-related attributes extracted from the XML file
      */
-    public static List<String> loadGraphicsAttrFromXml(String inputFilePath, Boolean enableDebugMode) {
+    public static List<String> loadGraphicsAttrFromXml(String inputFilePath, Boolean enableDebugMode) throws ParserException {
         try {
             System.setProperty("file.encoding", "UTF-8");
-            new HandleException(enableDebugMode);
+            new ParserException(enableDebugMode);
             File file = new File(inputFilePath);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
@@ -134,8 +133,7 @@ public class JATS2HTMLParser {
             document.getDocumentElement().normalize();
             return getGraphicHrefAttributes(document);
         } catch (Exception e) {
-            new HandleException(enableDebugMode);
-            HandleException.processException(e);
+            ParserException.ParserExceptionHandler(e);
         }
         return new ArrayList<>();
     }
