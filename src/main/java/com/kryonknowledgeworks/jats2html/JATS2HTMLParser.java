@@ -1,6 +1,5 @@
 package com.kryonknowledgeworks.jats2html;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Exception.JatsException;
 import com.kryonknowledgeworks.jats2html.Exception.ParserException;
 import com.kryonknowledgeworks.jats2html.constants.ParserConstants;

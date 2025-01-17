@@ -26,57 +26,6 @@ public class Xref implements Tag {
     String html = "";
     public Xref(Node node, MetaDataBuilder metaDataBuilder) {
         try {
-            this.node=node;
-            this.nodeList = Util.getChildNode(node);
-
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
-
-            String attrName = node.getAttributes().getNamedItem("ref-type").getNodeValue();
-            String textContent = "";
-
-            for (Node node1 : nodeList) {
-
-                if (tagNames.contains(node1.getNodeName())) {
-
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className)) && !attrName.equals("table-fn")) {
-
-                        ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
-                    }else if(attrName.equals("table-fn")){
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
-                        textContent += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                    }
-                } else if (!node1.getNodeName().equals("#text")) {
-
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
-                }
-
-            }
-
-            if (node.getParentNode().getNodeName().equals("contrib")){
-                NamedNodeMap map=node.getAttributes();
-                Node ridNode=  map.getNamedItem("rid");
-                String xlink="";
-                String  rid="";
-                if(ridNode!=null) {
-                    rid = node.getAttributes().getNamedItem("rid").getNodeValue();
-                    rid=rid.substring(rid.length() - 1);
-                    this.html += "<sup class='sup-span' >"+htmlTagBinderWithId("a", "href","","#aff_@_"+rid,rid + ",")+"</sup>";
-                }
-                this.nodeList = elementFilter(node.getChildNodes());
-            } else {
-                String refType = node.getAttributes().getNamedItem("ref-type").getNodeValue();
-                if (refType.equals("table-fn")){
-                    String rid = node.getAttributes().getNamedItem("rid").getNodeValue();
-                    String value = rid.replaceAll("[^0-9]", "").trim();
-                    this.html += Util.htmlRefBinder(rid, textContent, refType);
-                }else{
-                    String rid = node.getAttributes().getNamedItem("rid").getNodeValue();
-                    String value = rid.replaceAll("[^0-9]", "").trim();
-                    this.html += Util.htmlRefBinder(rid, node.getFirstChild().getNodeValue(), refType);
-                }
-            }
-
 
         }catch (Exception e) {
             HandleException.processException(e);

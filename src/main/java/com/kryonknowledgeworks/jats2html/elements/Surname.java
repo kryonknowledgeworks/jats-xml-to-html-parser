@@ -1,6 +1,5 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.Util;
@@ -24,12 +23,8 @@ public class Surname implements Tag {
     String html = "";
 
     public Surname(Node node, MetaDataBuilder metaDataBuilder) {
-        try{
-            this.node = node;
-            this.html= Util.getHtmlEscapeData(node.getTextContent());
-        } catch (Exception e) {
-            HandleException.processException(e);
-        }
+        this.node = node;
+        this.html= Util.getHtmlEscapeData(node.getTextContent());
     }
 
     @Override

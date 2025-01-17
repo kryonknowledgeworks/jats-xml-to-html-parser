@@ -1,6 +1,5 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
@@ -8,6 +7,7 @@ import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,45 +23,39 @@ public class License implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public License(Node node, MetaDataBuilder metaDataBuilder) {
-        try {
+    public License(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        this.node = node;
+        elementFilter();
 
-            this.node = node;
-            elementFilter();
+        if (node.getAttributes().getNamedItem("license-type") != null){
 
-            if (node.getAttributes().getNamedItem("license-type") != null){
-
-                this.html += "<div class='mb-3' id='open-access-content' ><h4>"+ ClassNameSingleTon.tagToClassName(node.getAttributes().getNamedItem("license-type").getNodeValue()) +"</h4>" + "<div class= 'access-block'>";
-            }
-
-
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
-
-            for (Node node1 : nodeList) {
-
-                if (tagNames.contains(node1.getNodeName())) {
-
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
-                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                    }
-                } else if (!node1.getNodeName().equals("#text")){
-
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
-                }
-
-            }
-            if (node.getAttributes().getNamedItem("xlink:href") != null) {
-                String xlinkHref = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
-                this.html+="<a class='blank' href='"+xlinkHref+"' >"+xlinkHref+"</a>";
-            }
-            this.html += "</div></div>";
-
-        } catch (Exception e) {
-            HandleException.processException(e);
+            this.html += "<div class='mb-3' id='open-access-content' ><h4>"+ ClassNameSingleTon.tagToClassName(node.getAttributes().getNamedItem("license-type").getNodeValue()) +"</h4>" + "<div class= 'access-block'>";
         }
+
+
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+
+        for (Node node1 : nodeList) {
+
+            if (tagNames.contains(node1.getNodeName())) {
+
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                }
+            } else if (!node1.getNodeName().equals("#text")){
+
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
+            }
+
+        }
+        if (node.getAttributes().getNamedItem("xlink:href") != null) {
+            String xlinkHref = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
+            this.html+="<a class='blank' href='"+xlinkHref+"' >"+xlinkHref+"</a>";
+        }
+        this.html += "</div></div>";
 
     }
 

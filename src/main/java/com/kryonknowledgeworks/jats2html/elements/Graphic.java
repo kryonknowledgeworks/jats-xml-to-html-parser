@@ -1,6 +1,5 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.Util;
@@ -24,57 +23,48 @@ public class Graphic implements Tag {
     String html = "";
 
     public Graphic(Node node,String id, MetaDataBuilder metaDataBuilder) {
-        try {
-            this.node = node;
-            NamedNodeMap map=node.getAttributes();
-            Node xlinkNode=  map.getNamedItem("xmlns:xlink");
-            String xlink="";
-            if(xlinkNode!=null) {
-                xlink = node.getAttributes().getNamedItem("xmlns:xlink").getNodeValue();
-            }
+        this.node = node;
+        NamedNodeMap map=node.getAttributes();
+        Node xlinkNode=  map.getNamedItem("xmlns:xlink");
+        String xlink="";
+        if(xlinkNode!=null) {
+            xlink = node.getAttributes().getNamedItem("xmlns:xlink").getNodeValue();
+        }
 //            String filePath= KryonXMLParser.filePath;
 //            File file=new File(filePath);
 //            String fileImagePath=file.getParentFile().toString();
-            String href = "";
-            if (node.getAttributes().getNamedItem("xlink:href") != null){
-                href = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
-            } else if(node.getAttributes().getNamedItem("xlink-href") != null){
-                href = node.getAttributes().getNamedItem("xlink-href").getNodeValue();
-            }
-
-            this.html+= Util.htmlImageBinder(xlink,"/assets/articles/" + Util.getPublisherId(node) + "/" + href ,id);
-
-        }catch (Exception e)
-        {
-            HandleException.processException(e);
+        String href = "";
+        if (node.getAttributes().getNamedItem("xlink:href") != null){
+            href = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
+        } else if(node.getAttributes().getNamedItem("xlink-href") != null){
+            href = node.getAttributes().getNamedItem("xlink-href").getNodeValue();
         }
+
+        this.html+= Util.htmlImageBinder(xlink,"/assets/articles/" + Util.getPublisherId(node) + "/" + href ,id);
+
     }
 
     public Graphic(Node node, MetaDataBuilder metaDataBuilder) {
 
-        try {
-            this.node = node;
-            NamedNodeMap map=node.getAttributes();
-            Node xlinkNode=  map.getNamedItem("xmlns:xlink");
-            String xlink="";
-            if(xlinkNode!=null) {
-                xlink = node.getAttributes().getNamedItem("xmlns:xlink").getNodeValue();
-            }
+        this.node = node;
+        NamedNodeMap map=node.getAttributes();
+        Node xlinkNode=  map.getNamedItem("xmlns:xlink");
+        String xlink="";
+        if(xlinkNode!=null) {
+            xlink = node.getAttributes().getNamedItem("xmlns:xlink").getNodeValue();
+        }
 //            String filePath= KryonXMLParser.filePath;
 //            File file=new File(filePath);
 //            String fileImagePath=file.getParentFile().toString();
-            String href = "";
-            if (node.getAttributes().getNamedItem("xlink:href") != null){
-                href = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
-            } else if(node.getAttributes().getNamedItem("xlink-href") != null){
-                href = node.getAttributes().getNamedItem("xlink-href").getNodeValue();
-            }
-
-            this.html+= Util.htmlImageBinder(xlink,"/assets/articles/" + Util.getPublisherId(node) + "/" + href);
-        }catch (Exception e)
-        {
-            HandleException.processException(e);
+        String href = "";
+        if (node.getAttributes().getNamedItem("xlink:href") != null){
+            href = node.getAttributes().getNamedItem("xlink:href").getNodeValue();
+        } else if(node.getAttributes().getNamedItem("xlink-href") != null){
+            href = node.getAttributes().getNamedItem("xlink-href").getNodeValue();
         }
+
+        this.html+= Util.htmlImageBinder(xlink,"/assets/articles/" + Util.getPublisherId(node) + "/" + href);
+
     }
 
     @Override

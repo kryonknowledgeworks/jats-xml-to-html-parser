@@ -8,6 +8,7 @@ import org.w3c.dom.Document;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,7 +21,7 @@ public class HTMLBuilder {
         this.document = document;
     }
 
-    public String buildHTML(String outputPath) throws IOException {
+    public String buildHTML(String outputPath) throws IOException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
         MetaDataBuilder metaDataBuilder = new MetaDataBuilder();
         String doctype = "<!DOCTYPE html>";

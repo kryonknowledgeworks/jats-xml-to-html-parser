@@ -1,6 +1,5 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import org.w3c.dom.Node;
@@ -21,10 +20,9 @@ public class Hr implements Tag {
     String html = "";
 
     public Hr(Node node, MetaDataBuilder metaDataBuilder) {
-        try {
-            this.node = node;
-            elementFilter();
-            this.html = "<hr class='m-0'>";
+        this.node = node;
+        elementFilter();
+        this.html = "<hr class='m-0'>";
 
 //            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -46,9 +44,6 @@ public class Hr implements Tag {
 //                }
 //            }
 
-        } catch (Exception e) {
-            HandleException.processException(e);
-        }
 
     }
 

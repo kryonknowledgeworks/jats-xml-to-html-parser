@@ -1,6 +1,5 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
@@ -8,6 +7,7 @@ import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,31 +49,30 @@ public class Body implements Tag {
         return null;
     }
 
-    public Body(Node node, MetaDataBuilder metaDataBuilder) {
+    public Body(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
-        try {
-            this.node = node;
-            String idValue="";
-            elementFilter();
+        this.node = node;
+        String idValue="";
+        elementFilter();
 
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            for (Node node1 : nodeList) {
+        for (Node node1 : nodeList) {
 
-                if (tagNames.contains(node1.getNodeName())) {
+            if (tagNames.contains(node1.getNodeName())) {
 
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
-                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                    }
-                } else if (!node1.getNodeName().equals("#text")){
-
-                 
-                    this.html += Util.unParsedTagBuilder(node1);
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                 }
+            } else if (!node1.getNodeName().equals("#text")){
 
+
+                this.html += Util.unParsedTagBuilder(node1);
             }
+
+        }
 
 //            int count = 1;
 //            int iterator = 1;
@@ -168,9 +167,6 @@ public class Body implements Tag {
 //                }
 //            }
 //            this.html = bodyHtml;
-        } catch (Exception e) {
-            HandleException.processException(e);
-        }
     }
 
     public List<Node> elementFilter() {
