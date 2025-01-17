@@ -1,6 +1,7 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -21,7 +22,7 @@ public class Source implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Source(Node node) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public Source(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
         this.nodeList = Util.getChildNode(node);
 
@@ -33,12 +34,12 @@ public class Source implements Tag {
 
                 String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                    ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
                 }
             } else if (!node1.getNodeName().equals("#text")){
 
 
-                this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+                this.html += Util.unParsedTagBuilder(node1);
             }
         }
         this.html+= Util.getHtmlEscapeData(node.getTextContent());

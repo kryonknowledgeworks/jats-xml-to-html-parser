@@ -2,11 +2,13 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,30 +30,59 @@ public class NlmCitation implements Tag {
 
 
 
-    public NlmCitation(Node node,String label) {
+    public NlmCitation(Node node,String label, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
-        elementFilter();
-        try {
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            for (Node node1 : nodeList) {
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-                if (tagNames.contains(node1.getNodeName())) {
+        Node paragraph = node.getFirstChild();
 
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                    }
-                } else if (!node1.getNodeName().equals("#text")){
+        this.html += "<td><p>";
 
-                 
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+        if (paragraph.getNodeValue() != null){
+            this.html += paragraph.getNodeValue();
+        } else {
+
+            if (tagNames.contains(paragraph.getNodeName())) {
+
+                String className = ClassNameSingleTon.tagToClassName(paragraph.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, paragraph, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                 }
+            } else if (!paragraph.getNodeName().equals("#text")){
+
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(paragraph).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
             }
-        } catch(Exception e){
-            HandleException.processException(e);
+
         }
+        Node sibling = paragraph.getNextSibling();
+
+
+
+        while (sibling != null){
+
+            if (sibling.getNodeName().equals("#text")){
+                this.html += sibling.getNodeValue();
+            }
+
+            if (tagNames.contains(sibling.getNodeName())) {
+
+                String className = ClassNameSingleTon.tagToClassName(sibling.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                }
+            } else if (!sibling.getNodeName().equals("#text")){
+
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(sibling).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+            }
+
+            sibling = sibling.getNextSibling();
+
+        }
+
+        this.html += "</p></td>";
     }
     @Override
     public String element() {

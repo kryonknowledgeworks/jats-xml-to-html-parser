@@ -1,12 +1,13 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -24,47 +25,41 @@ public class Td implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Td(Node node) {
+    public Td(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
-        try {
+        this.node = node;
+        elementFilter();
 
-            this.node = node;
-            elementFilter();
+        String tableTagPattern = "<td[^>]*>";
+        Pattern pattern = Pattern.compile(tableTagPattern);
+        Matcher matcher = pattern.matcher(Util.convertToString(node));
 
-            String tableTagPattern = "<td[^>]*>";
-            Pattern pattern = Pattern.compile(tableTagPattern);
-            Matcher matcher = pattern.matcher(Util.convertToString(node));
-
-            if (matcher.find()) {
-                this.html += matcher.group();
-            }
-
-            this.html += node.getFirstChild() != null && node.getFirstChild().getNodeValue() !=null ? node.getFirstChild().getNodeValue() : "";
-
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
-
-            for (Node node1 : nodeList) {
-
-                if (tagNames.contains(node1.getNodeName())) {
-
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                    }
-                } else if (!node1.getNodeName().equals("#text")){
-
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
-                }
-
-            }
-
-            this.html += "</td>";
-
-        } catch (Exception e) {
-            HandleException.processException(e);
+        if (matcher.find()) {
+            this.html += matcher.group();
         }
+
+        this.html += node.getFirstChild() != null && node.getFirstChild().getNodeValue() !=null ? node.getFirstChild().getNodeValue() : "";
+
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+
+        for (Node node1 : nodeList) {
+
+            if (tagNames.contains(node1.getNodeName())) {
+
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                }
+            } else if (!node1.getNodeName().equals("#text")){
+
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
+            }
+
+        }
+
+        this.html += "</td>";
 
     }
 

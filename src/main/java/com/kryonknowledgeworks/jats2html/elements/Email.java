@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.elements;
 
 
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -23,7 +24,7 @@ public class Email implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Email(Node node) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public Email(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
         if (node.getNodeName().equals("contrib")){
 
@@ -41,7 +42,7 @@ public class Email implements Tag {
                             String className = ClassNameSingleTon.tagToClassName(node2.getNodeName());
                             if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
 
-                                Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node2);
+                                Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node2, metaDataBuilder);
                                 this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                             }
                         } else if (!node2.getNodeName().equals("#text")){

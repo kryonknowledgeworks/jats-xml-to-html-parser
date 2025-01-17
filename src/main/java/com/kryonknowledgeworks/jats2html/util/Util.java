@@ -215,7 +215,7 @@ public class Util {
     }
 
     public static String htmlRefBinder(String data, String insideData, String nodeName) {
-        return "<a class=\"blank\" href=" + "#" + data + ">" + insideData + "</a>";
+        return "<a class=\"blank\" id=" + data  +  "_back" +" href=" + "#" + data + ">" + insideData + "</a>";
     }
 public static String divGenerator(String id,String data)
 {
@@ -329,4 +329,10 @@ public static String divGenerator(String id,String data)
 
         return null;
     }
+
+    public static String unParsedTagBuilder(Node node){
+
+        return "<pre style='color:red'>'''" + convertToString(node).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+    }
+
 }

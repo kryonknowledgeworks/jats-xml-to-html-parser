@@ -1,12 +1,13 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,51 +24,44 @@ public class Alternatives implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Alternatives(Node node) {
-        try {
+    public Alternatives(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        this.node = node;
+        elementFilter();
 
-            this.node = node;
-            elementFilter();
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+        List<String> childNodeNames = new ArrayList<>();
 
-            List<String> childNodeNames = new ArrayList<>();
+        for (Node node1 : nodeList) {
 
+            childNodeNames.add(node1.getNodeName());
+
+        }
+
+        if (childNodeNames.contains("mml:math")){
+
+            MmlMath mmlMath = new MmlMath(nodeList.stream().filter(node1 -> node1.getNodeName().equals("mml:math")).findFirst().get(), metaDataBuilder);
+
+            this.html += mmlMath.element();
+
+        } else {
             for (Node node1 : nodeList) {
 
-                childNodeNames.add(node1.getNodeName());
+                if (tagNames.contains(node1.getNodeName().replace(":","-"))) {
 
-            }
+                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
 
-            if (childNodeNames.contains("mml:math")){
-
-                MmlMath mmlMath = new MmlMath(nodeList.stream().filter(node1 -> node1.getNodeName().equals("mml:math")).findFirst().get());
-
-                this.html += mmlMath.element();
-
-            } else {
-                for (Node node1 : nodeList) {
-
-                    if (tagNames.contains(node1.getNodeName().replace(":","-"))) {
-
-                        String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                        if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                            break;
-                        }
-                    } else if (!node1.getNodeName().equals("#text")){
-
-                        this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                        break;
                     }
+                } else if (!node1.getNodeName().equals("#text")){
 
+                    this.html += Util.unParsedTagBuilder(node1);
                 }
+
             }
-
-
-        } catch (Exception e) {
-            HandleException.processException(e);
         }
 
     }

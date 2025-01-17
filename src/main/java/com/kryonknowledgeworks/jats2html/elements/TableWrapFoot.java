@@ -1,12 +1,13 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,50 +26,46 @@ public class TableWrapFoot implements Tag {
     String html = "";
 
 
-    public TableWrapFoot(Node node) {
-        try {
-            this.node = node;
+    public TableWrapFoot(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        this.node = node;
 
-            elementFilter();
+        elementFilter();
 
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
 //            String id = node.getAttributes().getNamedItem("id") != null? node.getAttributes().getNamedItem("id").getNodeValue() : "";
 
 //            this.html += "<div class='bottom-nav-data' data-head='Table' data-name='' order='5' data-id='"+ id +"'>";
 
-            this.html += "<div class='tableWrapFoot'>";
+        this.html += "<div class='tableWrapFoot'>";
 
-            String tableName = "";
+        String tableName = "";
 
-            for (Node node1 : nodeList) {
+        for (Node node1 : nodeList) {
 
-                if (tagNames.contains(node1.getNodeName())) {
+            if (tagNames.contains(node1.getNodeName())) {
 
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
 
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
 
-                    }
-                } else if (!node1.getNodeName().equals("#text")){
-
-
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
                 }
+            } else if (!node1.getNodeName().equals("#text")){
 
+
+                this.html += Util.unParsedTagBuilder(node1);
             }
+
+        }
 
 //            this.html += tableName;
 
-            this.html += "</div>";
+        this.html += "</div>";
 
 //            this.html = this.html.replace("data-name=''", "data-name='" + tableName.split("-")[0].replace("<span class='label'>", "").trim() + "'");
 
-        } catch (Exception e) {
-            HandleException.processException(e);
-        }
     }
 
     @Override

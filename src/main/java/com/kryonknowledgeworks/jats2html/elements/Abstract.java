@@ -1,12 +1,13 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/abstract.html
@@ -28,46 +29,41 @@ public class Abstract implements Tag {
 
     String secHtml = "";
 
-    public Abstract(Node node) {
-        try {
-            this.node = node;
-            nodeList = Util.getChildNode(node);
+    public Abstract(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        this.node = node;
+        nodeList = Util.getChildNode(node);
 
-            this.html += "<div class='nav-data mb-3' data-name='Abstract' id='abstract' order='1'>";
+        this.html += "<div class='nav-data mb-3' data-name='Abstract' id='abstract' order='1'>";
 
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            boolean containTitle = false;
+        boolean containTitle = false;
 
-            for (Node node1 : nodeList) {
+        for (Node node1 : nodeList) {
 
-                if (tagNames.contains(node1.getNodeName())) {
+            if (tagNames.contains(node1.getNodeName())) {
 
-                    if (node1.getNodeName().equals("title")){
-                        containTitle = true;
-                    }
-
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                    }
-                } else if (!node1.getNodeName().equals("#text")){
-
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+                if (node1.getNodeName().equals("title")){
+                    containTitle = true;
                 }
 
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                }
+            } else if (!node1.getNodeName().equals("#text")){
+
+                this.html += Util.unParsedTagBuilder(node1);
             }
 
-            if (!containTitle){
-                this.html = "<h4>Abstract</h4>" + this.html;
-            }
-
-            this.html += "</div>";
-
-        } catch (Exception e) {
-            HandleException.processException(e);
         }
+
+        if (!containTitle){
+            this.html = "<h4>Abstract</h4>" + this.html;
+        }
+
+        this.html += "</div>";
 
     }
 

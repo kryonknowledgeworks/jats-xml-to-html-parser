@@ -1,7 +1,7 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -22,13 +22,9 @@ public class Surname implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Surname(Node node) {
-        try{
-            this.node = node;
-            this.html= Util.getHtmlEscapeData(node.getTextContent());
-        } catch (Exception e) {
-            HandleException.processException(e);
-        }
+    public Surname(Node node, MetaDataBuilder metaDataBuilder) {
+        this.node = node;
+        this.html= Util.getHtmlEscapeData(node.getTextContent());
     }
 
     @Override

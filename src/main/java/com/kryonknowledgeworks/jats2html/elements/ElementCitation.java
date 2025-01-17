@@ -1,6 +1,7 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class ElementCitation implements Tag {
 
-    public static Boolean IMPLEMENT = false;
+    public static Boolean IMPLEMENT = true;
     public static String ELEMENT_CITATION_FULL = "<element-citation>";
     public static String ELEMENT_CITATION = "element-citation";
 
@@ -23,40 +24,59 @@ public class ElementCitation implements Tag {
 
     String nameHtml="";
 
-    public ElementCitation(Node node, String label) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public ElementCitation(Node node, String label, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
-        elementFilter();
+
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-        for (Node node1 : nodeList) {
+        Node paragraph = node.getFirstChild();
 
-            if (tagNames.contains(node1.getNodeName())) {
+        this.html += "<td><p>";
 
-                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+        if (paragraph.getNodeValue() != null){
+            this.html += paragraph.getNodeValue();
+        } else {
+
+            if (tagNames.contains(paragraph.getNodeName())) {
+
+                String className = ClassNameSingleTon.tagToClassName(paragraph.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-
-                    ClassNameSingleTon.createInstanceFromClassName(className, node1);
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, paragraph, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                 }
-            } else if (!node1.getNodeName().equals("#text")){
+            } else if (!paragraph.getNodeName().equals("#text")){
 
-                 
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
-                }
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(paragraph).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+            }
 
         }
-        List<Node> nameList = Util.getCurrentNodes(this.nodeList, Name.ELEMENT_NAME);
-        for (Node nodeData : nameList) {
-            Name name = new Name(nodeData);
-            nameHtml += name.element();
+        Node sibling = paragraph.getNextSibling();
+
+
+
+        while (sibling != null){
+
+            if (sibling.getNodeName().equals("#text")){
+                this.html += sibling.getNodeValue();
+            }
+
+            if (tagNames.contains(sibling.getNodeName())) {
+
+                String className = ClassNameSingleTon.tagToClassName(sibling.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                }
+            } else if (!sibling.getNodeName().equals("#text")){
+
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(sibling).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+            }
+
+            sibling = sibling.getNextSibling();
+
         }
-        ArticleTitle articleTitle = new ArticleTitle(Util.getCurrentNode(this.nodeList, ArticleTitle.ELEMENT_ELEMENT_ARTICLE_TITLE));
-        Source source = new Source(Util.getCurrentNode(this.nodeList, Source.ELEMENT_SEC));
-        Year year = new Year(Util.getCurrentNode(this.nodeList, Year.ELEMENT));
-        Volume volume = new Volume(Util.getCurrentNode(this.nodeList, Volume.ELEMENT_VOLUME));
-        Fpage fpage = new Fpage(Util.getCurrentNode(this.nodeList, Fpage.ELEMENT_FPAGE));
-        Lpage lpage = new Lpage(Util.getCurrentNode(this.nodeList, Lpage.ELEMENT_LPAGE));
-        String finalData =label+"  "+nameHtml + "   " + articleTitle.element() + "  " + source.element() + "  " + year.element() + "  " + volume.element() + "  " + fpage.element() + "  " + lpage.element();
-        this.html+=Util.htmlTagBinder(P.ELEMENT_P,Util.getHtmlEscapeData(finalData));
+
+        this.html += "</p></td>";
 
     }
 

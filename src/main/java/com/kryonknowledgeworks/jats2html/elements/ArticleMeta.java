@@ -1,12 +1,13 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,113 +27,108 @@ public class ArticleMeta implements Tag {
 
     String html = "";
 
-    public ArticleMeta(Node node) {
-        try {
+    public ArticleMeta(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        this.node = node;
 
-            this.node = node;
+        this.nodeList = Util.elementFilter(node.getChildNodes());
 
-            this.nodeList = Util.elementFilter(node.getChildNodes());
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+        String doi = "";
 
-            String doi = "";
+        String volume = "";
 
-            String volume = "";
+        String issue = "";
 
-            String issue = "";
+        String fPage = "";
 
-            String fPage = "";
+        String lPage = "";
 
-            String lPage = "";
+        String allDate = "";
 
-            String allDate = "";
+        String abstractData = "";
 
-            String abstractData = "";
+        String remaining = "";
 
-            String remaining = "";
+        for (Node node1 : nodeList) {
 
-                for (Node node1 : nodeList) {
+            if (tagNames.contains(node1.getNodeName())) {
 
-                if (tagNames.contains(node1.getNodeName())) {
-
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        if (node1.getNodeName().equals("article-id")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            doi = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }else if(node1.getNodeName().equals("title-group")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else if(node1.getNodeName().equals("volume")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            volume = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else if(node1.getNodeName().equals("issue")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            issue = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else if(node1.getNodeName().equals("pub-date")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            allDate += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else if(node1.getNodeName().equals("fpage")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            fPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else if(node1.getNodeName().equals("lpage")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            lPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else if(node1.getNodeName().equals("abstract")) {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            abstractData = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        } else {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            remaining += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                    if (node1.getNodeName().equals("article-id")){
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        doi = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }else if(node1.getNodeName().equals("title-group")) {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                     }
-                } else if (!node1.getNodeName().equals("#text")){
-
-
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+                    else if(node1.getNodeName().equals("volume")) {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        volume = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
+                    else if(node1.getNodeName().equals("issue")) {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        issue = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
+                    else if(node1.getNodeName().equals("pub-date")) {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        allDate += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
+                    else if(node1.getNodeName().equals("fpage")) {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        fPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
+                    else if(node1.getNodeName().equals("lpage")) {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        lPage = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
+                    else if(node1.getNodeName().equals("abstract")) {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        abstractData = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    } else {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        remaining += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
                 }
+            } else if (!node1.getNodeName().equals("#text")){
 
+
+                this.html += Util.unParsedTagBuilder(node1);
             }
 
-            String coverDate = extractCoverDate(allDate);
-
-            StringBuilder volumeDetails = new StringBuilder();
-
-            volumeDetails.append("<p>");
-
-            if (volume != null){
-
-                volumeDetails.append("<span class='volume-name' id='parser-volume-name'>").append("Volume ").append(volume).append("</span>");
-            }
-
-            if (issue != null){
-
-                volumeDetails.append("<span class='issue-name' id='parser-issue-name'>,  ").append("Issue ").append(issue).append("</span>");
-            }
-
-
-            if (coverDate != null){
-                volumeDetails.append("<span class='issue-date' id='parser-issue-date'>, ").append(coverDate).append("</span>");
-            }
-
-            if (fPage != null && lPage != null){
-
-                volumeDetails.append(", Pages ").append(fPage).append("-").append(lPage);
-            }
-
-            volumeDetails.append("  </p>");
-
-            this.html += volumeDetails + "<div id='top-contents'>" + abstractData  + remaining + doi + "</div>";
-
-        } catch (Exception e) {
-            HandleException.processException(e);
         }
+
+        String coverDate = extractCoverDate(allDate);
+
+        StringBuilder volumeDetails = new StringBuilder();
+
+        volumeDetails.append("<p>");
+
+        if (volume != null){
+
+            volumeDetails.append("<span class='volume-name' id='parser-volume-name'>").append("Volume ").append(volume).append("</span>");
+        }
+
+        if (issue != null){
+
+            volumeDetails.append("<span class='issue-name' id='parser-issue-name'>,  ").append("Issue ").append(issue).append("</span>");
+        }
+
+
+        if (coverDate != null){
+            volumeDetails.append("<span class='issue-date' id='parser-issue-date'>, ").append(coverDate).append("</span>");
+        }
+
+        if (fPage != null && lPage != null){
+
+            volumeDetails.append(", Pages ").append(fPage).append("-").append(lPage);
+        }
+
+        volumeDetails.append("  </p>");
+
+        this.html += volumeDetails + "<div id='top-contents'>" + abstractData  + remaining + doi + "</div>";
+
     }
 
     @Override

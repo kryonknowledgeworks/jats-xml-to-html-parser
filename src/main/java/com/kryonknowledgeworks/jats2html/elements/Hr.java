@@ -1,7 +1,7 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -19,11 +19,10 @@ public class Hr implements Tag {
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Hr(Node node) {
-        try {
-            this.node = node;
-            elementFilter();
-            this.html = "<hr class='m-0'>";
+    public Hr(Node node, MetaDataBuilder metaDataBuilder) {
+        this.node = node;
+        elementFilter();
+        this.html = "<hr class='m-0'>";
 
 //            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -34,7 +33,7 @@ public class Hr implements Tag {
 //                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
 //                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
 //
-////                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
+////                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
 ////                        this.html = "<hr/>";
 //                    }
 //                } else if (!node1.getNodeName().equals("#text")){
@@ -45,9 +44,6 @@ public class Hr implements Tag {
 //                }
 //            }
 
-        } catch (Exception e) {
-            HandleException.processException(e);
-        }
 
     }
 

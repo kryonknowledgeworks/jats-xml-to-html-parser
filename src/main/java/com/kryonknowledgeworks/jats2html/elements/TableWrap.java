@@ -1,12 +1,13 @@
 package com.kryonknowledgeworks.jats2html.elements;
 
-import com.kryonknowledgeworks.jats2html.Exception.HandleException;
 import com.kryonknowledgeworks.jats2html.Tag;
+import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,63 +26,59 @@ public class TableWrap implements Tag {
     String html = "";
 
 
-    public TableWrap(Node node) {
-        try {
-            this.node = node;
+    public TableWrap(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        this.node = node;
 
-            elementFilter();
+        elementFilter();
 
-            List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-            String id = node.getAttributes().getNamedItem("id") != null? node.getAttributes().getNamedItem("id").getNodeValue() : "";
+        String id = node.getAttributes().getNamedItem("id") != null? node.getAttributes().getNamedItem("id").getNodeValue() : "";
 
-            this.html += "<div class='bottom-nav-data' data-head='Table' data-name='' order='5' data-id='"+ id +"'>";
+        this.html += "<div class='bottom-nav-data' data-head='Table' data-name='' order='5' data-id='"+ id +"'>";
 
-            this.html += "<div class='table-wrapper'>";
+        this.html += "<div class='table-wrapper'>";
 
-            String tableName = "";
+        String tableName = "";
 
-            String tableWrapFootEle = "";
+        String tableWrapFootEle = "";
 
-            for (Node node1 : nodeList) {
+        for (Node node1 : nodeList) {
 
-                if (tagNames.contains(node1.getNodeName())) {
+            if (tagNames.contains(node1.getNodeName())) {
 
-                    String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
-                    if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
 
-                        if (node1.getNodeName().equals("table")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, id);
-                            this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else if(node1.getNodeName().equals("table-wrap-foot")){
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            tableWrapFootEle += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
-                        else {
-                            Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1);
-                            tableName += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                        }
+                    if (node1.getNodeName().equals("table")){
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, id, metaDataBuilder);
+                        this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                     }
-                } else if (!node1.getNodeName().equals("#text")){
-
-                 
-                    this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+                    else if(node1.getNodeName().equals("table-wrap-foot")){
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        tableWrapFootEle += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
+                    else {
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                        tableName += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    }
                 }
+            } else if (!node1.getNodeName().equals("#text")){
 
+
+                this.html += Util.unParsedTagBuilder(node1);
             }
 
-            this.html += tableWrapFootEle;
-
-            this.html += tableName;
-
-            this.html += "</div></div>";
-
-            this.html = this.html.replace("data-name=''", "data-name='" + tableName.split("-")[0].replace("<span class='label'>", "").trim() + "'");
-
-        } catch (Exception e) {
-            HandleException.processException(e);
         }
+
+        this.html += tableWrapFootEle;
+
+        this.html += tableName;
+
+        this.html += "</div></div>";
+
+        this.html = this.html.replace("data-name=''", "data-name='" + tableName.split("-")[0].replace("<span class='label'>", "").trim() + "'");
+
     }
 
     @Override
