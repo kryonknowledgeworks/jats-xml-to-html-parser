@@ -13,13 +13,15 @@ public class ParserException extends Exception {
     }
 
     public static void ParserExceptionHandler(Exception e) throws ParserException {
-       if (errorDissolve){
-           e.printStackTrace();
-       } else {
-           e.printStackTrace();
-           throw new ParserException("Error occurred while parsing XML to HTML");
-       }
+        if (errorDissolve) {
+            e.printStackTrace();
+            throw new RuntimeException("ParserException suppressed: " + e.getMessage(), new ParserException(e.getMessage()));
+        } else {
+            e.printStackTrace();
+            throw new RuntimeException("Error occurred while parsing XML to HTML");
+        }
     }
+
 
     public ParserException(String message, Throwable cause) {
         super(message, cause);
