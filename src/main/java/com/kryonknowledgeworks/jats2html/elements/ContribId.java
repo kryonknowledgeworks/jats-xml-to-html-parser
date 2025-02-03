@@ -5,6 +5,7 @@ import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import java.util.List;
@@ -52,9 +53,22 @@ public class ContribId implements Tag {
                 }
             }
 
-            if (node.getFirstChild().getNodeValue()!=null && !node.getFirstChild().getNodeValue().trim().isEmpty()) {
+            if (node.getFirstChild().getNodeValue()!=null && !node.getFirstChild().getNodeValue().trim().isEmpty() && !node.getParentNode().getNodeName().equals("contrib")) {
 
                 this.html += Util.htmlHrefBinder(node.getFirstChild().getNodeValue(), ContribId.HTML_ID_TAG, ContribId.HTML_ID_value);
+
+            }else{
+
+                Element e = (Element) node;
+                if(e.hasAttribute("contrib-id-type") && e.getAttribute("contrib-id-type").equals("orcid")){
+                    this.html +="<a href=\""+e.getNodeValue()+"\">";
+                  if (e.hasAttribute("authenticated") && e.getAttribute("authenticated").equals("true")){
+                     this.html +="<img src=\"/ORCID-iD_icon-vector.svg\" alt=\"\"/></a>";
+                  }else{
+                      this.html +="<img src=\"/ORCID-iD_icon-vector.svg\" alt=\"\"/></a>";
+
+                  }
+                }
 
             }
         }catch (Exception e)
