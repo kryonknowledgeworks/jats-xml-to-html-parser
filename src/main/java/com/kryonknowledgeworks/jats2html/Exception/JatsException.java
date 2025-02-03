@@ -20,7 +20,7 @@ public class JatsException implements ErrorHandler {
         try {
             throw new ParserException(exception.getLocalizedMessage());
         } catch (ParserException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage());
         }
         // System.exit(0);
     }
@@ -32,7 +32,7 @@ public class JatsException implements ErrorHandler {
         try {
             throw new ParserException(exception.getMessage());
         } catch (ParserException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage());
         }
       //  System.exit(0);
     }

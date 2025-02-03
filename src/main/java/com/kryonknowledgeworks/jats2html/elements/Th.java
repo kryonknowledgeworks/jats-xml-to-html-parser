@@ -43,10 +43,11 @@ public class Th implements Tag {
             Node td = node.getFirstChild();
 
             NodeList childNodes = node.getChildNodes();
-
+            if(td!=null){
             if (td.getNodeValue() != null){
                 this.html += td.getNodeValue();
-            } else {
+            }
+            else {
 
                 if (tagNames.contains(td.getNodeName())) {
 
@@ -61,6 +62,7 @@ public class Th implements Tag {
                 }
 
             }
+
             Node sibling = td.getNextSibling();
 
             while (sibling != null){
@@ -73,7 +75,7 @@ public class Th implements Tag {
 
                     String className = ClassNameSingleTon.tagToClassName(sibling.getNodeName());
                     if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling);
+                        Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling, metaDataBuilder);
                         this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                     }
                 } else if (!sibling.getNodeName().equals("#text")){
@@ -83,6 +85,7 @@ public class Th implements Tag {
 
                 sibling = sibling.getNextSibling();
 
+            }
             }
 
             this.html += "</th>";
