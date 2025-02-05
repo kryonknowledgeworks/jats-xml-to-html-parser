@@ -12,6 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
 
 public class HTMLBuilder {
 
@@ -21,9 +22,10 @@ public class HTMLBuilder {
         this.document = document;
     }
 
-    public String buildHTML(String outputPath) throws IOException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public String buildHTML(String outputPath, Map<String,Object> formats) throws IOException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
         MetaDataBuilder metaDataBuilder = new MetaDataBuilder();
+        metaDataBuilder.buildAll(formats);
         String doctype = "<!DOCTYPE html>";
         Article article = new Article(document.getDocumentElement(), metaDataBuilder);
         InputStream inputStream = JATS2HTMLParser.class.getClassLoader().getResourceAsStream("style.css");

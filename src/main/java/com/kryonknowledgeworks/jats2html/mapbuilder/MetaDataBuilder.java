@@ -16,4 +16,8 @@ public class MetaDataBuilder {
     public Map<String, Object> build() {
         return dataMap;
     }
+
+    public void buildAll(Map<String, Object> map) {
+         dataMap.putAll(map);
+    }
 }

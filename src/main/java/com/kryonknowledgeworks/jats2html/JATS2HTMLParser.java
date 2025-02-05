@@ -54,6 +54,7 @@ public class JATS2HTMLParser {
     public static String parse(String inputFilePath, String outputFilePath, Boolean enableDebugMode) throws ParserException {
         try {
             System.setProperty("file.encoding", "UTF-8");
+            Map<String,Object> formats = new HashMap<>();
             new ParserException(enableDebugMode);
             File inputFile = new File(inputFilePath);
             File outputFile = new File(outputFilePath);
@@ -67,7 +68,30 @@ public class JATS2HTMLParser {
             Document document = documentBuilder.parse(inputFile);
             document.getDocumentElement().setAttribute(ParserConstants.XMLNS_XLINK, ParserConstants.X_LINK_NAMESPACE_URI);
             document.getDocumentElement().normalize();
-            return new HTMLBuilder(document).buildHTML(outputFilePath);
+            return new HTMLBuilder(document).buildHTML(outputFilePath,formats);
+        } catch (Exception e) {
+            ParserException.ParserExceptionHandler(e);
+        }
+        return StringUtils.EMPTY;
+    }
+
+    public static String parse(String inputFilePath, String outputFilePath, Boolean enableDebugMode,Map<String,Object> formats) throws ParserException {
+        try {
+            System.setProperty("file.encoding", "UTF-8");
+            new ParserException(enableDebugMode);
+            File inputFile = new File(inputFilePath);
+            File outputFile = new File(outputFilePath);
+            Util.copyDirectories(inputFile.getParentFile().toString(), outputFile.getParentFile().toString());
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            factory.setValidating(true);
+            DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+            documentBuilder.setEntityResolver(new CustomEntityResolver());
+            documentBuilder.setErrorHandler(new JatsException());
+            Document document = documentBuilder.parse(inputFile);
+            document.getDocumentElement().setAttribute(ParserConstants.XMLNS_XLINK, ParserConstants.X_LINK_NAMESPACE_URI);
+            document.getDocumentElement().normalize();
+            return new HTMLBuilder(document).buildHTML(outputFilePath,formats);
         } catch (Exception e) {
             ParserException.ParserExceptionHandler(e);
         }
@@ -155,4 +179,6 @@ public class JATS2HTMLParser {
         }
         return hRefs;
     }
+
+
 }

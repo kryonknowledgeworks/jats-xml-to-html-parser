@@ -9,7 +9,11 @@ import org.w3c.dom.NodeList;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.IntStream;
+
+import static java.util.stream.Collectors.toList;
 
 public class ElementCitation implements Tag {
 
@@ -26,58 +30,45 @@ public class ElementCitation implements Tag {
 
     public ElementCitation(Node node, String label, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
-
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-        Node paragraph = node.getFirstChild();
+        List<Node> nodeList = new ArrayList<>();
+        Node child = node.getFirstChild();
 
+        // Collect all child nodes
+        while (child != null) {
+            nodeList.add(child);
+            child = child.getNextSibling();
+        }
+
+        // Sort nodes based on tagOrderMap values (position)
+        nodeList.sort(Comparator.comparingInt(n -> {
+            Object value = metaDataBuilder.build().getOrDefault(n.getNodeName(), Integer.MAX_VALUE);
+            try {
+                return (value instanceof Integer) ? (Integer) value : Integer.parseInt(value.toString());
+            } catch (NumberFormatException e) {
+                return Integer.MAX_VALUE;
+            }
+        }));
+
+        // Generate HTML
         this.html += "<td><p>";
 
-        if (paragraph.getNodeValue() != null){
-            this.html += paragraph.getNodeValue();
-        } else {
-
-            if (tagNames.contains(paragraph.getNodeName())) {
-
-                String className = ClassNameSingleTon.tagToClassName(paragraph.getNodeName());
+        for (Node sortedNode : nodeList) {
+            if (sortedNode.getNodeName().equals("#text")) {
+                this.html += sortedNode.getNodeValue();
+            } else if (tagNames.contains(sortedNode.getNodeName())) {
+                String className = ClassNameSingleTon.tagToClassName(sortedNode.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, paragraph, metaDataBuilder);
-                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+                    Object instance = ClassNameSingleTon.createInstanceFromClassName(className, sortedNode, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instance, "element");
                 }
-            } else if (!paragraph.getNodeName().equals("#text")){
-
-                this.html += "<pre style='color:red'>'''" + Util.convertToString(paragraph).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+            } else {
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(sortedNode).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
             }
-
-        }
-        Node sibling = paragraph.getNextSibling();
-
-
-
-        while (sibling != null){
-
-            if (sibling.getNodeName().equals("#text")){
-                this.html += sibling.getNodeValue();
-            }
-
-            if (tagNames.contains(sibling.getNodeName())) {
-
-                String className = ClassNameSingleTon.tagToClassName(sibling.getNodeName());
-                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling, metaDataBuilder);
-                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                }
-            } else if (!sibling.getNodeName().equals("#text")){
-
-                this.html += "<pre style='color:red'>'''" + Util.convertToString(sibling).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
-            }
-
-            sibling = sibling.getNextSibling();
-
         }
 
         this.html += "</p></td>";
-
     }
 
     @Override

@@ -47,7 +47,7 @@ public class ArticleTitle implements Tag {
             }
         }
 
-        if (node.getParentNode().getNodeName().equals("nlm-citation")){
+        if (node.getParentNode().getNodeName().equals("nlm-citation")||node.getParentNode().getNodeName().equals("element-citation")){
             this.html+= Util.htmlTagBinder("span",Util.getHtmlEscapeData(node.getTextContent()));
         } else {
             this.html+= Util.htmlTagBinder("h1",Util.getHtmlEscapeData(node.getTextContent()));
