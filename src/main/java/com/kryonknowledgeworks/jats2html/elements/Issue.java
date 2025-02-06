@@ -46,7 +46,11 @@ public class Issue implements Tag {
 
         }
 
-        this.html += Util.getHtmlEscapeData(node.getTextContent());
+        if (node.getParentNode().getNodeName().equals("element-citation")){
+            this.html += "("+Util.getHtmlEscapeData(node.getTextContent())+")";
+        }else{
+            this.html += Util.getHtmlEscapeData(node.getTextContent());
+        }
 
     }
 

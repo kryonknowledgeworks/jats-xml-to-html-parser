@@ -45,6 +45,7 @@ public class Fpage implements Tag    {
             }
         }
         this.html+= Util.getHtmlEscapeData(node.getTextContent());
+
     }
 
     @Override

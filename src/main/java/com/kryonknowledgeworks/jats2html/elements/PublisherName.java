@@ -46,6 +46,10 @@ public class PublisherName implements Tag {
 
         }
 
+        if (node.getParentNode().getNodeName().equals("element-citation")){
+            this.html += Util.getHtmlEscapeData(node.getTextContent());
+        }
+
     }
 
     @Override

@@ -47,7 +47,7 @@ public class GivenNames implements Tag {
                 }
 
             }
-            this.html+= "<span> " + node.getTextContent() + "</span>";
+            this.html+= "<span> " + node.getTextContent() + " </span> ";
         } catch (Exception e) {
             HandleException.processException(e);
         }
