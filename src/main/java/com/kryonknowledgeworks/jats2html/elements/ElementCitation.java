@@ -9,7 +9,13 @@ import org.w3c.dom.NodeList;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static java.util.stream.Collectors.toList;
 
 public class ElementCitation implements Tag {
 
@@ -26,58 +32,73 @@ public class ElementCitation implements Tag {
 
     public ElementCitation(Node node, String label, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
-
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
-        Node paragraph = node.getFirstChild();
 
+
+        List<Node> nodeList = new ArrayList<>();
+        Node child = node.getFirstChild();
+
+        // Collect all child nodes
+        while (child != null) {
+            nodeList.add(child);
+            child = child.getNextSibling();
+        }
+
+        NodeList childNodes = node.getChildNodes();
+
+        nodeList = IntStream.range(0, childNodes.getLength())
+                .mapToObj(childNodes::item)
+                .filter(n -> !n.getNodeName().equals("#text"))
+                .collect(Collectors.toList());
+
+
+        // Sort nodes based on tagOrderMap values (position)
+        nodeList.sort(Comparator.comparingInt(n -> {
+            Object value = metaDataBuilder.build().getOrDefault(n.getNodeName(), Integer.MAX_VALUE);
+            try {
+                return (value instanceof Integer) ? (Integer) value : Integer.parseInt(value.toString());
+            } catch (NumberFormatException e) {
+                return Integer.MAX_VALUE;
+            }
+        }));
+
+        // Generate HTML
         this.html += "<td><p>";
-
-        if (paragraph.getNodeValue() != null){
-            this.html += paragraph.getNodeValue();
-        } else {
-
-            if (tagNames.contains(paragraph.getNodeName())) {
-
-                String className = ClassNameSingleTon.tagToClassName(paragraph.getNodeName());
-                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, paragraph, metaDataBuilder);
-                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
+        Integer lastElement = nodeList.size();
+        int i = 0;
+        String lPage ="" ;
+        for (Node sortedNode : nodeList) {
+            i++;
+            Boolean separator = false;
+            if (sortedNode.getNodeName().equals("#text")) {
+                this.html += sortedNode.getNodeValue();
+            } else if (tagNames.contains(sortedNode.getNodeName())) {
+                String className = ClassNameSingleTon.tagToClassName(sortedNode.getNodeName());
+                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className)) && !sortedNode.getNodeName().equals("lpage") && !sortedNode.getNodeName().equals("fpage") ) {
+                    this.html += getHTMLFromNode(className,sortedNode,metaDataBuilder);
+                }else if(Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className)) && sortedNode.getNodeName().equals("fpage")){
+                    this.html += "pp. " + getHTMLFromNode(className,sortedNode,metaDataBuilder);
+                    if (lPage.isEmpty()){
+                        Optional<Node> resultNode = nodeList.stream()
+                                .filter(n -> "lpage".equals(n.getNodeName()))
+                                .findFirst();
+                        if (resultNode.isPresent())
+                            this.html += " - " + getHTMLFromNode(className, resultNode.get(),metaDataBuilder);
+                    }else{
+                        this.html += " - " + lPage;
+                    }
+                }else if(Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className)) && sortedNode.getNodeName().equals("lpage")){
+                    lPage += getHTMLFromNode(className,sortedNode,metaDataBuilder);
+                    separator = true;
                 }
-            } else if (!paragraph.getNodeName().equals("#text")){
-
-                this.html += "<pre style='color:red'>'''" + Util.convertToString(paragraph).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
+            } else {
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(sortedNode).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
             }
-
-        }
-        Node sibling = paragraph.getNextSibling();
-
-
-
-        while (sibling != null){
-
-            if (sibling.getNodeName().equals("#text")){
-                this.html += sibling.getNodeValue();
-            }
-
-            if (tagNames.contains(sibling.getNodeName())) {
-
-                String className = ClassNameSingleTon.tagToClassName(sibling.getNodeName());
-                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, sibling, metaDataBuilder);
-                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
-                }
-            } else if (!sibling.getNodeName().equals("#text")){
-
-                this.html += "<pre style='color:red'>'''" + Util.convertToString(sibling).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
-            }
-
-            sibling = sibling.getNextSibling();
-
+            this.html += (separator || lastElement==i)?"":", ";
         }
 
-        this.html += "</p></td>";
-
+        this.html += ". </p></td>";
     }
 
     @Override
@@ -109,5 +130,10 @@ public class ElementCitation implements Tag {
             }
         }
         return nodeList;
+    }
+
+    public String getHTMLFromNode(String className,Node sortedNode,MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        Object instance = ClassNameSingleTon.createInstanceFromClassName(className, sortedNode, metaDataBuilder);
+        return ClassNameSingleTon.invokeMethod(instance, "element");
     }
 }

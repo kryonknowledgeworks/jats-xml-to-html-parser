@@ -7,7 +7,10 @@ import com.kryonknowledgeworks.jats2html.util.Util;
 import org.w3c.dom.Node;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/name.html
 public class Name implements Tag {
@@ -30,7 +33,22 @@ public class Name implements Tag {
 
         this.nodeList = Util.elementFilter(node.getChildNodes());
 
-        this.html += "<span> ";
+        this.html += " <span> ";
+
+
+
+        if(node.getParentNode().getNodeName().equals("element-citation") && metaDataBuilder.build().containsKey("ordered-name")){
+            nodeList.sort(Comparator.comparingInt(n -> {
+                Object value =  ((Map<String, Object>) metaDataBuilder.build().get("ordered-name")).getOrDefault(n.getNodeName(), Integer.MAX_VALUE);
+                try {
+                    return (value instanceof Integer) ? (Integer) value : Integer.parseInt(value.toString());
+                } catch (NumberFormatException e) {
+                    return Integer.MAX_VALUE;
+                }
+            }));
+        }
+
+
 
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -50,7 +68,7 @@ public class Name implements Tag {
                 }
         }
 
-        this.html += "</span>";
+        this.html += " </span> ";
 
     }
 

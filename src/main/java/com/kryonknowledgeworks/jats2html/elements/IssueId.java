@@ -11,22 +11,21 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-//https://jats.nlm.nih.gov/publishing/tag-library/1.3/element/fpage.html
-public class Fpage implements Tag    {
+public class IssueId implements Tag {
 
     public static Boolean IMPLEMENT = true;
 
-    public static String ELEMENT_FPAGE_FULL = "<fpage>";
-    public static String ELEMENT_FPAGE = "fpage";
+    public static String ELEMENT_FULL = "<issue-id>";
+    public static String ELEMENT= "issue-id";
 
     Node node = null;
     NodeList childNodes = null;
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Fpage(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public IssueId(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
-        this.nodeList = Util.getChildNode(node);
+        elementFilter();
 
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -36,15 +35,20 @@ public class Fpage implements Tag    {
 
                 String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                 }
             } else if (!node1.getNodeName().equals("#text")){
 
-
-                this.html += Util.unParsedTagBuilder(node1);
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
             }
+
         }
-        this.html+= Util.getHtmlEscapeData(node.getTextContent());
+
+
+        this.html += Util.getHtmlEscapeData(node.getTextContent());
+
 
     }
 
@@ -61,5 +65,21 @@ public class Fpage implements Tag    {
     @Override
     public Boolean isChildAvailable() {
         return null;
+    }
+
+    public List<Node> elementFilter() {
+
+        this.childNodes = this.node.getChildNodes();
+
+        for (int i = 0; i < this.childNodes.getLength(); i++) {
+
+            Node firstChild = this.childNodes.item(i);
+
+            if (firstChild != null && !firstChild.getNodeName().equals("#text")) {
+                nodeList.add(firstChild);
+            }
+
+        }
+        return nodeList;
     }
 }

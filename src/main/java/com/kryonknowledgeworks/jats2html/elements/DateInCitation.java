@@ -11,19 +11,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Issue implements Tag {
+public class DateInCitation implements Tag {
 
     public static Boolean IMPLEMENT = true;
 
-    public static String ELEMENT_FULL = "<issue>";
-    public static String ELEMENT= "issue";
+    public static String ELEMENT_FULL = "<date-in-citation>";
+    public static String ELEMENT= "date-in-citation";
 
     Node node = null;
     NodeList childNodes = null;
     List<Node> nodeList = new ArrayList<>();
     String html = "";
 
-    public Issue(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public DateInCitation(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         this.node = node;
         elementFilter();
 
@@ -46,11 +46,14 @@ public class Issue implements Tag {
 
         }
 
+
         if (node.getParentNode().getNodeName().equals("element-citation")){
             this.html += "("+Util.getHtmlEscapeData(node.getTextContent())+")";
         }else{
             this.html += Util.getHtmlEscapeData(node.getTextContent());
         }
+
+
 
     }
 
