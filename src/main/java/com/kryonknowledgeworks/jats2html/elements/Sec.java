@@ -73,7 +73,7 @@ public class Sec implements Tag {
         }
         title = title.replace("<h4><span class='label'>", "").replace("</span>", "").replace("</h4>", "");
 
-        this.html = this.html.replace("data-name=''", "data-name=\" " + title + "  \"  ");
+        this.html = this.html.replace("data-name=''", "data-name=\" " + title.replaceAll("<[^>]+>", "")  + "  \"  ");
 
         this.html += "</div>";
 

@@ -52,7 +52,7 @@ public class P implements Tag {
 
                 if (tagNames.contains(paragraph.getNodeName())) {
 
-                    if (this.html.endsWith("</div>") || this.html.endsWith("</div>")){
+                    if (this.html.endsWith("</div>")){
                         this.html += "<p>";
                     }
 
@@ -98,38 +98,6 @@ public class P implements Tag {
             if (!node.getParentNode().getNodeName().equals("fig") && !node.getParentNode().getNodeName().equals("caption") && !node.getParentNode().getNodeName().equals("list-item")){
                 this.html += "</p>";
             }
-
-
-//            if (node.getParentNode().getNodeName().equals("list-item")){
-//                this.html += htmlTagBinder("li", node.getTextContent());
-//            } else {
-//
-//                String refType = "", rid = "";
-//                String paragraph = Util.getHtmlEscapeData(Util.getNestedNodeValue(node));
-//
-//                paragraph=convertToStringData(node).replaceAll("<xref","<a").replaceAll("/xref>","/a>").replaceAll("rid=\"","href=\"#").replaceAll("ref-type","class").replaceAll("mml:", "").replaceAll("<disp-formula", "<div")
-//                        .replaceAll("</disp-formula>","</div>").replaceAll("italic","i").replaceAll("<inline-graphic", "<img").replaceAll("/inline-graphic>", "/img>").replaceAll("xlink:href", "src");
-//
-//                if (node.getParentNode().getNodeName().equals("disp-quote")){
-//                    int closingTagIndex = paragraph.indexOf("</p>");
-//
-//                    // If the closing tag is found
-//                    if (closingTagIndex != -1) {
-//                        // Insert double quotes before '</p>'
-//                        StringBuilder modifiedString = new StringBuilder(paragraph);
-//                        modifiedString.insert(closingTagIndex, '"');
-//
-//                        // Insert double quotes after '<p>'
-//                        paragraph = modifiedString.insert(3, '"').toString();
-//                    }
-//                }
-//
-//                String mathFormula = "";
-//                elementFilter();
-//                this.html += htmlTagBinder(node.getNodeName(), paragraph) + mathFormula;
-//
-//            }
-
 
 
         } catch (Exception e) {
