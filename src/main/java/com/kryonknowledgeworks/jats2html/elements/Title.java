@@ -58,27 +58,14 @@ public class Title implements Tag {
             this.node = node;
             this.nodeList = Util.getChildNode(node);
 
-            Label label = new Label(Util.getCurrentNode(Util.getChildNode(node.getParentNode()), "label"), metaDataBuilder);
-
-            if (node.getParentNode().getNodeName().equals("sec")){
-                this.html+= htmlTagBinder("h4", label.element()+ " " + Util.getHtmlEscapeData(node.getTextContent()));
-            } else if(node.getParentNode().getNodeName().equals("abstract")){
-                this.html+= htmlTagBinder("h4", Util.getHtmlEscapeData(node.getTextContent()));
-            }else if(node.getParentNode().getNodeName().equals("kwd-group")){
-                this.html+= htmlTagBinder("h4", Util.getHtmlEscapeData(node.getTextContent()));
-            }else if(node.getParentNode().getNodeName().equals("ref-list")){
-                this.html+= htmlTagBinder("h3", Util.getHtmlEscapeData(node.getTextContent()));
-            }else if(node.getParentNode().getNodeName().equals("ack")){
-                this.html+= htmlTagBinder("h3", Util.getHtmlEscapeData(node.getTextContent()));
-            }else if(node.getParentNode().getNodeName().equals("caption") && node.getParentNode().getParentNode().getNodeName().equals("fig")){
-                this.html+=Util.getHtmlEscapeData(node.getTextContent());
-            }else {
-                this.html += htmlTagBinder(HTML_TAG, node.getFirstChild().getNodeValue());
-            }
 
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
             for (Node node1 : nodeList) {
+
+                if (node1.getNodeName().equals("#text")){
+                    this.html += node1.getNodeValue().replace("<","&lt;");
+                }
 
                 if (tagNames.contains(node1.getNodeName())) {
 
@@ -89,9 +76,26 @@ public class Title implements Tag {
                     }
                 } else if (!node1.getNodeName().equals("#text")){
 
-                 
+
                     this.html += Util.unParsedTagBuilder(node1);
                 }
+            }
+
+
+            Label label = new Label(Util.getCurrentNode(Util.getChildNode(node.getParentNode()), "label"), metaDataBuilder);
+
+            if (node.getParentNode().getNodeName().equals("sec")){
+                this.html= htmlTagBinder("h4", label.element()+ " " + this.html);
+            } else if(node.getParentNode().getNodeName().equals("abstract")){
+                this.html= htmlTagBinder("h4", this.html);
+            }else if(node.getParentNode().getNodeName().equals("kwd-group")){
+                this.html= htmlTagBinder("h4", this.html);
+            }else if(node.getParentNode().getNodeName().equals("ref-list")){
+                this.html= htmlTagBinder("h3", this.html);
+            }else if(node.getParentNode().getNodeName().equals("ack")){
+                this.html= htmlTagBinder("h3", this.html);
+            }else {
+                this.html = htmlTagBinder(HTML_TAG, this.html);
             }
 
         } catch (Exception e) {

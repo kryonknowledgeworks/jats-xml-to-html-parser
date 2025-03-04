@@ -42,12 +42,11 @@ a {
     list-style-type: none;
 }
 
-.numbered-list li::before {
+.numbered-list > li::before {
     content: counter(item)". ";
-    font-weight: bold;
 }
 
-.numbered-list li {
+.numbered-list > li {
     counter-increment: item;
     margin-bottom: 5px;
 }
@@ -76,7 +75,7 @@ a {
     list-style-type: none;
 }
 
-.bullet-list li:before {
+.bullet-list > li:before {
     content: "\2022";
     margin-right: 10px;
 }
@@ -214,13 +213,20 @@ ul{
 }
 
 .formula {
-    padding: 25px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 div.formula span.label {
-    margin: 0;
     position: absolute;
-    right: 160px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 10px;
 }
 
 .image-area {

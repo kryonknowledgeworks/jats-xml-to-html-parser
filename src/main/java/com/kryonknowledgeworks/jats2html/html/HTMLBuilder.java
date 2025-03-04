@@ -46,7 +46,7 @@ public class HTMLBuilder {
 
         String html = doctype + "<html><head>" +
                 "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">" +
-                "<style>" + style + "</style></head>" + article.element() + "<script>"+  script +"</script>" + "</html>";
+                "<style>" + style + "</style></head>" + article.element() + "  <script src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js\"></script><script>"+  script +"</script>" + "</html>";
         FileWriter myWriter = new FileWriter(outputPath);
         myWriter.write(html);
         myWriter.close();

@@ -28,23 +28,24 @@ public class Fn implements Tag {
     public Fn(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
         this.node = node;
-        nodeList= Util.getChildNode(node);
-        String parentNode = node.getParentNode().getNodeName();
-        for(Node pNode:nodeList) {
-            if (pNode.getNodeName().equals("p") && !parentNode.equals("fn-group")) {
-                fnHtml += Util.getNestedNodeValue(pNode);
-            } else {
-                String className = ClassNameSingleTon.tagToClassName(pNode.getNodeName());
+        this.nodeList = Util.getChildNode(node);
+        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
+        for (Node node1 : nodeList) {
+
+            if (tagNames.contains(node1.getNodeName())) {
+
+                String className = ClassNameSingleTon.tagToClassName(node1.getNodeName());
                 if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className))) {
-                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, pNode, metaDataBuilder);
-                    fnHtml += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element").replace("<p>","<span>").replace("</p>","</span>");
+
+                    Object instanceFromClassName = ClassNameSingleTon.createInstanceFromClassName(className, node1, metaDataBuilder);
+                    this.html += ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                 }
+            } else if (!node1.getNodeName().equals("#text")) {
+
+
+                this.html += "<pre style='color:red'>'''" + Util.convertToString(node1).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
             }
-        }
-        if(parentNode.equals("fn-group")){
-            this.html = "<p class='mb-0' "+ ((node.getAttributes().getNamedItem("id") == null)?"":node.getAttributes().getNamedItem("id")) + " >"+ fnHtml + "</p>";
-        }else{
-            this.html = fnHtml;
+
         }
     }
 
