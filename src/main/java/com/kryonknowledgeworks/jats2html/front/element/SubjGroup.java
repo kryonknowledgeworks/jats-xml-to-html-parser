@@ -28,7 +28,10 @@ public class SubjGroup {
     public SubjGroup(Node node){
         try{
             this.node = node;
-
+            String subjGroupType = "";
+            if (node.getAttributes().getNamedItem("subj-group-type") != null){
+                subjGroupType = node.getAttributes().getNamedItem("subj-group-type").getNodeValue();
+            }
 
             nodeList = Util.getChildNode(node);
 
@@ -52,9 +55,9 @@ public class SubjGroup {
             }
 
             if (childMap.size() > 0 && textContent == ""){
-                map.put(parentKeyName,childMap);
+                map.put((subjGroupType.isEmpty())?parentKeyName:subjGroupType,((HashMap<String,String>) childMap.get(0)).get("Subject"));
             }else if(textContent.length() > 0){
-                map.put(parentKeyName,textContent);
+                map.put((subjGroupType.isEmpty())?parentKeyName:subjGroupType,textContent);
             }
 
         }catch (Exception e){
