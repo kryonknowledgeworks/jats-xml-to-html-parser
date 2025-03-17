@@ -2,6 +2,7 @@ package com.kryonknowledgeworks.jats2html.util;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.text.StringEscapeUtils;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import javax.xml.transform.Transformer;
@@ -11,8 +12,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -334,5 +334,118 @@ public static String divGenerator(String id,String data)
 
         return "<pre style='color:red'>'''" + convertToString(node).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
     }
+
+
+    public static Map<String, Object> extractCitationData(NodeList childNodes) {
+        Map<String, Object> citationData = new HashMap<>();
+        List<String> authors = new ArrayList<>();
+
+        String fPage = "";
+        String lPage = "";
+
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                String nodeName = node.getNodeName();
+                String nodeValue = node.getTextContent().trim();
+
+                if (nodeName.equals("name")) {
+                    Element nameElement = (Element) node;
+                    String surname = getTagValue("surname", nameElement);
+                    String givenName = getTagValue("given-names", nameElement);
+                    if (surname != null && givenName != null)
+                        authors.add(surname + "-" + givenName);
+
+                } else {
+                    if(nodeName.equals("article-title"))
+                        citationData.put("articleTitle",nodeValue);
+                    else if (nodeName.equals("fpage"))
+                        fPage = nodeValue;
+                    else if (nodeName.equals("lpage"))
+                        lPage = nodeValue;
+                    else if (nodeName.equals("source"))
+                        citationData.put("journalTitle",nodeValue);
+                    else if(nodeName.equals("month"))
+                        citationData.put("shortMonth",nodeValue);
+                    else
+                        citationData.put(nodeName, nodeValue);
+
+                }
+            }
+        }
+
+        if(!fPage.isEmpty() && !lPage.isEmpty())
+            citationData.put("page",fPage + " - " +lPage);
+        else
+            citationData.put("page",fPage + lPage);
+
+        citationData.put("authors", authors);
+        return citationData;
+    }
+
+    private static String getTagValue(String tag, Element element) {
+        NodeList nodeList = element.getElementsByTagName(tag);
+        if (nodeList != null && nodeList.getLength() > 0) {
+            return nodeList.item(0).getTextContent().trim();
+        }
+        return null;
+    }
+
+    public static String formatCitation(String template, String authorSeparator, Map<String, Object> values) {
+        for (Map.Entry<String, Object> entry : values.entrySet()) {
+            if (entry.getKey().equals("authors")) {
+                template = template.replace("%authors", formatAuthors((List<String>) entry.getValue(), authorSeparator));
+            } else {
+                template = template.replace("%" + entry.getKey(), entry.getValue().toString());
+            }
+        }
+        return template;
+    }
+
+    public static String formatAuthors(List<String> authors, String styleTemplate) {
+        if (authors.isEmpty()) return "";
+
+      StringBuilder formattedAuthors = new StringBuilder();
+
+        for (int i = 0; i < authors.size(); i++) {
+            String author = authors.get(i);
+            String surName = author.split("-")[0];
+            String givenName = author.split("-")[1];
+            if (surName != null && givenName != null) {
+                // Replace placeholders with actual author data
+                String authorFormat = styleTemplate
+                        .replace("%last", surName.trim())
+                        .replace("%firstInitial", givenName.trim().substring(0, 1))
+                        .replace("%first", givenName.trim());
+
+                String phrase = "%finalSep-";
+                String finalSeparateOr = "";
+                int index = styleTemplate.indexOf(phrase);
+
+                if (index != -1) {
+                    finalSeparateOr = styleTemplate.substring(index + phrase.length()).trim();
+                } else {
+                    System.err.println("Phrase not found");
+                }
+
+                // Add separator depending on the position
+                if (i < authors.size() - 2) {
+                    authorFormat = authorFormat.replaceAll("%sep %finalSep-.*", "");
+                } else if (i == authors.size() - 2) {
+                    authorFormat = authorFormat.replaceAll("%sep %finalSep-.*", finalSeparateOr+" ");
+                } else {
+                    authorFormat = authorFormat.replaceAll("%sep %finalSep-.*", "");
+                }
+
+                if(i == authors.size() - 1 && !authorFormat.isEmpty()) {
+                    authorFormat = authorFormat.trim().replaceAll("[,;]$", "");
+                }
+                formattedAuthors.append(authorFormat);
+            }
+        }
+
+        return formattedAuthors.toString();
+    }
+
 
 }

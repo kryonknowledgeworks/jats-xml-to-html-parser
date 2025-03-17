@@ -8,10 +8,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -45,60 +43,10 @@ public class ElementCitation implements Tag {
             child = child.getNextSibling();
         }
 
-        NodeList childNodes = node.getChildNodes();
+        Map<String, Object> extractedData = Util.extractCitationData(node.getChildNodes());
 
-        nodeList = IntStream.range(0, childNodes.getLength())
-                .mapToObj(childNodes::item)
-                .filter(n -> !n.getNodeName().equals("#text"))
-                .collect(Collectors.toList());
+        this.html = Util.formatCitation(metaDataBuilder.build().get("citationFormat").toString(),metaDataBuilder.build().get("authorNameSeparator").toString(),extractedData);
 
-
-        // Sort nodes based on tagOrderMap values (position)
-        nodeList.sort(Comparator.comparingInt(n -> {
-            Object value = metaDataBuilder.build().getOrDefault(n.getNodeName(), Integer.MAX_VALUE);
-            try {
-                return (value instanceof Integer) ? (Integer) value : Integer.parseInt(value.toString());
-            } catch (NumberFormatException e) {
-                return Integer.MAX_VALUE;
-            }
-        }));
-
-        // Generate HTML
-        this.html += "<td><p>";
-        Integer lastElement = nodeList.size();
-        int i = 0;
-        String lPage ="" ;
-        for (Node sortedNode : nodeList) {
-            i++;
-            Boolean separator = false;
-            if (sortedNode.getNodeName().equals("#text")) {
-                this.html += sortedNode.getNodeValue();
-            } else if (tagNames.contains(sortedNode.getNodeName())) {
-                String className = ClassNameSingleTon.tagToClassName(sortedNode.getNodeName());
-                if (Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className)) && !sortedNode.getNodeName().equals("lpage") && !sortedNode.getNodeName().equals("fpage") ) {
-                    this.html += getHTMLFromNode(className,sortedNode,metaDataBuilder);
-                }else if(Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className)) && sortedNode.getNodeName().equals("fpage")){
-                    this.html += "pp. " + getHTMLFromNode(className,sortedNode,metaDataBuilder);
-                    if (lPage.isEmpty()){
-                        Optional<Node> resultNode = nodeList.stream()
-                                .filter(n -> "lpage".equals(n.getNodeName()))
-                                .findFirst();
-                        if (resultNode.isPresent())
-                            this.html += " - " + getHTMLFromNode(className, resultNode.get(),metaDataBuilder);
-                    }else{
-                        this.html += " - " + lPage;
-                    }
-                }else if(Boolean.TRUE.equals(ClassNameSingleTon.isImplement(className)) && sortedNode.getNodeName().equals("lpage")){
-                    lPage += getHTMLFromNode(className,sortedNode,metaDataBuilder);
-                    separator = true;
-                }
-            } else {
-                this.html += "<pre style='color:red'>'''" + Util.convertToString(sortedNode).replace("<", "&lt;").replace(">", "&gt;") + "'''</pre>";
-            }
-            this.html += (separator || lastElement==i)?"":", ";
-        }
-
-        this.html += ". </p></td>";
     }
 
     @Override
