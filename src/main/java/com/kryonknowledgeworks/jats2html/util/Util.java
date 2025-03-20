@@ -357,8 +357,11 @@ public static String divGenerator(String id,String data)
 
        if(citationType!=null && citationType.getNodeName().equals("book"))
            builder.type(CSLType.BOOK);
-       else
+       else if(citationType!=null && citationType.getNodeName().equals("journal"))
            builder.type(CSLType.ARTICLE_JOURNAL);
+       else
+           builder.type(CSLType.ARTICLE);
+
 
         List<CSLName> authorList = new ArrayList<>();
 
