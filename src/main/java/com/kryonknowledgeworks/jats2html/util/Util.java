@@ -1,7 +1,9 @@
 package com.kryonknowledgeworks.jats2html.util;
 
+import de.undercouch.citeproc.csl.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.text.StringEscapeUtils;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import javax.xml.transform.Transformer;
@@ -11,8 +13,8 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -335,4 +337,207 @@ public static String divGenerator(String id,String data)
         return "<pre style='color:red'>'''" + convertToString(node).replace("<","&lt;").replace(">","&gt;") + "'''</pre>";
     }
 
+
+
+    private static String getTagValue(String tag, Element element) {
+        NodeList nodeList = element.getElementsByTagName(tag);
+        if (nodeList != null && nodeList.getLength() > 0) {
+            return nodeList.item(0).getTextContent().trim();
+        }
+        return null;
+    }
+
+
+
+    public static CSLItemDataBuilder parseElementCitation(Node elementCitationTag,NodeList childNodes) {
+
+        CSLItemDataBuilder builder =  new CSLItemDataBuilder();
+
+       Node citationType = elementCitationTag.getAttributes().getNamedItem("publication-type");
+
+       if(citationType!=null && citationType.getNodeName().equals("book"))
+           builder.type(CSLType.BOOK);
+       else
+           builder.type(CSLType.ARTICLE_JOURNAL);
+
+        List<CSLName> authorList = new ArrayList<>();
+
+        String lpage = "";
+        String fpage = "";
+
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                String tagName = node.getNodeName().toLowerCase();
+                String value = node.getTextContent().trim();
+
+                switch (tagName) {
+                    case "article-title":
+                        builder.title(value);
+                        break;
+                    case "source":
+                        builder.containerTitle(value);
+                        break;
+                    case "year":
+                        builder.issued(Integer.parseInt(value));
+                        break;
+                    case "volume":
+                        builder.volume(value);
+                        break;
+                    case "issue":
+                        builder.issue(value);
+                        break;
+                    case "version":
+                        builder.version(value);
+                        break;
+                    case "uri":
+                        builder.URL(value);
+                        break;
+                    case "publisher-loc":
+                        builder.publisherPlace(value);
+                        break;
+                    case "publisher-name":
+                        builder.publisher(value);
+                        break;
+                    case "fpage":
+                        fpage = value;
+                        break;
+                    case "lpage":
+                        lpage = value;
+                        break;
+                    case "page-range":
+                        builder.page(value);
+                        break;
+                    case "issn":
+                        builder.ISSN(value);
+                        break;
+                    case "isbn":
+                        builder.ISBN(value);
+                        break;
+                    case "conf-loc":
+                        builder.eventPlace(value);
+                        break;
+                    case "conf-name":
+                        builder.event(value);
+                        break;
+                    case "conf-date":
+                        processConfDate(node, builder);
+                        break;
+                    case "edition":
+                        builder.edition(value);
+                        break;
+                    case "name":
+                        processName(node, authorList);
+                        break;
+                    case "person-group":
+                        processPersonGroup(node, builder);
+                        break;
+                    case "pub-id":
+                        processPubIdAndIssueID(node, builder,true);
+                        break;
+                    case "issue-id":
+                        processPubIdAndIssueID(node, builder,false);
+                        break;
+                    default:
+                        System.out.println("Unknown tag: " + tagName + " => " + value);
+                        break;
+                }
+            }
+
+            if(!authorList.isEmpty())
+                builder.author(authorList.toArray(new CSLName[0]));
+
+            if (!fpage.isEmpty() && !lpage.isEmpty())
+                builder.page(fpage + " - " + lpage);
+
+        }
+
+        return builder ;
+    }
+
+    private static void processName(Node nameNode,List<CSLName> namesList) {
+        Element nameElement = (Element) nameNode;
+        String surname = getTagValue("surname", nameElement);
+        String givenName = getTagValue("given-names", nameElement);
+
+        namesList.add(new CSLNameBuilder()
+                .given(givenName)
+                .family(surname)
+                .build());
+    }
+
+    private static void processConfDate(Node nameNode,CSLItemDataBuilder builder) {
+        String isoDate = "";
+        if (nameNode.getAttributes().getNamedItem("iso-8601-date")!=null){
+            isoDate = nameNode.getAttributes().getNamedItem("iso-8601-date").getNodeValue();
+            LocalDate date = LocalDate.parse(isoDate);
+            dateParts(date.getYear(),date.getMonthValue(),date.getDayOfMonth(),builder);
+        }
+    }
+
+    public static void dateParts(Integer year, Integer month, Integer day,CSLItemDataBuilder builder) {
+        if (month == null && day == null) {
+             builder.eventDate(year);
+        } else if (day == null) {
+             builder.eventDate(year, month);
+        } else {
+             builder.eventDate(year, month, day);
+        }
+    }
+
+
+    private static void processPubIdAndIssueID(Node nameNode,CSLItemDataBuilder builder,Boolean isPubId) {
+
+        String pubIdType = "";
+        String value = nameNode.getTextContent().trim();
+
+        if (nameNode.getAttributes().getNamedItem("pub-id-type")!=null)
+            pubIdType = nameNode.getAttributes().getNamedItem("pub-id-type").getNodeValue();
+
+        if (!pubIdType.isEmpty() && isPubId ) {
+            switch (pubIdType) {
+                case "doi" -> builder.DOI(value);
+                case "pmcid" -> builder.PMCID(value);
+                case "pmid" -> builder.PMID(value);
+            }
+        }else if (!pubIdType.isEmpty()){
+            switch (pubIdType) {
+                case "call-number" -> builder.callNumber(value);
+                case "archive" -> builder.archive(value);
+                case "pmid" -> builder.PMID(value);
+            }
+        }
+    }
+
+    private static void processPersonGroup(Node personGroupNode, CSLItemDataBuilder builder) {
+        NodeList names = personGroupNode.getChildNodes();
+        List<CSLName> authors = new ArrayList<>();
+        String role = "";
+
+        for (int i = 0; i < names.getLength(); i++) {
+            Node node = names.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE && node.getNodeName().equalsIgnoreCase("name")) {
+                processName(node,authors);
+            }
+        }
+
+        CSLName[] authorArray = authors.toArray(new CSLName[0]);
+
+        if (personGroupNode.getAttributes().getNamedItem("publication-type")!=null)
+            role = personGroupNode.getAttributes().getNamedItem("publication-type").getNodeValue();
+
+        if (!role.isEmpty()) {
+            switch (role) {
+                case "translator" -> builder.translator(authorArray);
+                case "illustrator" -> builder.illustrator(authorArray);
+                case "editor" -> builder.editor(authorArray);
+                case "director" -> builder.director(authorArray);
+                case "curator" -> builder.curator(authorArray);
+                case "compiler" -> builder.compiler(authorArray);
+                case "author" -> builder.author(authorArray);
+            }
+        }
+
+    }
 }

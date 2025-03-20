@@ -12,13 +12,17 @@ body {
  background-color: #EAEBEE !important;
 }
 
-p{
+p , .reference-content{
     font-family: "Source Sans 3";
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
     letter-spacing: 0.20000000298023224px;
     text-align: left;
+}
+
+.reference-content{
+   padding-bottom: 20px;
 }
 .card-body.h4{
     font-family: "Source Sans 3";
