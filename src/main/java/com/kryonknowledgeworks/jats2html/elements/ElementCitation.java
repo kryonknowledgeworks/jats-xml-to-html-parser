@@ -4,9 +4,15 @@ import com.kryonknowledgeworks.jats2html.Tag;
 import com.kryonknowledgeworks.jats2html.mapbuilder.MetaDataBuilder;
 import com.kryonknowledgeworks.jats2html.util.ClassNameSingleTon;
 import com.kryonknowledgeworks.jats2html.util.Util;
+import de.undercouch.citeproc.CSL;
+import de.undercouch.citeproc.csl.CSLItemData;
+import de.undercouch.citeproc.csl.CSLItemDataBuilder;
+import de.undercouch.citeproc.csl.CSLNameBuilder;
+import de.undercouch.citeproc.csl.CSLType;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.List;
@@ -28,24 +34,13 @@ public class ElementCitation implements Tag {
 
     String nameHtml="";
 
-    public ElementCitation(Node node, String label, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public ElementCitation(Node node, String label, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException, IOException {
+
         this.node = node;
-        List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
+        CSLItemData item = Util.parseElementCitation(node,node.getChildNodes()).build();
 
-
-        List<Node> nodeList = new ArrayList<>();
-        Node child = node.getFirstChild();
-
-        // Collect all child nodes
-        while (child != null) {
-            nodeList.add(child);
-            child = child.getNextSibling();
-        }
-
-        Map<String, Object> extractedData = Util.extractCitationData(node.getChildNodes());
-
-        this.html = Util.formatCitation(metaDataBuilder.build().get("citationFormat").toString(),metaDataBuilder.build().get("authorNameSeparator").toString(),extractedData);
+        this.html = "<td class='reference-content' >"+CSL.makeAdhocBibliography((String) metaDataBuilder.build().get("citationStyles"), item).makeString().replaceAll("<div class=\"csl-left-margin\">.*?</div>", "")+"</td>";
 
     }
 
