@@ -1,7 +1,3 @@
-span.smallcaps {
-    font-variant: small-caps;
-}
-
 
 body {
     margin: 0;
@@ -21,9 +17,7 @@ p , .reference-content{
     text-align: left;
 }
 
-.reference-content{
-   padding-bottom: 20px;
-}
+
 .card-body.h4{
     font-family: "Source Sans 3";
 }
@@ -34,11 +28,48 @@ h3,h4{
     font-weight: 700;
     line-height: 40px;
     text-align: left;
-
 }
 
 a {
     color: #EE4823;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+ li .selected {
+    color: #EE4823 !important;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+
+/*main-custom-properties-start*/
+
+.reference-content{
+   padding-bottom: 20px;
+}
+
+span.smallcaps {
+    font-variant: small-caps;
+}
+
+.reference-content{
+    font-family: "Source Sans 3";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
 }
 
 .numbered-list {
@@ -84,17 +115,9 @@ a {
     margin-right: 10px;
 }
 
-h2 {
-    margin-bottom: 30px;
-}
-
 .navigation {
     position: sticky;
     top: 10px;
-}
-.container {
-    display: flex;
-    height: 100vh;
 }
 
 .navigation li a {
@@ -104,10 +127,6 @@ h2 {
     padding: 0.5rem 0;
     text-decoration: none;
     color: #050505;
-}
-ul{
-    margin: 0;
-    padding: 0;
 }
 
 .navHeading {
@@ -156,6 +175,7 @@ ul{
 .navigation ul li a:hover {
     color: #EE4823;
 }
+
 #mainList li {
     position: relative;
     padding: 10px 5px 0px 9px;
@@ -168,10 +188,6 @@ ul{
     font-weight: 600;
     /* padding-bottom: 10px; */
     border-bottom: 1px solid #cacaca;
-}
-
- li .selected {
-    color: #EE4823 !important;
 }
 
 .bottom-nav ul li a:hover {
@@ -263,8 +279,6 @@ div.formula span.label {
     font-weight: bold;
 }
 
-
-
 .ref_div{
     display: inline-flex;
     margin-bottom: 15px;
@@ -343,6 +357,7 @@ margin-bottom: 0px;
    order:1;
 }
 
+/*main-custom-properties-end*/
 
 /*.bg-hr{*/
 /*    height:1.3px;*/
