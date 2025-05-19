@@ -47,12 +47,6 @@ ul{
     color: #EE4823 !important;
 }
 
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-
 /*main-custom-properties-start*/
 
 .reference-content{
