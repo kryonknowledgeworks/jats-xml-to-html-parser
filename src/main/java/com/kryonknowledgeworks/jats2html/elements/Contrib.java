@@ -58,30 +58,6 @@ public class Contrib implements Tag {
                 }
 
         }
-
-
-
-//        Name name = new Name(Util.getCurrentNode(this.nodeList, Name.ELEMENT_NAME));
-//
-//        Xref xref = new Xref(Util.getCurrentNode(this.nodeList, Xref.ELEMENT_XREF));
-//
-//        ContribId contribId = new ContribId(Util.getCurrentNode(this.nodeList, ContribId.ELEMENT_CONTRIB_ID));
-
-//        String contribIdHtml;
-//        List<String> injectDatas;
-//
-//        if (contribId.element() != null) {
-//
-//            contribIdHtml = htmlTagBinder(ContribId.HTML_TAG, contribId.element());
-//
-//            injectDatas = Arrays.asList(xref.element(), contribIdHtml);
-//
-//        } else {
-//
-//            injectDatas = Collections.singletonList(xref.element());
-//        }
-
-//        this.html = htmlTagInject("</" + Name.ELEMENT_HTML + ">", injectDatas, name.element());
     }
 
     @Override

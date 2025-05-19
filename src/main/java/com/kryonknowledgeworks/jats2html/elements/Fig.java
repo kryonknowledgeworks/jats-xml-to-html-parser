@@ -33,7 +33,7 @@ public class Fig implements Tag {
 
         String id = node.getAttributes().getNamedItem("id").getNodeValue();
 
-        this.html += "<div class='bottom-nav-data' data-head='Figures' data-name='' order='4' data-id='"+ id +"'>";
+        this.html += "<div class='bottom-nav-data' data-head='Figures' data-id='"+ id +"'>";
 
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -70,8 +70,6 @@ public class Fig implements Tag {
         this.html += "</p>";
 
         this.html += "</div>";
-
-        this.html = this.html.replace("data-name=''", "data-name='" + Util.getHtmlEscapeData(graphicName.split("-")[0].replace("<span class='label'>", "").replace("<span>", "").replace("</span>","").trim()) + "'");
 
     }
 

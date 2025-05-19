@@ -42,18 +42,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    let figIndex = 1;
+    let tableIndex = 1;
+
     // Create a map for bottom-nav-data elements organized by their data-head attribute
     bottomNavDataElements.forEach(element => {
         const id = element.getAttribute('data-id');
-        const name = element.getAttribute('data-name');
-        const order = parseInt(element.getAttribute('order'), 10);
         const head = element.getAttribute('data-head');
 
         const listItem = document.createElement('li');
         const anchor = document.createElement('a');
         anchor.href = `#${id}`;
-        anchor.textContent = name;
-        listItem.dataset.order = order;
+
+        if(head === "Figures"){
+            anchor.textContent = "Fig " + figIndex;
+            figIndex++;
+        }
+        if(head === "Table"){
+            anchor.textContent = "Table " + tableIndex;
+            tableIndex++;
+        }
         listItem.appendChild(anchor);
 
         if (!headMap[head]) {

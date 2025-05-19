@@ -55,6 +55,7 @@ public class JATS2HTMLParser {
         try {
             System.setProperty("file.encoding", "UTF-8");
             Map<String,Object> formats = new HashMap<>();
+            formats.put("citationStyles", "american-chemical-society");
             new ParserException(enableDebugMode);
             File inputFile = new File(inputFilePath);
             File outputFile = new File(outputFilePath);

@@ -52,8 +52,9 @@ public class Body implements Tag {
     public Body(Node node, MetaDataBuilder metaDataBuilder) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
         this.node = node;
-        String idValue="";
         elementFilter();
+
+        this.html += "<div class='body-content'>";
 
         List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
@@ -74,99 +75,9 @@ public class Body implements Tag {
 
         }
 
-//            int count = 1;
-//            int iterator = 1;
-//            for (int index = 0; index < nodeList.size(); index++) {
-//                Node node1 = nodeList.get(index);
-//                List<Node> nestedNode = new ArrayList<>();
-//                nestedNode = Util.iterateThroughNestedTags(node1, nestedNode);
-//                String tableVal="";
-//                String tableLabel="";
-//                String tableId="";
-//
-//                for (int i = 0; i < nestedNode.size(); i++) {
-//
-//                    Node nodeListData = nestedNode.get(i);
-//                    if(nodeListData.getNodeName().equals("table-wrap"))
-//                    {
-//                        NamedNodeMap map=nodeListData.getAttributes();
-//                        Node idNode=  map.getNamedItem("id");
-//                        String xlink="";
-//                        if(idNode!=null) {
-//                            tableId = nodeListData.getAttributes().getNamedItem("id").getNodeValue();
-//                        }
-//                    }
-//                    if(nodeListData.getNodeName().equals("table"))
-//                    {
-//                        List<Node> tableWrap =Util.getChildNode(nodeListData);
-//                        Node value=Util.getCurrentNode(tableWrap,"caption");
-//                        Node label=Util.getCurrentNode(tableWrap,"label");
-//                        tableVal=value.getTextContent();
-//                        tableLabel=label.getTextContent();
-//                        tableContent=Util.convertToString(nodeListData).replaceAll("<xref","<a").replaceAll("/xref>","/a>").replaceAll("rid=\"","href=\"#")
-//                                .replaceAll("ref-type","class").replaceAll("<table-wrap-foot>","<tfoot>").replaceAll("</table-wrap-foot>","</tfoot>")
-//                                .replaceAll("<table","<table id="+tableId);
-//
-//
-//                        bodyHtml+=tableContent;
-//                    }
-//                    if ((nodeListData.getNodeName().equals("fig"))) {
-//                        NamedNodeMap map=nodeListData.getAttributes();
-//                        Node id=  map.getNamedItem("id");
-//
-//                        if(id!=null) {
-//                            idValue = nodeListData.getAttributes().getNamedItem("id").getNodeValue();
-//                        }
-//                    }
-//                    if ((nodeListData.getNodeName().equals("graphic"))) {
-//                        Graphic graphic = new Graphic(nodeListData,idValue);
-//                        bodyHtml += graphic.element();
-//                        count++;
-//                    }
-//                    if (nodeListData.getNodeName().equals("td") || nodeListData.getNodeName().equals("th") || nodeListData.getNodeName().equals("tr"))
-//                        htmlTableContent(nodeListData);
-//                    if (nodeListData.getNodeName().equals("p") || nodeListData.getNodeName().equals("title") || nodeListData.getNodeName().equals("label")) {
-//                        String tableHtml = "";
-//
-//                        if (!thHtml.trim().isEmpty()) {
-//                            tableHtml = Util.generateTableHtmlElement(thHtml, tdHtml, iterator);
-//                            iterator++;
-//                        }
-//
-//
-//                        tdHtml = "";
-//                        thHtml = "";
-//
-//                        if (nodeListData.getNodeName().equals("p")&& nestedNode.get(i-1).getNodeName()!="list-item") {
-//                            List<Node>paraList=Util.getChildNode(nodeListData);
-//                            if (nodeListData.getTextContent().contains(tableVal) && (!tableVal.equals(""))) {
-//                                P paragraph = new P(nodeListData);
-//                                bodyHtml += paragraph.element().replace(tableVal, "");
-//                            } else {
-//                                P paragraph = new P(nodeListData);
-//                                bodyHtml += paragraph.element();
-//                            }
-//                        }
-//
-//                        if (i != nestedNode.size() - 1 && nodeListData.getNodeName() == "label" && nestedNode.get(i + 1).getNodeName().equals("title")) {
-//                            Title title = new Title(nodeListData, nestedNode.get(i + 1));
-//                            bodyHtml += title.element();
-//                            i++;
-//                        } else if (nodeListData.getNodeName().equals("label")) {
-//
-//                            Label label = new Label(nodeListData);
-//                            if (!label.element().replaceAll("[^a-zA-Z]", "").trim().equals("")) {
-//                                //  System.out.println("label check " + label.element());
-//                                bodyHtml += label.element();
-//                            }
-//                        } else if (nodeListData.getNodeName().equals("title")) {
-//                            Title title = new Title(nodeListData);
-//                            bodyHtml += Util.htmlTagBinder("h3",title.element());
-//                        }
-//                    }
-//                }
-//            }
-//            this.html = bodyHtml;
+        this.html += "</div>";
+
+
     }
 
     public List<Node> elementFilter() {

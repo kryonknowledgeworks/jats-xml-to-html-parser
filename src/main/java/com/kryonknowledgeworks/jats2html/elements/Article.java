@@ -49,7 +49,7 @@ public class Article implements Tag {
 
         }
         this.html = String.format("<body>" +
-                "<section><div class='container-fluid container-xl mt-5'>" +
+                "<section><div class='container-fluid container-xl mt-5 kryon-xml-parser'>" +
                 "<div class=\"row\">" +
                 "   <div class=\"col-4\">" +
                 "       <div class=\"navigation me-5\" id=\"navigation\">\n" +
