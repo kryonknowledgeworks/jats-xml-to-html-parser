@@ -54,7 +54,17 @@ public class ContribGroup implements Tag {
                     String element = ClassNameSingleTon.invokeMethod(instanceFromClassName, "element");
                     if(node1.getNodeName().equals("contrib")){
 
-                        String type = node1.getAttributes().getNamedItem("contrib-type").getNodeValue();
+                        String type = Util.beautifyName(node1.getAttributes().getNamedItem("contrib-type").getNodeValue());
+
+                        if(map.containsKey(type)){
+                            String value = map.remove(type);
+                            map.put(type + "s", value);
+                        }
+
+                        if(map.containsKey(type + "s")){
+                            type += "s";
+                        }
+
                         Node correspNode = node1.getAttributes().getNamedItem("corresp");
                         Boolean authorType = Boolean.FALSE;
                         if (correspNode != null && "yes".equals(correspNode.getNodeValue())) {

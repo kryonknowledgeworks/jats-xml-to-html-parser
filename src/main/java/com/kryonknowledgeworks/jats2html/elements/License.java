@@ -29,7 +29,7 @@ public class License implements Tag {
 
         if (node.getAttributes().getNamedItem("license-type") != null){
 
-            this.html += "<div class='mb-3' id='open-access-content' ><h4>"+ ClassNameSingleTon.tagToClassName(node.getAttributes().getNamedItem("license-type").getNodeValue()) +"</h4>" + "<div class= 'access-block'>";
+            this.html += "<div class='mb-3' id='open-access-content' ><h4>"+ Util.beautifyName(node.getAttributes().getNamedItem("license-type").getNodeValue()) +"</h4>" + "<div class= 'access-block'>";
         }
 
 

@@ -35,7 +35,12 @@ public class PubDate {
 
             Element e = (Element) node;
 
-            map.put(e.getAttribute("pub-type"),Util.toConvertNodeIntoDateString(node));
+            if(e.getAttribute("date-type").equals("make-live")){
+
+                map.put("publish",e.getAttribute("iso-8601-date"));
+            } else {
+                map.put(e.getAttribute("pub-type"),Util.toConvertNodeIntoDateString(node));
+            }
 
 //                for (Node node1 : nodeList){
 //                    String textContent = "";

@@ -543,4 +543,22 @@ public static String divGenerator(String id,String data)
         }
 
     }
+
+    public static String beautifyName(String name) {
+        String[] parts = name.split("-");
+        StringBuilder result = new StringBuilder();
+
+        for (String part : parts) {
+            if (!part.isEmpty()) {
+                result.append(Character.toUpperCase(part.charAt(0)));
+                if (part.length() > 1) {
+                    result.append(part.substring(1));
+                }
+                result.append(" ");
+            }
+        }
+
+        return result.toString().trim();
+    }
+
 }

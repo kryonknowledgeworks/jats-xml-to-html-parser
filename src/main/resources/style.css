@@ -1,37 +1,10 @@
-
 body {
     margin: 0;
     padding: 0;
 }
 
-.card{
- background-color: #EAEBEE !important;
-}
-
-p , .reference-content{
-    font-family: "Source Sans 3";
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 30px;
-    letter-spacing: 0.20000000298023224px;
-    text-align: left;
-}
-
-
-.card-body.h4{
-    font-family: "Source Sans 3";
-}
-
-h3,h4{
-    font-family: "Source Serif 4";
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 40px;
-    text-align: left;
-}
-
-a {
-    color: #EE4823;
+.kryon-xml-parser a {
+    color: var(--link-color, #EE4823);
 }
 
 h2 {
@@ -43,33 +16,18 @@ ul{
     padding: 0;
 }
 
- li .selected {
-    color: #EE4823 !important;
+li .selected {
+    color: var(--highlight-color, #EE4823) !important;
 }
-
-.container {
-    display: flex;
-    height: 100vh;
-}
-
 
 /*main-custom-properties-start*/
 
 .reference-content{
-   padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 span.smallcaps {
     font-variant: small-caps;
-}
-
-.reference-content{
-    font-family: "Source Sans 3";
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 30px;
-    letter-spacing: 0.20000000298023224px;
-    text-align: left;
 }
 
 .numbered-list {
@@ -122,7 +80,6 @@ span.smallcaps {
 
 .navigation li a {
     font-size: 18px;
-    font-family: "Source Serif 4";
     display: block;
     padding: 0.5rem 0;
     text-decoration: none;
@@ -130,7 +87,6 @@ span.smallcaps {
 }
 
 .navHeading {
-    font-family: "SourceCodePro", monospace;
     font-weight: 600;
     display: block;
     padding: 0.5rem 0;
@@ -151,7 +107,6 @@ span.smallcaps {
 
 .bottom-nav .nested-list li {
     margin-left: 10px;
-    font-family: "SourceCodePro", monospace;
     position: relative;
     list-style: none;
     padding: 10px 5px 0px 9px;
@@ -173,7 +128,7 @@ span.smallcaps {
 }
 
 .navigation ul li a:hover {
-    color: #EE4823;
+    color: var(--highlight-color, #EE4823);
 }
 
 #mainList li {
@@ -191,7 +146,7 @@ span.smallcaps {
 }
 
 .bottom-nav ul li a:hover {
-    color: #EE4823;
+    color: var(--highlight-color, #EE4823);
 }
 
 .bottom-nav div{
@@ -204,11 +159,13 @@ span.smallcaps {
 }
 
 .authors-block span {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .authors-block div {
-    font: menu;
+    font-size: 14px;
+    color: #716f6f;
+    font-weight: 600;
 }
 
 .keywords-block {
@@ -263,7 +220,7 @@ div.formula span.label {
 }
 
 .statement {
-    font-family: Lora;
+    font-family: var(--statement-font-family, Lora);
 }
 
 .table-wrapper {
@@ -319,7 +276,7 @@ div.formula span.label {
 }
 
 .historyPTag{
-margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .sup-span a{
@@ -328,41 +285,33 @@ margin-bottom: 0px;
 }
 
 #top-contents {
- display: flex;
- flex-direction: column;
- }
+    display: flex;
+    flex-direction: column;
+}
 
 #copyrights-content{
-  order:8;
+    order:8;
 }
 #open-access-content{
-   order:7;
+    order:7;
 }
 #keywords-content{
-   order:4;
+    order:4;
 }
 #doi-content{
-   order:5;
+    order:5;
 }
 #history-content{
-   order:3;
+    order:3;
 }
 #abstract{
-   order:6;
+    order:6;
 }
 #co-author-contents{
-   order:2;
+    order:2;
 }
 #author-contents{
-   order:1;
+    order:1;
 }
 
 /*main-custom-properties-end*/
-
-/*.bg-hr{*/
-/*    height:1.3px;*/
-/*    border-width:0;*/
-/*    color:black;*/
-/*    background-color:black;*/
-/*    opacity:0.50;*/
-/*}*/

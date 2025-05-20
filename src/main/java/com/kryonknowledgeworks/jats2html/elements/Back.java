@@ -36,6 +36,7 @@ public class Back implements Tag {
         try {
             this.node = node;
             elementFilter();
+            this.html += "<div class='back-content'>";
             List<String> tagNames = ClassNameSingleTon.getInstance().tagNames;
 
             for (Node node1 : nodeList) {
@@ -55,6 +56,8 @@ public class Back implements Tag {
                 }
 
             }
+
+            this.html += "</div>";
         } catch (Exception e) {
             HandleException.processException(e);
         }

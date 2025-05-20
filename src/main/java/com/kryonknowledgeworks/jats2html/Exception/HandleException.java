@@ -1,7 +1,7 @@
 package com.kryonknowledgeworks.jats2html.Exception;
 
 public class HandleException  {
-static Boolean errorDissolve;
+static Boolean errorDissolve = false;
 
     public HandleException(Boolean check) {
         this.errorDissolve =check;
