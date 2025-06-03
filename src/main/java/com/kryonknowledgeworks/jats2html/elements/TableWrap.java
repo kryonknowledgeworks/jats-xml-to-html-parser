@@ -35,7 +35,7 @@ public class TableWrap implements Tag {
 
         String id = node.getAttributes().getNamedItem("id") != null? node.getAttributes().getNamedItem("id").getNodeValue() : "";
 
-        this.html += "<div class='bottom-nav-data' data-head='Table' data-name='' order='5' data-id='"+ id +"'>";
+        this.html += "<div class='bottom-nav-data' data-head='Tables' data-name='' order='5' data-id='"+ id +"'>";
 
         this.html += "<div class='table-wrapper'>";
 

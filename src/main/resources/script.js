@@ -55,19 +55,48 @@ document.addEventListener("DOMContentLoaded", function() {
         anchor.href = `#${id}`;
 
         if(head === "Figures"){
-            anchor.textContent = "Fig " + figIndex;
+
+            const img = element.querySelector('img');
+
+            anchor.style.display = 'grid';
+            anchor.style.width = '100px';
+            anchor.style.paddingRight = '10px';
+            anchor.style.marginRight = '20px';
+
+            // Create <img> element
+            const image = document.createElement('img');
+            if (img) {
+                const src = img.getAttribute('src');
+                image.src = src;
+            }
+
+            image.style.height = '79px';
+            image.style.width = '100px';
+
+            const caption = document.createElement('span');
+            caption.textContent = 'Fig ' + figIndex;
+
+            anchor.appendChild(image);
+            anchor.appendChild(caption);
+
+            if (!headMap[head]) {
+                headMap[head] = [];
+            }
+            headMap[head].push(anchor);
             figIndex++;
         }
-        if(head === "Table"){
+        if(head === "Tables"){
             anchor.textContent = "Table " + tableIndex;
             tableIndex++;
+            listItem.appendChild(anchor);
+            if (!headMap[head]) {
+                headMap[head] = [];
+            }
+            headMap[head].push(listItem);
         }
-        listItem.appendChild(anchor);
 
-        if (!headMap[head]) {
-            headMap[head] = [];
-        }
-        headMap[head].push(listItem);
+
+
     });
 
     // Function to sort elements based on their order attribute
@@ -126,6 +155,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const childList = document.createElement('ul');
         childList.classList.add('nested-list', 'hidden');
+        if(head === "Figures"){
+            childList.style.display = 'ruby';
+        }
         const sortedHeadChildren = sortElements(headMap[head]);
         headname.textContent += ` (${sortedHeadChildren.length})`;
         sortedHeadChildren.forEach(child => {
@@ -148,7 +180,6 @@ const parent = document.getElementById('navigation');
 
 // Add click event listener to the parent
 parent.addEventListener('click', (event) => {
-    console.log(event.target.tagName)
     // Check if the clicked element is an <a> tag
     if (event.target && event.target.tagName === 'A') {
         // Remove 'selected' class from all <a> tags
